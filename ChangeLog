@@ -1,3 +1,5 @@
+2.5.1:
+ 
 2004-02-13  Murray Cumming  <murrayc@usa.net>
 
 	* Use the new libsigc++ 2 syntax.
