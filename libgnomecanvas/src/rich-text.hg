@@ -38,7 +38,7 @@ class RichText : public Item
   _CLASS_GTKOBJECT(RichText, GnomeCanvasRichText, GNOME_CANVAS_RICH_TEXT, Item, GnomeCanvasItem)
 public:
   RichText(Group& parent, double x, double y, const Glib::ustring& text);
-  RichText(Group& parent);
+  explicit RichText(Group& parent);
   _CTOR_CAST;
   _DTOR;
 

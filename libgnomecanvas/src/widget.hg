@@ -41,7 +41,7 @@ class Widget : public Item
   _CLASS_GTKOBJECT(Widget, GnomeCanvasWidget, GNOME_CANVAS_WIDGET, Item, GnomeCanvasItem)
 public:
   Widget(Group& parent, double x, double y, Gtk::Widget& w);
-  Widget(Group& parent);
+  explicit Widget(Group& parent);
   _CTOR_CAST;
   _DTOR;
 

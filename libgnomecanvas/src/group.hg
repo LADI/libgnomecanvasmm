@@ -40,7 +40,7 @@ class Group : public Item
   _CLASS_GTKOBJECT(Group, GnomeCanvasGroup, GNOME_CANVAS_GROUP, Item, GnomeCanvasItem);
 public:
   friend class Canvas;
-  Group(Group& parent, double x = 0, double y = 0);
+  explicit Group(Group& parent, double x = 0, double y = 0);
   _CTOR_DEFAULT;
   _CTOR_CAST;
   _DTOR;

@@ -42,7 +42,7 @@ class Rect : public RectEllipse
 
 public:
   Rect(Group& parent, double x1, double y1, double x2, double y2);
-  Rect(Group& parent);
+  explicit Rect(Group& parent);
   _CTOR_CAST;
   _DTOR;
   

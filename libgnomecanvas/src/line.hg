@@ -59,7 +59,7 @@ class Points : public std::vector<Art::Point>
 {
 public:
   Points(size_type nbpoints = 0);
-  Points(GnomeCanvasPoints* castitem);
+  explicit Points(GnomeCanvasPoints* castitem);
   ~Points();
   
   const GnomeCanvasPoints* gobj() const { return _gobj(); }
@@ -75,7 +75,7 @@ class Line : public Item
 {
   _CLASS_GTKOBJECT(Line, GnomeCanvasLine, GNOME_CANVAS_LINE, Item, GnomeCanvasItem)
 public:
-  Line(Group& parent);
+  explicit Line(Group& parent);
   Line(Group& parent, const Points& points);
   _CTOR_CAST;
   _DTOR;

@@ -37,7 +37,7 @@ class Bpath : public Shape
 {
   _CLASS_GTKOBJECT(Bpath, GnomeCanvasBpath, GNOME_CANVAS_BPATH, Shape, GnomeCanvasShape)
 public:
-  Bpath(Group& parent);
+  explicit Bpath(Group& parent);
   _CTOR_CAST;
   _DTOR;
 

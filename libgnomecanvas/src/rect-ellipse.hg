@@ -42,7 +42,7 @@ class RectEllipse : public Shape
 {
   _CLASS_GTKOBJECT(RectEllipse, GnomeCanvasRE, GNOME_CANVAS_RE, Shape, GnomeCanvasShape)
 public:
-  RectEllipse(Group& parent);
+  explicit RectEllipse(Group& parent);
   _CTOR_CAST;
   _DTOR;
 
