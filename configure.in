@@ -128,5 +128,8 @@ AC_OUTPUT([
 
 	docs/Makefile
     docs/reference/Makefile
+
+  examples/Makefile
+  examples/examples.conf
 ])
 
