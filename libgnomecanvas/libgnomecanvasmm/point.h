@@ -23,8 +23,8 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <libgnomeui/gnome-canvas.h>
-#include <gnome--/types.h>
+#include <libgnomecanvas/gnome-canvas.h>
+//#include <libgnomecanvasmm/types.h>
 #include <iostream>
 
 namespace Gnome

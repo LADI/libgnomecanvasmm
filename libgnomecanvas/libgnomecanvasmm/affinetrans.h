@@ -23,7 +23,8 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <gnome--/point.h>
+#include <glibmm/containers.h>
+#include <libgnomecanvasmm/point.h>
 
 namespace Gnome
 {
@@ -36,20 +37,20 @@ class AffineTrans
 {
 public:
 	//: Initialize the affine as unit matrix, with a scaling factor
-  AffineTrans(gdouble scale = 1.0);
+  AffineTrans(double scale = 1.0);
 
   //: aff[6]
-  AffineTrans(gdouble aff[]);
+  AffineTrans(double aff[]);
 
   AffineTrans(const AffineTrans& src);
   AffineTrans& operator=(const AffineTrans& src);
   ~AffineTrans();
    
-  gdouble& operator[](unsigned int idx);
-  const gdouble& operator[](unsigned int idx) const;
+  double& operator[](unsigned int idx);
+  const double& operator[](unsigned int idx) const;
 
-  gdouble* obj();
-  const gdouble* obj() const;
+  double* obj();
+  const double* obj() const;
 
   //: Apply the affine to a given point
   //: e.g. Point dst = affine.apply(Point(x,y));
@@ -67,46 +68,46 @@ public:
   //: Apply other affine to the affine
   AffineTrans const & operator*=(AffineTrans& other);
   
-  gboolean operator==(AffineTrans& other);
-  gboolean operator!=(AffineTrans& other);
+  bool operator==(AffineTrans& other);
+  bool operator!=(AffineTrans& other);
                         
   //: Give the inverse of the affine
   void invert();
   
   //: Flip horizontally and/or vertically the affine
-  void flip(gboolean horiz, gboolean vert);
+  void flip(bool horiz, bool vert);
 
   //: Determine whether the affine is rectilinear (rotates 0, 90, 180 or 270 degrees)
-  gboolean rectilinear() const;
+  bool rectilinear() const;
 
   //: Find the affine's "expansion factor", i.e. the scale amount
-  gdouble  expansion() const;
+  double expansion() const;
 
 	//: Set up the identity matrix
   static AffineTrans identity();
 
 	//: Set up a scaling matrix
-  static AffineTrans scaling(gdouble s);
+  static AffineTrans scaling(double s);
 
 	//: Set up a scaling matrix
-	static AffineTrans scaling(gdouble sx, gdouble sy);
+	static AffineTrans scaling(double sx, double sy);
 
   //: Set up a rotation matrix; theta is given in degrees
-  static AffineTrans rotation(gdouble theta);
+  static AffineTrans rotation(double theta);
 
   //: Set up a shearing matrix; theta given in degrees
-  static AffineTrans shearing(gdouble theta);
+  static AffineTrans shearing(double theta);
 
 	//: Set up a translation matrix
-  static AffineTrans translation(gdouble dx, gdouble dy);
+  static AffineTrans translation(double dx, double dy);
 
   //: Set up a translation matrix
   static AffineTrans translation(const Point& p);
 
-  Gtk::string to_string() const;
+  Glib::ustring to_string() const;
 
 protected:
-  gdouble trans_[6];
+  double trans_[6];
 };
 
 } //namespace Art

@@ -1,4 +1,4 @@
-__PUSHDIV__
+_PUSH()
 divert(-1)
 dnl
 dnl  Macros for creating Canvas Item properties
@@ -9,7 +9,7 @@ void set_$1`'($3);
 ifelse($5,,,`dnl
   $5 get_$1`'() const;
 ')dnl
-__PUSHDIV__
+_PUSH()
 GTKMM_SECTION(METHOD)
 void __NAMESPACE__::__CPPNAME__::set_$1`'($3 o)
   { 
@@ -26,7 +26,7 @@ $5 __NAMESPACE__::__CPPNAME__::get_$1`'() const
 }
 
 ')dnl
-__POPDIV__
+_POP()
 ')
 
 GTKMM_CONVERSION(void*,Gdk_Pixmap,`Gdk_Pixmap((GdkPixmap*)$3)')
@@ -47,4 +47,4 @@ GTKMM_CONVERSION(GnomeCanvasPoints*,const CanvasPoints&,,`$3.gtkobj()')
 GTKMM_CONVERSION(GdkColor*,const Gdk_Color&,,`$3.gdkobj()')
 GTKMM_CONVERSION(GdkWindow*,`const Gdk_Pixmap&',,`($1)($3.gdkobj())')
 
-__POPDIV__
+_POP()

@@ -24,76 +24,31 @@
  */
 
 #include <libgnomecanvasmm/canvas-item.h>
-#m4 include(property.m4)
+_DEFS(libgnomecanvas,gnomecanvasgroup)
+_PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
+
+#m4 include(canvas_property.m4)
 
 namespace Gnome
-{;
+{
+
 class Canvas;
 
 class CanvasGroup : public CanvasItem
 {
   _CLASS_GTKOBJECT(CanvasGroup, GnomeCanvasGroup,
-             GNOME_CANVAS_GROUP, GNOME_IS_CANVAS_GROUP,
-             canvas_group,
-             CanvasItem, GnomeCanvasItem, GNOME_CANVAS_ITEM);
+             GNOME_CANVAS_GROUP,
+             CanvasItem, GnomeCanvasItem);
 public:
+  friend class Canvas;
+  CanvasGroup(CanvasGroup& parent, double x = 0, double y = 0);
   _CTOR_DEFAULT;
   _CTOR_CAST;
   _DTOR;
-  
-  friend class Canvas;
-  CanvasGroup(const CanvasGroup &parent,
-		    double x=0, double y=0);
-
-
-  void child_bounds(CanvasItem *item);
 
   CANVAS_PROPERTY(x,x,double,double,double,double,double_data)   
   CANVAS_PROPERTY(y,y,double,double,double,double,double_data)   
 
 };
-
-PRIVATE_START;
-#include <libgnomecanvasmm/private/canvas-item_p.h>
-IMPL_START;
-#include <libgnomecanvasmm/private/canvas-group_p.h>
-
-/* canvas-group.c
- *
- * Copyright (C) 1998 EMC Capital Management Inc.
- * Developed by Havoc Pennington <hp@pobox.com>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Library General Public
- * License along with this library; if not, write to the Free
- * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
-namespace Gnome
-{
-
-void 
-CanvasGroup::child_bounds(CanvasItem *item)
-{
-  gnome_canvas_group_child_bounds(gobj(),item->gobj());
-}
-
-CanvasGroup::CanvasGroup(const CanvasGroup &parentx,
-				     double x, double y)
-   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
-{
-  initialize_class();
-  item_construct(parentx);
-  set("x",x,"y",y,0);
-}
 
 } /* namespace Gnome */

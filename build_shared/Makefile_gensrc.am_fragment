@@ -55,5 +55,5 @@ distclean-local:
 	rm -rf $(stamp_dir)
 
 debug_gtkmmproc:
-	@echo $(tools_m4) $(files_defs)
+	@echo $(run_gtkmmproc) somewidget $(srcdir) $(gensrc_destdir)
 

@@ -1,118 +1,5 @@
 /* $Id$ */
 
-/* canvas-line.h
- * 
- * Copyright (C) 1998 EMC Capital Management Inc.
- * Developed by Havoc Pennington <hp@pobox.com>
- *
- * Copyright (C) 1999 The Gtk-- Development Team
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Library General Public
- * License along with this library; if not, write to the Free
- * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
-#include <libgnomecanvasmm/canvas-item.h>
-#include <libgnomecanvasmm/canvas-property.h>
-#include <libgnomecanvas/gnome-canvas-line.h>
-#include <libgnomecanvas/gnome-canvas-util.h>
-#include <vector>
-
-#m4 include(property.m4)
-#m4 GTKMM_CONVERSION(void*,Gdk_Pixmap,`Gdk_Pixmap((GdkPixmap*)$3)')
-#m4 GTKMM_CONVERSION(void*,Gdk_Color,`Gdk_Color(*(GdkColor*)$3)')
-#m4 GTKMM_CONVERSION(int,GdkCapStyle,`$2($3)')
-#m4 GTKMM_CONVERSION(int,GdkJoinStyle,`$2($3)')
-#m4 GTKMM_CONVERSION(int,GdkLineStyle,`$2($3)')
-#m4 GTKMM_CONVERSION(char*,const Glib::ustring&,,`$3.c_str()')
-#m4 GTKMM_EQUAL(double,double)
-
-
-CLASS_START(Gnome);
-
-class GnomeGroup;
-
-// Sample use of Gnome_CanvasPoints :
-
-//   Gnome_CanvasPoints points;
-//  
-//   points.push_back(Art::Point(0, 0));
-//   points.push_back(Art::Point(100,0));
-//   points.push_back(Art::Point(0,100));
-//   points.push_back(Art::Point(100,100));
-//
-//   line = new Gnome_CanvasLine(&m_canvasgroup,points);
-
-using std::vector;
-
-class CanvasPoints : public vector<Art::Point>
-{
- public:
-  CanvasPoints(size_type nbpoints = 0);
-  CanvasPoints(GnomeCanvasPoints *castitem);
-  ~CanvasPoints();
-  
-  const GnomeCanvasPoints* gobj() const { return _gobj(); }
-  GnomeCanvasPoints* gobj() { return _gobj(); }
-
- protected:
-  GnomeCanvasPoints* _gobj() const;
-  mutable GnomeCanvasPoints *points_;
-  mutable bool owned_;
-};
-
-class CanvasLine : public CanvasItem
-{
-  WRAP_CLASS(CanvasLine, GnomeCanvasLine,
-             GNOME_CANVAS_LINE, GNOME_IS_CANVAS_LINE,
-             canvas_line,
-             CanvasItem, GnomeCanvasItem, GNOME_CANVAS_ITEM);
-public:
-  CanvasLine(const CanvasGroup &parent);
-  CanvasLine(const CanvasGroup &parent,const CanvasPoints&);
-  WRAP_CTOR_CAST;
-  WRAP_DTOR;
-
-  CANVAS_PROPERTY(points,points,const CanvasPoints&,GnomeCanvasPoints*)
-
-  CANVAS_PROPERTY(fill_color,fill_color,const Glib::ustring&,char*)
-  CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk_Color&,GdkColor*,Gdk_Color,void*,pointer_data)
-  //FIXME: fill_color_rgba?
-  CANVAS_PROPERTY(fill_stipple,fill_stipple,const Gdk_Pixmap&,GdkWindow*,Gdk_Pixmap,void*,pointer_data)
-
-  CANVAS_PROPERTY(width_pixels,width_pixels,guint,guint)
-  CANVAS_PROPERTY(width_units,width_units,double,double)
-
-  CANVAS_PROPERTY(cap_style,cap_style,GdkCapStyle,GdkCapStyle,GdkCapStyle,int,int_data)
-  CANVAS_PROPERTY(join_style,join_style,GdkJoinStyle,GdkJoinStyle,GdkJoinStyle,int,int_data)
-  CANVAS_PROPERTY(line_style,line_style,GdkLineStyle,GdkLineStyle,GdkLineStyle,int,int_data)
-
-  CANVAS_PROPERTY(first_arrowhead,first_arrowhead,bool,gboolean,bool,int,int_data)
-  CANVAS_PROPERTY(last_arrowhead,last_arrowhead,bool,gboolean,bool,int,int_data)
-
-  CANVAS_PROPERTY(smooth,smooth,bool,gboolean,bool,int,int_data)
-  CANVAS_PROPERTY(spline_step,spline_step,guint,guint,guint,guint,uint_data)
-
-  CANVAS_PROPERTY(arrow_shape_a,arrow_shape_a,double,double,double,double,double_data)
-  CANVAS_PROPERTY(arrow_shape_b,arrow_shape_b,double,double,double,double,double_data)
-  CANVAS_PROPERTY(arrow_shape_c,arrow_shape_c,double,double,double,double,double_data)
-};
-
-PRIVATE_START;
-#include <libgnomecanvasmm/private/canvas-item_p.h>
-IMPL_START;
-#include <libgnomecanvasmm/private/canvas-line_p.h>
-
 /* canvas-line.c
  *
  * Copyright (C) 1998 EMC Capital Management Inc.
@@ -133,9 +20,10 @@ IMPL_START;
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <libgnomecanvasmm/canvas-group.h>
+//#include <libgnomecanvasmm/canvas-group.h>
 
-namespace Gnome {
+namespace Gnome
+{
 
 CanvasPoints::CanvasPoints(size_type nbpoints)
   : vector<Art::Point>(nbpoints),
