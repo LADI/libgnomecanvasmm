@@ -43,7 +43,7 @@
 
 (define-vfunc coverage
   (of-object "GnomeCanvasItem")
-  (return-type "ArtUta *")
+  (return-type "ArtUta*")
   (parameters
    '("GnomeCanvasItem*" "item")
   )

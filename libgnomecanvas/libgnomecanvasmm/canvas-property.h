@@ -137,11 +137,11 @@ template<>
 class Property<Pango::FontDescription> : public PropertyBase
 {
 public:
-  Property(const char* name,const Pango::FontDescription& value)
+  Property(const char* name, const Pango::FontDescription& value)
     : PropertyBase(name), value_(value)
   {}
 
-  Property(const char* name,const Glib::ustring& font)
+  Property(const char* name, const Glib::ustring& font)
     : PropertyBase(name), value_(0), strfont_(font)
   {}
 

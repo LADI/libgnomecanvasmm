@@ -21,6 +21,7 @@
  */
 
 #include <libgnomecanvasmm/canvas-property.h>
+
 namespace Gnome
 {
 

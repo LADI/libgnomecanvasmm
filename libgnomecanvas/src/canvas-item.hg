@@ -31,7 +31,7 @@
 #include <libgnomecanvasmm/affinetrans.h>
 #include <libgnomecanvasmm/canvas-property.h>
 
-_DEFS(libgnomecanvas,gnomecanvasitem)
+_DEFS(libgnomecanvas)
 _PINCLUDE(gtkmm/private/object_p.h)
 
 namespace Gnome

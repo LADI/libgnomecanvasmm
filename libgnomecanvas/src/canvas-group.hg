@@ -24,10 +24,8 @@
  */
 
 #include <libgnomecanvasmm/canvas-item.h>
-_DEFS(libgnomecanvas,gnomecanvasgroup)
+_DEFS(libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
-
-#m4 include(canvas_property.m4)
 
 namespace Gnome
 {

@@ -26,7 +26,7 @@
 #include <libgnomecanvasmm/canvas-item.h>
 #include <libgnomecanvasmm/canvas-group.h>
 #include <libgnomecanvasmm/canvas-rect-ellipse.h>
-_DEFS(libgnomecanvas,gnomecanvasellipse)
+_DEFS(libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/canvas-rect-ellipse_p.h)
 
 namespace Gnome

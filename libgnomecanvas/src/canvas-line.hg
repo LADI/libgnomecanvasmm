@@ -27,10 +27,8 @@
 #include <libgnomecanvas/gnome-canvas-line.h>
 #include <libgnomecanvas/gnome-canvas-util.h>
 #include <vector>
-_DEFS(libgnomecanvas,gnomecanvasline)
+_DEFS(libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
-
-#m4 include(canvas_property.m4)
 
 namespace Gnome
 {
