@@ -75,6 +75,7 @@ Primitives::Primitives(bool aa)
   frame->add(*canvas);
   canvas->set_size_request(600, 450);
   canvas->set_scroll_region(0, 0, 600, 450);
+  canvas->set_center_scroll_region(false);
   canvas->signal_key_press_event()
       .connect(bind(slot(*this, &Primitives::on_key_press), canvas));
   
