@@ -17,7 +17,7 @@ Class				Methods		Signals		Properties	VFuncs		Interfaces
 Canvas								done
 Ellipse								done
 Group								done				
-Item								done
+Item						done		done		done
 Polygon								done
 Rect								done
 RectEllipse							done
