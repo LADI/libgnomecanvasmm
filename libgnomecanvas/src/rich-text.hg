@@ -60,7 +60,7 @@ public:
   _WRAP_METHOD(void get_iter_at_location (Gtk::TextIter& iter, int x, int y), 
                gnome_canvas_rich_text_get_iter_at_location)
 
-  _WRAP_SIGNAL(void tag_changed(GtkTextTag*), "tag_changed")
+  _WRAP_SIGNAL(void tag_changed(const Glib::RefPtr<Gtk::TextTag>& tag), "tag_changed")
 
   _WRAP_PROPERTY("text", Glib::ustring)
   _WRAP_PROPERTY("x", double)

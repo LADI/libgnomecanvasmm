@@ -142,7 +142,7 @@ public:
 
   //: Draw the background for the area given.
   //- This method is only used for non-antialiased canvases.
-  _WRAP_SIGNAL(void draw_background(GdkDrawable* drawable, int x, int y, int width, int height), "draw_background")
+  _WRAP_SIGNAL(void draw_background(const Glib::RefPtr<Gdk::Drawable>& drawable, int x, int y, int width, int height), "draw_background")
   // Render the background for the buffer given. 
   //- The buf data structure contains both a pointer to a packed 24-bit
   //- RGB array, and the coordinates.

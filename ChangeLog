@@ -1,3 +1,7 @@
+2002-03-10  Murray Cumming  <murrayc@usa.net>
+
+	* Changed signal args to C++ types.
+
 2002-02-24  Murray Cumming  <murrayc@usa.net>
 
 	* Renamed canvas-*.[h.cc] to *.[h.cc]. They were previously prefixed

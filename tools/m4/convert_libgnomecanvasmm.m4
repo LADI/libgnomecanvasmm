@@ -9,6 +9,8 @@ _CONVERSION(`const Gtk::TextIter&',`const GtkTextIter*',__FR2P)
 _CONVERSION(`GtkTextBuffer*',`Glib::RefPtr<Gtk::TextBuffer>',`Glib::wrap($3)')
 _CONVERSION(`const Glib::RefPtr<Gtk::TextBuffer>&',`GtkTextBuffer*',__CONVERT_REFPTR_TO_P)
 
-# GTKMM_CONVERSION(void*,Gdk_Pixmap,`Gdk_Pixmap((GdkPixmap*)$3)')
-# GTKMM_CONVERSION(void*,Gdk_Color,`Gdk_Color(*(GdkColor*)$3)')
-# GTKMM_CONVERSION(char*,const Glib::ustring&,,`$3.c_str()')
+# Used by Signals:
+_CONVERSION(`GdkDrawable*',`const Glib::RefPtr<Gdk::Drawable>&',`Glib::wrap($3, true)')
+_CONVERSION(`const Glib::RefPtr<Gdk::Drawable>&',`GdkDrawable*',`Glib::unwrap($3)')
+_CONVERSION(`GtkTextTag*',`const Glib::RefPtr<Gtk::TextTag>&',`Glib::wrap($3, true)')
+_CONVERSION(`const Glib::RefPtr<Gtk::TextTag>&',`GtkTextTag*',`Glib::unwrap($3)')
