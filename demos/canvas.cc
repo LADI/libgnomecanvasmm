@@ -27,48 +27,51 @@
 #include "fifteen.h"
 #include "arrowhead.h"
 #include "richtext.h"
+#include "curve.h"
 
-class MainWin  : public Gtk::Window
+class MainWin : public Gtk::Window
 {
 public:
-    MainWin ();
+  MainWin();
 
 protected:
 };
 
-MainWin::MainWin ()
-: Gtk::Window (GTK_WINDOW_TOPLEVEL)
+MainWin::MainWin()
+: Gtk::Window(GTK_WINDOW_TOPLEVEL)
 {
-    using namespace Gtk::Notebook_Helpers;
-
-    Gtk::Notebook* notebook = manage (new Gtk::Notebook ());
-    add (*notebook);
-
-    Primitives* primitives = manage (new Primitives (false));
-    notebook->pages ().push_back (TabElem (*primitives, "Primitives"));    
-    Primitives* antialias = manage (new Primitives (true));
-    notebook->pages ().push_back (TabElem (*antialias, "Antialias"));    
-    Arrowhead* arrowhead = manage (new Arrowhead ());
-    notebook->pages ().push_back (TabElem (*arrowhead, "Arrowhead"));    
-    Fifteen* fifteen = manage (new Fifteen ());
-    notebook->pages ().push_back (TabElem (*fifteen, "Fifteen"));    
-    Features* features = manage (new Features ());
-    notebook->pages ().push_back (TabElem (*features, "Features"));    
-    Richtext* richtext = manage (new Richtext ());
-    notebook->pages ().push_back (TabElem (*richtext, "Rich Text"));    
-
-    show_all ();
+  using namespace Gtk::Notebook_Helpers;
+  
+  Gtk::Notebook* notebook = manage(new Gtk::Notebook());
+  add(*notebook);
+  
+  Primitives* primitives = manage(new Primitives(false));
+  notebook->pages().push_back(TabElem(*primitives, "Primitives"));    
+  Primitives* antialias = manage(new Primitives(true));
+  notebook->pages().push_back(TabElem(*antialias, "Antialias"));    
+  Arrowhead* arrowhead = manage(new Arrowhead());
+  notebook->pages().push_back(TabElem(*arrowhead, "Arrowhead"));    
+  Fifteen* fifteen = manage(new Fifteen());
+  notebook->pages().push_back(TabElem(*fifteen, "Fifteen"));    
+  Features* features = manage(new Features());
+  notebook->pages().push_back(TabElem(*features, "Features"));    
+  Richtext* richtext = manage(new Richtext());
+  notebook->pages().push_back(TabElem(*richtext, "Rich Text"));    
+  Curve* curve = manage(new Curve());
+  notebook->pages().push_back(TabElem(*curve, "Bezier Curve"));    
+  
+  show_all();
 }
 
 
 int 
-main (int argc, char* argv[])
+main(int argc, char* argv[])
 {
-    Gnome::Canvas::init ();
-    Gtk::Main app (argc, argv);
-
-    MainWin mainwin;
-    app.run (mainwin);
-
-    return 0;
+  Gnome::Canvas::init();
+  Gtk::Main app(argc, argv);
+  
+  MainWin mainwin;
+  app.run(mainwin);
+  
+  return 0;
 }

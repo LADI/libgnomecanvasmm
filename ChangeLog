@@ -1,3 +1,18 @@
+2002-03-16  Murary Cumming  <murrayc@usa.net>
+
+	* Gnome::Art::AffineTrans and Gnome::Art::Point obj() methods
+	renamed to gobj(), to conform to match everything else.
+
+2002-03-15  Andreas Holzmann <Andreas.Holzmann@epost.de>
+
+	* libgnomecanvas/src/canvas.[hg|ccg] 
+	(set_center_scroll_region,
+	 get_center_scroll_region): New functions wrapped.
+	* libgnomecanvas/src/bpath.[hg|ccg]: New wrapper for GnomeCanvasBpath.
+	* libgnomecanvas/src/path-def.[hg|ccg]: New wrapper for 
+	GnomeCanvasPathDef.
+	* demos/*: Missing curve demos added. More conform to coding standards.
+	
 2002-03-10  Murray Cumming  <murrayc@usa.net>
 
 	* Changed signal args to C++ types.

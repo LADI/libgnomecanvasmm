@@ -206,29 +206,6 @@
   )
 )
 
-(define-method scale
-  (of-object "GnomeCanvasItem")
-  (c-name "gnome_canvas_item_scale")
-  (return-type "none")
-  (parameters
-    '("double" "x")
-    '("double" "y")
-    '("double" "scale_x")
-    '("double" "scale_y")
-  )
-)
-
-(define-method rotate
-  (of-object "GnomeCanvasItem")
-  (c-name "gnome_canvas_item_rotate")
-  (return-type "none")
-  (parameters
-    '("double" "x")
-    '("double" "y")
-    '("double" "angle")
-  )
-)
-
 (define-method raise
   (of-object "GnomeCanvasItem")
   (c-name "gnome_canvas_item_raise")
@@ -410,6 +387,21 @@
     '("double*" "x2")
     '("double*" "y2")
   )
+)
+
+(define-method set_center_scroll_region
+  (of-object "GnomeCanvas")
+  (c-name "gnome_canvas_set_center_scroll_region")
+  (return-type "none")
+  (parameters
+    '("gboolean" "center")
+  )
+)
+
+(define-method get_center_scroll_region
+  (of-object "GnomeCanvas")
+  (c-name "gnome_canvas_get_center_scroll_region")
+  (return-type "gboolean")
 )
 
 (define-method set_pixels_per_unit

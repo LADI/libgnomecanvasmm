@@ -55,8 +55,8 @@ public:
   Point const & operator+=(const Point& other);
   Point const & operator-=(const Point& other);
 
-  ArtPoint* obj();
-  const ArtPoint* obj() const;
+  ArtPoint* gobj();
+  const ArtPoint* gobj() const;
 
   protected:
     //GnomeCanvasPoints uses arrays of double, 2 at a time, which is the same as a set of ArtPoints

@@ -1,4 +1,4 @@
-/* arrowhead.hh
+/* arrowhead.h
  *
  * Copyright (C) 2002 The libgnomecanvasmm Development Team
  *
@@ -17,8 +17,8 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef __ARROWHEAD_HH
-#define __ARROWHEAD_HH
+#ifndef __ARROWHEAD_H
+#define __ARROWHEAD_H
 
 
 
@@ -34,72 +34,74 @@
 class DragBox : public Gnome::Canvas::Rect
 {
 public:
-    DragBox (Gnome::Canvas::Group& root);
+  DragBox(Gnome::Canvas::Group& root);
+  ~DragBox();
 
-    void moveDragBox (double x, double y);
+  void move_drag_box(double x, double y);
 
 protected:
-    bool on_event (GdkEvent* event);
+  bool on_event(GdkEvent* event);
 };
 
 
 class Dimension
 {
 public:
-    Dimension (Gnome::Canvas::Group& root, GtkAnchorType anchor);
+  Dimension(Gnome::Canvas::Group& root, GtkAnchorType anchor);
+  ~Dimension();
 
-    void setDimension (double x1, double y1, 
-                       double x2, double y2, 
-                       double tx, double ty, 
-                       int dim);
+  void set_dimension(double x1, double y1, 
+                     double x2, double y2, 
+                     double tx, double ty, 
+                     int dim);
 
-    Gnome::Canvas::Line* m_line;
-    Gnome::Canvas::Text* m_text;
+protected:
+  Gnome::Canvas::Line* m_line;
+  Gnome::Canvas::Text* m_text;
 };
 
-class Arrowhead
-    : public Gtk::VBox
+class Arrowhead : public Gtk::VBox
 {
 public:
-    Arrowhead ();
-    virtual ~Arrowhead ();
+  Arrowhead();
+  virtual ~Arrowhead();
     
 protected:
-    bool widthEvent (GdkEvent* event,
-                     Gnome::Canvas::Item* item);
-    bool shapeAEvent (GdkEvent* event,
+  bool on_width_event(GdkEvent* event,
                       Gnome::Canvas::Item* item);
-    bool shapeBCEvent (GdkEvent* event,
-                       Gnome::Canvas::Item* item);
-
-    Gnome::Canvas::Text* createInfo (Gnome::Canvas::Group& root,
-                                     double x, double y);
-    Gnome::Canvas::Line* createSampleArrow (Gnome::Canvas::Group& root, 
-                                            double x1, double y1,
-                                            double x2, double y2);
-    void setArrowShape ();
-
-    int m_width;
-    int m_shape_a;
-    int m_shape_b;
-    int m_shape_c;
-    Gnome::Canvas::Line* m_big_arrow;
-    Gnome::Canvas::Line* m_outline;
-    DragBox* m_width_drag_box;
-    DragBox* m_shape_a_drag_box;
-    DragBox* m_shape_b_c_drag_box;
-    Dimension* m_width_arrow;
-    Dimension* m_shape_a_arrow;
-    Dimension* m_shape_b_arrow;
-    Dimension* m_shape_c_arrow;
-    Gnome::Canvas::Text* m_width_info;
-    Gnome::Canvas::Text* m_shape_a_info;
-    Gnome::Canvas::Text* m_shape_b_info;
-    Gnome::Canvas::Text* m_shape_c_info;
-    Gnome::Canvas::Line* m_sample1;
-    Gnome::Canvas::Line* m_sample2;
-    Gnome::Canvas::Line* m_sample3;
+  bool on_shape_a_event(GdkEvent* event,
+                        Gnome::Canvas::Item* item);
+  bool on_shape_b_c_event(GdkEvent* event,
+                          Gnome::Canvas::Item* item);
+  
+  Gnome::Canvas::Text* create_info(Gnome::Canvas::Group& root,
+                                   double x, double y);
+  Gnome::Canvas::Line* create_sample_arrow(Gnome::Canvas::Group& root, 
+                                           double x1, double y1,
+                                           double x2, double y2);
+  void set_arrow_shape();
+  
+  int m_width;
+  int m_shape_a;
+  int m_shape_b;
+  int m_shape_c;
+  Gnome::Canvas::Line* m_big_arrow;
+  Gnome::Canvas::Line* m_outline;
+  DragBox* m_width_drag_box;
+  DragBox* m_shape_a_drag_box;
+  DragBox* m_shape_b_c_drag_box;
+  Dimension* m_width_arrow;
+  Dimension* m_shape_a_arrow;
+  Dimension* m_shape_b_arrow;
+  Dimension* m_shape_c_arrow;
+  Gnome::Canvas::Text* m_width_info;
+  Gnome::Canvas::Text* m_shape_a_info;
+  Gnome::Canvas::Text* m_shape_b_info;
+  Gnome::Canvas::Text* m_shape_c_info;
+  Gnome::Canvas::Line* m_sample1;
+  Gnome::Canvas::Line* m_sample2;
+  Gnome::Canvas::Line* m_sample3;
 };
 
 
-#endif //__ARROWHEAD_HH
+#endif //__ARROWHEAD_H

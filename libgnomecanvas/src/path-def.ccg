@@ -1,4 +1,4 @@
-/* features.h
+/* path-def.cc
  *
  * Copyright (C) 2002 The libgnomecanvasmm Development Team
  *
@@ -17,32 +17,32 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef __FEATURES_H
-#define __FEATURES_H
 
-//This file would be called features.h, but there is a system header of the same name.
-
-#include <gtkmm/box.h>
-#include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/ellipse.h>
-#include <libgnomecanvasmm/rect.h>
-#include <libgnomecanvasmm/group.h>
-#include <gtkmm/label.h>
-#include <gtkmm/frame.h>
-#include <gtkmm/alignment.h>
-
-class Features : public Gtk::VBox
+namespace Gnome
 {
-public:
-  Features();
-  ~Features();
-    
-protected:
-  bool on_item_event(GdkEvent* event, Gnome::Canvas::Item* item);
 
-  Gnome::Canvas::Group* m_parent1;
-  Gnome::Canvas::Group* m_parent2;
-};
+namespace Canvas
+{
+
+PathDef::PathDef(int length)
+{
+  gobject_ = gnome_canvas_path_def_new_sized(length);
+}
+
+PathDef::PathDef(ArtBpath& bpath)
+{
+  gobject_ = gnome_canvas_path_def_new_from_bpath(&bpath);
+}
+
+Gnome::Art::Point PathDef::currentpoint() const
+{
+  Gnome::Art::Point point;
+  gnome_canvas_path_def_currentpoint(gobj(), point.gobj());
+  return point;
+}
 
 
-#endif //__FEATURES_H
+
+} /* namespace Canvas */
+
+} /* namespace Gnome */

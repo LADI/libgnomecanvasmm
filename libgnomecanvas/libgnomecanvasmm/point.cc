@@ -95,14 +95,14 @@ Point const & Point::operator-=(const Point& other)
   return *this;
 }
 
-ArtPoint* Point::obj()
+ArtPoint* Point::gobj()
 {
   return &m_ArtPoint;
 }
 
-const ArtPoint* Point::obj() const
+const ArtPoint* Point::gobj() const
 {
-  return obj();
+  return gobj();
 }
 
 

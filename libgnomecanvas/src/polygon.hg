@@ -36,7 +36,7 @@ class Polygon : public Shape
 {
   _CLASS_GTKOBJECT(Polygon, GnomeCanvasPolygon, GNOME_CANVAS_POLYGON, Shape, GnomeCanvasShape)
 public:
-  Polygon(Group& parent,const Points& points);
+  Polygon(Group& parent, const Points& points);
   Polygon(Group& parent);
   _CTOR_CAST;
   _DTOR;

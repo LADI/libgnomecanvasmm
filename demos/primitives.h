@@ -1,4 +1,4 @@
-/* primitives.hh
+/* primitives.h
  *
  * Copyright (C) 2002 The libgnomecanvasmm Development Team
  *
@@ -21,14 +21,6 @@
 #define __PRIMITIVES_HH
 
 #include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/group.h>
-#include <libgnomecanvasmm/rect.h>
-#include <libgnomecanvasmm/ellipse.h>
-#include <libgnomecanvasmm/line.h>
-#include <libgnomecanvasmm/text.h>
-#include <libgnomecanvasmm/polygon.h>
-#include <libgnomecanvasmm/widget.h>
-#include <libgnomecanvasmm/pixbuf.h>
 #include <gtkmm/label.h>
 #include <gtkmm/spinbutton.h>
 #include <gtkmm/adjustment.h>
@@ -38,39 +30,37 @@
 #include <gtkmm/table.h>
 #include <gtkmm/box.h>
 
-namespace Gtk
-{
-    class Adjustment;
-}
 
 class Primitives : public Gtk::VBox
 {
 public:
-    Primitives (bool aa);
-
+  Primitives(bool aa);
+  ~Primitives();
+  
 protected:
-    void zoomChanged (Gnome::Canvas::Canvas* canvas,
-                      Gtk::Adjustment* adj);
-    bool keyPress (GdkEventKey *event, Gnome::Canvas::Canvas* canvas);
-    bool itemEvent (GdkEvent* event, Gnome::Canvas::Item* item);
-
-    void setupHeading (Gnome::Canvas::Group& root,
-                       const Glib::ustring& text,
-                       int pos);
-    void setupDivisions (Gnome::Canvas::Group& root);
-    void setupRectangles (Gnome::Canvas::Group& root);
-    void setupEllipses (Gnome::Canvas::Group& root);
-    void plantFlower (Gnome::Canvas::Group& root,
-                      double x, double y);
-    void setupImages (Gnome::Canvas::Group& root);
-    Gnome::Canvas::Group* makeAnchor (Gnome::Canvas::Group& root, 
-                                      double x, double y);
-    void setupTexts (Gnome::Canvas::Group& root);
-    void polishDiamond (Gnome::Canvas::Group& root);
-    void makeHilbert (Gnome::Canvas::Group& root);
-    void setupLines (Gnome::Canvas::Group& root);
-    void setupPolygons (Gnome::Canvas::Group& root);
-    void setupWidgets (Gnome::Canvas::Group& root);
+  void on_zoom_changed(Gnome::Canvas::Canvas* canvas,
+                    Gtk::Adjustment* adj);
+  bool on_key_press(GdkEventKey *event, Gnome::Canvas::Canvas* canvas);
+  bool on_item_event(GdkEvent* event, Gnome::Canvas::Item* item);
+  
+  void setup_heading(Gnome::Canvas::Group& root,
+                     const Glib::ustring& text,
+                     int pos);
+  void setup_divisions(Gnome::Canvas::Group& root);
+  void setup_rectangles(Gnome::Canvas::Group& root);
+  void setup_ellipses(Gnome::Canvas::Group& root);
+  void plant_flower(Gnome::Canvas::Group& root,
+                    double x, double y);
+  void setup_images(Gnome::Canvas::Group& root);
+  Gnome::Canvas::Group* make_anchor(Gnome::Canvas::Group& root, 
+                                    double x, double y);
+  void setup_texts(Gnome::Canvas::Group& root);
+  void polish_diamond(Gnome::Canvas::Group& root);
+  void make_hilbert(Gnome::Canvas::Group& root);
+  void setup_lines(Gnome::Canvas::Group& root);
+  void setup_polygons(Gnome::Canvas::Group& root);
+  void setup_curves(Gnome::Canvas::Group& root);
+  void setup_widgets(Gnome::Canvas::Group& root);
 };
 
 

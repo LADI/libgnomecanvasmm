@@ -1,4 +1,4 @@
-/* features.h
+/* curve.h
  *
  * Copyright (C) 2002 The libgnomecanvasmm Development Team
  *
@@ -17,32 +17,41 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef __FEATURES_H
-#define __FEATURES_H
-
-//This file would be called features.h, but there is a system header of the same name.
+#ifndef __CURVE_H
+#define __CURVESH
 
 #include <gtkmm/box.h>
+#include <libgnomecanvasmm/line.h>
+#include <libgnomecanvasmm/bpath.h>
 #include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/ellipse.h>
-#include <libgnomecanvasmm/rect.h>
-#include <libgnomecanvasmm/group.h>
-#include <gtkmm/label.h>
-#include <gtkmm/frame.h>
-#include <gtkmm/alignment.h>
 
-class Features : public Gtk::VBox
+namespace Gtk {
+    class Widget;
+}
+
+
+class Curve: public Gtk::VBox
 {
 public:
-  Features();
-  ~Features();
-    
-protected:
-  bool on_item_event(GdkEvent* event, Gnome::Canvas::Item* item);
+  enum State {
+      STATE_INIT = 0,
+      STATE_FIRST_PRESS,
+      STATE_FIRST_RELEASE,
+      STATE_SECOND_PRESS,
+  };
 
-  Gnome::Canvas::Group* m_parent1;
-  Gnome::Canvas::Group* m_parent2;
+  Curve();
+  ~Curve();
+
+protected:
+  Gtk::Widget* create_canvas(bool aa);
+  bool on_canvas_event(GdkEvent* event, Gnome::Canvas::Canvas* canvas);
+  bool on_item_event(GdkEvent* event, Gnome::Canvas::Bpath* bpath);
+  void draw_curve(Gnome::Canvas::Canvas& canvas, double x, double y);
+
+  State m_current_state;
+  Gnome::Canvas::Points m_points;
+  Gnome::Canvas::Bpath* m_current_item;
 };
 
-
-#endif //__FEATURES_H
+#endif //__CURVE_H

@@ -1,4 +1,4 @@
-/* fifteen.hh
+/* fifteen.h
  *
  * Copyright (C) 2002 The libgnomecanvasmm Development Team
  *
@@ -17,8 +17,8 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef __FIFTEEN_HH
-#define __FIFTEEN_HH
+#ifndef __FIFTEEN_H
+#define __FIFTEEN_H
 
 #include <libgnomecanvasmm/canvas.h>
 #include <libgnomecanvasmm/rect.h>
@@ -33,29 +33,30 @@
 
 namespace Gnome
 {
-    namespace Canvas
+  namespace Canvas
     {
-        class Canvas;
-        class Group;
-        class Text;
+      class Canvas;
+      class Group;
+      class Text;
     }
 }
 
 class Fifteen : public Gtk::VBox
 {
 public:
-    Fifteen ();
+  Fifteen();
+  ~Fifteen();
     
 protected:
-    void scramble (void);
-    Glib::ustring getPieceColor (int piece);
-    bool pieceEvent (GdkEvent* event,
-                     Gnome::Canvas::Group* item,
-                     Gnome::Canvas::Text* text);
-
-    Gnome::Canvas::Canvas* m_canvas;
-    std::vector<Gnome::Canvas::Group*> m_board;
+  void on_scramble(void);
+  Glib::ustring get_piece_color(int piece);
+  bool on_piece_event(GdkEvent* event,
+                      Gnome::Canvas::Group* item,
+                      Gnome::Canvas::Text* text);
+    
+  Gnome::Canvas::Canvas* m_canvas;
+  std::vector<Gnome::Canvas::Group*> m_board;
 };
 
 
-#endif //__FIFTEEN_HH
+#endif //__FIFTEEN_H

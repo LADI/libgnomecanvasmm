@@ -9,7 +9,8 @@ canvas_demo_SOURCES = canvas.cc	\
 	canvas_features.h canvas_features.cc \
 	fifteen.h fifteen.cc \
 	arrowhead.h arrowhead.cc \
-	richtext.h richtext.cc
+	richtext.h richtext.cc \
+	curve.h curve.cc
 
 #Where to find the header files needed by the source files:
 INCLUDES = -I$(top_builddir)/libgnomecanvasmm \
@@ -18,5 +19,4 @@ INCLUDES = -I$(top_builddir)/libgnomecanvasmm \
 #The libraries that the executable needs to link against:
 LIBS = $(top_builddir)/libgnomecanvas/libgnomecanvasmm/libgnomecanvasmm-1.3.la \
        $(LIBGNOMECANVASMM_LIBS)
-
 

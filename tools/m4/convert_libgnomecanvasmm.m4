@@ -3,6 +3,7 @@ _CONVERSION(`GnomeCanvasItem*',`Item*',`Glib::wrap($3)')
 _CONVERSION(`GnomeCanvasGroup*',`Group*',`Glib::wrap($3)')
 _CONVERSION(`GnomeCanvasItem*',`Group*',`Glib::wrap(GNOME_CANVAS_GROUP($3))')
 _CONVERSION(`Group&',`GnomeCanvasGroup*',`($3).gobj()')
+_CONVERSION(`GnomeCanvasPathDef*',`PathDef',`Glib::wrap($3)')
 
 _CONVERSION(`Gtk::TextIter&',`GtkTextIter*',__FR2P)
 _CONVERSION(`const Gtk::TextIter&',`const GtkTextIter*',__FR2P)

@@ -15,15 +15,17 @@ Class				Methods		Signals		Properties	VFuncs		Interfaces
 ==========================================================================================================
 
 Canvas				done		done		done		done		-
-Ellipse								done
-Group				-		-		done		-		
+Ellipse				-		-		-               -               -
+Group				-		-		done		-		-
 Item				done		done		done		done		-
-Pixbuf
-Polygon								done
-Rect								done
-RectEllipse							done
-Text								done
-RichText
-Widget								done
-
-
+Pixbuf                          -               -               done            -               -
+Polygon				-		-		done            -               -
+Rect				-		-		-               -               -
+RectEllipse			-		-		done            -               -
+Text				-		-		done            -               -
+RichText                        done            done            done            -               -
+Widget				-		-		done            -               -
+Shape                           -               -               done            -               -
+Line                            -               -               done            -               -
+Bpath				-		-		done		-		-
+PathDef				almost		-		-		-		-

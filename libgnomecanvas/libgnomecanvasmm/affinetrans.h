@@ -49,8 +49,8 @@ public:
   double& operator[](unsigned int idx);
   const double& operator[](unsigned int idx) const;
 
-  double* obj();
-  const double* obj() const;
+  double* gobj();
+  const double* gobj() const;
 
   //: Apply the affine to a given point
   //: e.g. Point dst = affine.apply(Point(x,y));

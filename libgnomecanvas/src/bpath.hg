@@ -1,12 +1,9 @@
-// -*- C++ -*-
 /* $Id$ */
 
-/* canvas-ellipse.h
+/* bpath.h
  * 
- * Copyright (C) 1998 EMC Capital Management Inc.
- * Developed by Havoc Pennington <hp@pobox.com>
  *
- * Copyright (C) 1999 The Gtk-- Development Team
+ * Copyright (C) 2002 The libgnomecanvasmm Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -24,8 +21,9 @@
  */
 
 #include <libgnomecanvasmm/shape.h>
-//#include <libgnomecanvasmm/group.h>
-#include <libgnomecanvas/gnome-canvas-rect-ellipse.h>
+#include <libgnomecanvasmm/path-def.h>
+#include <libgnomecanvas/gnome-canvas-bpath.h>
+
 _DEFS(libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/shape_p.h)
 
@@ -35,22 +33,21 @@ namespace Gnome
 namespace Canvas
 {
 
-/** Abstract class for all rectangular shapes
- * Corresponds to GnomeCanvasRE in libgnomecanvas
- */
-class RectEllipse : public Shape
+class Bpath : public Shape
 {
-  _CLASS_GTKOBJECT(RectEllipse, GnomeCanvasRE, GNOME_CANVAS_RE, Shape, GnomeCanvasShape)
+  _CLASS_GTKOBJECT(Bpath, GnomeCanvasBpath, GNOME_CANVAS_BPATH, Shape, GnomeCanvasShape)
 public:
-  RectEllipse(Group& parent);
+  Bpath(Group& parent);
   _CTOR_CAST;
   _DTOR;
 
-  _WRAP_PROPERTY("x1", double)
-  _WRAP_PROPERTY("y1", double)
-  _WRAP_PROPERTY("x2", double)
-  _WRAP_PROPERTY("y2", double)
+  // This property stores a pointer to GnomeCanvasPathDef
+  _WRAP_PROPERTY("bpath", gpointer)
+
+  void set_bpath(const PathDef& path);
 };
 
 } /* namespace Canvas */
+
 } /* namespace Gnome */
+

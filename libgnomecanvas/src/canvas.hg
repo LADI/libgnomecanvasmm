@@ -61,6 +61,10 @@ public:
   //: Get limits of scroll region
   _WRAP_METHOD(void get_scroll_region(double& x1, double& y1, double& x2, double& y2), gnome_canvas_get_scroll_region)
 
+  _WRAP_METHOD(void set_center_scroll_region(bool center), gnome_canvas_set_center_scroll_region)
+
+  _WRAP_METHOD(bool get_center_scroll_region(), gnome_canvas_get_center_scroll_region)
+
   //: Set the pixels/world coordinates ratio
   //- With no arguments sets to default of 1.0.
   _WRAP_METHOD(void set_pixels_per_unit(double n = 1.0), gnome_canvas_set_pixels_per_unit)

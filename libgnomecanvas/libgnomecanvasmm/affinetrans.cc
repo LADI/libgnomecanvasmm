@@ -72,10 +72,11 @@ double&
 AffineTrans::operator[](unsigned int idx)
 {
   if(idx > 5)
-    {
-      g_warning("AffineTrans::operator[] called with idx > 5");
-      return trans_[5]; //0; //Can't convert 0 to double& - throw exception?
-    }
+  {
+    g_warning("AffineTrans::operator[] called with idx > 5");
+    return trans_[5]; //0; //Can't convert 0 to double& - throw exception?
+  }
+
   return trans_[idx];
 }
 
@@ -83,17 +84,18 @@ const double&
 AffineTrans::operator[](unsigned int idx) const
 {
   if(idx > 5)
-    {
-      g_warning("AffineTrans::operator[] const called with idx > 5");
-      return trans_[5]; //0; //Can't convert 0 to double& - throw exception?
-    }
+  {
+    g_warning("AffineTrans::operator[] const called with idx > 5");
+    return trans_[5]; //0; //Can't convert 0 to double& - throw exception?
+  }
+
   return trans_[idx];
 }
 
 Point AffineTrans::apply_to(const Point& p) const
 {
   Point result;
-  art_affine_point(result.obj(), p.obj(), trans_);
+  art_affine_point(result.gobj(), p.gobj(), trans_);
   return result;
 }
   
@@ -106,18 +108,18 @@ AffineTrans
 AffineTrans::operator*(const AffineTrans& aff2)
 {
   AffineTrans result;
-  art_affine_multiply(result.obj(), obj(), aff2.obj());
+  art_affine_multiply(result.gobj(), gobj(), aff2.gobj());
   return result;
 }
 
 bool AffineTrans::operator==(AffineTrans& other)
 {
-  return (bool)art_affine_equal(trans_, other.obj());
+  return (bool)art_affine_equal(trans_, other.gobj());
 }
  
 bool AffineTrans::operator!=(AffineTrans& other)
 {
-  return !(bool)art_affine_equal(trans_, other.obj());
+  return !(bool)art_affine_equal(trans_, other.gobj());
 }
                         
 void AffineTrans::invert()
@@ -143,7 +145,7 @@ double AffineTrans::expansion() const
 AffineTrans const &
 AffineTrans::operator*=(AffineTrans& other)
 {
-  art_affine_multiply(obj(), obj(), other.obj());
+  art_affine_multiply(gobj(), gobj(), other.gobj());
   return *this;
 }
 
@@ -151,7 +153,7 @@ AffineTrans::operator*=(AffineTrans& other)
 AffineTrans AffineTrans::identity()
 {
   AffineTrans tmp;
-	art_affine_identity(tmp.obj());
+	art_affine_identity(tmp.gobj());
 	return tmp;
 }
 
@@ -165,7 +167,7 @@ AffineTrans
 AffineTrans::scaling(double sx, double sy)
 {
 	AffineTrans tmp;
-	art_affine_scale(tmp.obj(), sx, sy);
+	art_affine_scale(tmp.gobj(), sx, sy);
 	return tmp;
 }
 
@@ -173,7 +175,7 @@ AffineTrans
 AffineTrans::rotation(double theta)
 {
 	AffineTrans tmp;
-	art_affine_rotate(tmp.obj(), theta);
+	art_affine_rotate(tmp.gobj(), theta);
 	return tmp;
 }
 
@@ -181,7 +183,7 @@ AffineTrans
 AffineTrans::translation(double dx, double dy)
 {
 	AffineTrans tmp;
-	art_affine_translate(tmp.obj(), dx, dy);
+	art_affine_translate(tmp.gobj(), dx, dy);
 	return tmp;
 }
 
@@ -189,7 +191,7 @@ AffineTrans
 AffineTrans::translation(const Point& p)
 {
 	AffineTrans tmp;
-	art_affine_translate(tmp.obj(), p.get_x(), p.get_y());
+	art_affine_translate(tmp.gobj(), p.get_x(), p.get_y());
 	return tmp;
 }
 
@@ -198,16 +200,16 @@ AffineTrans
 AffineTrans::shearing(double theta)
 {
 	AffineTrans tmp;
-	art_affine_shear(tmp.obj(), theta);
+	art_affine_shear(tmp.gobj(), theta);
 	return tmp;
 }
 
-double* AffineTrans::obj()
+double* AffineTrans::gobj()
 {
   return trans_;
 } 
 
-const double* AffineTrans::obj() const
+const double* AffineTrans::gobj() const
 {
   return trans_;
 }
@@ -216,7 +218,7 @@ Glib::ustring AffineTrans::to_string() const
 {
   char pchStr[128];
   pchStr[127] = 0; //Just in case art_affine_to_string doesn't work properly.
-  art_affine_to_string(pchStr, obj());
+  art_affine_to_string(pchStr, gobj());
   return Glib::ustring(pchStr);
 }
 

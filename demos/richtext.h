@@ -1,4 +1,4 @@
-/* richtext.hh
+/* richtext.h
  *
  * Copyright (C) 2002 The libgnomecanvasmm Development Team
  *
@@ -17,16 +17,17 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef __RICHTEXT_HH
-#define __RICHTEXT_HH
+#ifndef __RICHTEXT_H
+#define __RICHTEXT_H
 
 #include <gtkmm/box.h>
 
-class Richtext  : public Gtk::VBox
+class Richtext : public Gtk::VBox
 {
 public:
-    Richtext ();
+  Richtext();
+  ~Richtext();
 };
 
 
-#endif //__RICHTEXT_HH
+#endif //__RICHTEXT_H
