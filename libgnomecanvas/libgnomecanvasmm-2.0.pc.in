@@ -5,7 +5,7 @@ includedir=@includedir@
 
 Name: GTKmm
 Description: C++ wrapper for GTK+
-Requires: glibmm-2.0 gdkmm-2.0 pangomm-1.0 atkmm-1.0 gtk+-2.0 
+Requires: gtkmm-2.0 libgnomecanvas-2.0
 Version: @VERSION@
-Libs: -L${libdir} -lgtkmm-1.3
-Cflags: -I${includedir}/gtkmm-2.0 -I${libdir}/gtkmm-2.0/include
+Libs: -L${libdir} -lgnomecanvasmm-1.3
+Cflags: -I${includedir}/libgnomecanvasmm-2.0 -I${libdir}/libgnomecanvasmm-2.0/include
