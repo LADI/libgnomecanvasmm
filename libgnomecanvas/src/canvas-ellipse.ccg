@@ -1,53 +1,7 @@
 // -*- C++ -*-
 /* $Id$ */
 
-/* canvas-ellipse.h
- * 
- * Copyright (C) 1998 EMC Capital Management Inc.
- * Developed by Havoc Pennington <hp@pobox.com>
- *
- * Copyright (C) 1999 The Gtk-- Development Team
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Library General Public
- * License along with this library; if not, write to the Free
- * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
-#include <libgnomecanvasmm/canvas-item.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-rect-ellipse.h>
-
-CLASS_START(Gnome);
-class CanvasEllipse : public CanvasRE
-{
-  WRAP_CLASS(CanvasEllipse, GnomeCanvasEllipse,
-             GNOME_CANVAS_ELLIPSE, GNOME_IS_CANVAS_ELLIPSE,
-             canvas_ellipse,
-             CanvasRE, GnomeCanvasRE, GNOME_CANVAS_RE);
-
-public:
-  CanvasEllipse(const CanvasGroup &parent);
-  CanvasEllipse(const CanvasGroup &parent,gdouble x1,gdouble y1,gdouble x2,gdouble y2);
-  WRAP_CTOR_CAST;
-  WRAP_DTOR;
-};
-
-PRIVATE_START;
-#include <libgnomecanvasmm/private/canvas-rect-ellipse_p.h>
-IMPL_START;
-#include <libgnomecanvasmm/private/canvas-ellipse_p.h>
-
-/* canvas-ellipse.c
+/* canvas-ellipse.cc
  *
  * Copyright (C) 1998 EMC Capital Management Inc.
  * Developed by Havoc Pennington <hp@pobox.com>
@@ -70,20 +24,20 @@ IMPL_START;
 namespace Gnome
 {
 
-CanvasEllipse::CanvasEllipse(const CanvasGroup &parentx,
-      gdouble x1,gdouble y1,gdouble x2,gdouble y2)
- : CanvasRE(GNOME_CANVAS_RE(gtk_object_new(get_type(),0)))
+CanvasEllipse::CanvasEllipse(const CanvasGroup& parentx,
+      double x1,double y1,double x2,double y2)
+ : CanvasRE(GNOME_CANVAS_RE(g_object_new(get_type(), 0)))
 {
   initialize_class();
   item_construct(parentx);
   set("x1",x1,"y1",y1,"x2",x2,"y2",y2,0);
 }
 
-CanvasEllipse::CanvasEllipse(const CanvasGroup &parentx)
-  : CanvasRE(GNOME_CANVAS_RE(gtk_object_new(get_type(),0)))
+CanvasEllipse::CanvasEllipse(const CanvasGroup& parentx)
+  : CanvasRE(GNOME_CANVAS_RE(g_object_new(get_type(), 0)))
 {
   initialize_class();
   item_construct(parentx);
 }
 
-}
+} /* namespace Gnome */

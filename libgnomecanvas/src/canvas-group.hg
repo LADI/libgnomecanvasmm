@@ -43,13 +43,13 @@ public:
   
   friend class Canvas;
   CanvasGroup(const CanvasGroup &parent,
-		    gdouble x=0, gdouble y=0);
+		    double x=0, double y=0);
 
 
   void child_bounds(CanvasItem *item);
 
-  CANVAS_PROPERTY(x,x,gdouble,gdouble,gdouble,gdouble,double_data)   
-  CANVAS_PROPERTY(y,y,gdouble,gdouble,gdouble,gdouble,double_data)   
+  CANVAS_PROPERTY(x,x,double,double,double,double,double_data)   
+  CANVAS_PROPERTY(y,y,double,double,double,double,double_data)   
 
 };
 
@@ -88,8 +88,8 @@ CanvasGroup::child_bounds(CanvasItem *item)
 }
 
 CanvasGroup::CanvasGroup(const CanvasGroup &parentx,
-				     gdouble x, gdouble y)
-   : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+				     double x, double y)
+   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);

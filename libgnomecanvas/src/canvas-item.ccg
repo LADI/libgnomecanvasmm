@@ -201,7 +201,7 @@ public:
   
   //: Signal: an event ocurred for an item of this type.  The (x, y)
   //: coordinates are in the canvas world coordinate system.  
-  SIGNAL_SPEC("event", both|marsh, gint event(GdkEvent*));
+  SIGNAL_SPEC("event", both|marsh, int event(GdkEvent*));
 
 protected:
   

@@ -48,10 +48,10 @@ public:
 
   CANVAS_PROPERTY(text,text,const Glib::ustring&,char*)
 
-  CANVAS_PROPERTY(x,x,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(y,y,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(x_offset,x_offset,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(y_offset,y_offset,gdouble,gdouble,gdouble,gdouble,double_data)
+  CANVAS_PROPERTY(x,x,double,double,double,double,double_data)
+  CANVAS_PROPERTY(y,y,double,double,double,double,double_data)
+  CANVAS_PROPERTY(x_offset,x_offset,double,double,double,double,double_data)
+  CANVAS_PROPERTY(y_offset,y_offset,double,double,double,double,double_data)
 
   CANVAS_PROPERTY(font,font_gdk,const Gdk_Font&,GdkFont*)
   CANVAS_PROPERTY(font,font,const Glib::ustring&,char*)
@@ -61,16 +61,16 @@ public:
   CANVAS_PROPERTY(justification,justification,GtkJustification,GtkJustification,GtkJustification,int,int_data)
 
   CANVAS_PROPERTY(clip,clip,bool,gboolean,bool,int,int_data)
-  CANVAS_PROPERTY(clip_width,clip_width,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(clip_height,clip_height,gdouble,gdouble,gdouble,gdouble,double_data)
+  CANVAS_PROPERTY(clip_width,clip_width,double,double,double,double,double_data)
+  CANVAS_PROPERTY(clip_height,clip_height,double,double,double,double,double_data)
 
   CANVAS_PROPERTY(fill_color,fill_color,const Glib::ustring&,char*)
   CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk_Color&,GdkColor*,Gdk_Color,void*,pointer_data)
   //FIXME: fill_color_rgba?
   CANVAS_PROPERTY(fill_stipple,fill_stipple,const Gdk_Pixmap&,GdkWindow*,Gdk_Pixmap,void*,pointer_data)
 
-  CANVAS_PROPERTY(text_width,text_width,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(text_height,text_height,gdouble,gdouble,gdouble,gdouble,double_data)
+  CANVAS_PROPERTY(text_width,text_width,double,double,double,double,double_data)
+  CANVAS_PROPERTY(text_height,text_height,double,double,double,double,double_data)
  
 };
 
@@ -101,8 +101,8 @@ IMPL_START;
 
 namespace Gnome {
 
-CanvasText::CanvasText(const CanvasGroup &parentx,gdouble x,gdouble y, const Glib::ustring& text)
-  : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+CanvasText::CanvasText(const CanvasGroup &parentx,double x,double y, const Glib::ustring& text)
+  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);
@@ -110,7 +110,7 @@ CanvasText::CanvasText(const CanvasGroup &parentx,gdouble x,gdouble y, const Gli
 }
 
 CanvasText::CanvasText(const CanvasGroup &parentx)
-  : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);

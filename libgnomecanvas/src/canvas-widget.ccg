@@ -35,15 +35,15 @@ class CanvasWidget : public CanvasItem
              canvas_widget,
              CanvasItem, GnomeCanvasItem, GNOME_CANVAS_ITEM);
 public:
-  CanvasWidget(const CanvasGroup &parent, gdouble x, gdouble y, Gtk::Widget& w);
+  CanvasWidget(const CanvasGroup &parent, double x, double y, Gtk::Widget& w);
   CanvasWidget(const CanvasGroup &parent);
   WRAP_CTOR_CAST;
   WRAP_DTOR;
 
-  CANVAS_PROPERTY(x,x,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(y,y,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(width,width,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(height,height,gdouble,gdouble,gdouble,gdouble,double_data)
+  CANVAS_PROPERTY(x,x,double,double,double,double,double_data)
+  CANVAS_PROPERTY(y,y,double,double,double,double,double_data)
+  CANVAS_PROPERTY(width,width,double,double,double,double,double_data)
+  CANVAS_PROPERTY(height,height,double,double,double,double,double_data)
   CANVAS_PROPERTY(anchor,anchor,GtkAnchorType,GtkAnchorType,GtkAnchorType,int,int_data)
 
   CANVAS_PROPERTY(size_pixels,size_pixels,bool,gboolean)
@@ -80,9 +80,9 @@ IMPL_START;
 namespace Gnome {
 
 
-CanvasWidget::CanvasWidget(const CanvasGroup &parentx, gdouble x, gdouble y,
+CanvasWidget::CanvasWidget(const CanvasGroup &parentx, double x, double y,
                            Gtk::Widget& w)
-  : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);
@@ -90,7 +90,7 @@ CanvasWidget::CanvasWidget(const CanvasGroup &parentx, gdouble x, gdouble y,
 }
 
 CanvasWidget::CanvasWidget(const CanvasGroup &parentx)
-  : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);

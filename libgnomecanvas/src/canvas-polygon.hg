@@ -31,7 +31,7 @@
 #m4 GTKMM_CONVERSION(int,GdkJoinStyle,`$2($3)')
 #m4 GTKMM_CONVERSION(int,GdkLineStyle,`$2($3)')
 #m4 GTKMM_CONVERSION(char*,const Glib::ustring&,,`$3.c_str()')
-#m4 GTKMM_EQUAL(gdouble,double)
+#m4 GTKMM_EQUAL(double,double)
 
 namespace Gnome
 {;
@@ -61,7 +61,7 @@ public:
   CANVAS_PROPERTY(outline_stipple,outline_stipple,const Gdk_Pixmap&,GdkWindow*,Gdk_Pixmap,void*,pointer_data)
 
   CANVAS_PROPERTY(width_pixels,width_pixels,guint,guint)
-  CANVAS_PROPERTY(width_units,width_units,gdouble,gdouble)
+  CANVAS_PROPERTY(width_units,width_units,double,double)
  
 };
 
@@ -75,7 +75,7 @@ IMPL_START;
 namespace Gnome {
 
 CanvasPolygon::CanvasPolygon(const CanvasGroup &parent,const CanvasPoints& points)
-  : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parent);
@@ -83,7 +83,7 @@ CanvasPolygon::CanvasPolygon(const CanvasGroup &parent,const CanvasPoints& point
 }
 
 CanvasPolygon::CanvasPolygon(const CanvasGroup &parent)
-    : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+    : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parent);

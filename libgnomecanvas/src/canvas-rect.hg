@@ -39,7 +39,7 @@ class CanvasRect : public CanvasRE
              CanvasRE, GnomeCanvasRE, GNOME_CANVAS_RE);
 
 public:
-  CanvasRect(const CanvasGroup &parent,gdouble x1,gdouble y1,gdouble x2,gdouble y2);
+  CanvasRect(const CanvasGroup &parent,double x1,double y1,double x2,double y2);
   CanvasRect(const CanvasGroup &parent);
   _CTOR_CAST;
   _DTOR;
@@ -74,8 +74,8 @@ IMPL_START;
 namespace Gnome {
 
 CanvasRect::CanvasRect(const CanvasGroup &parentx,
-   gdouble x1, gdouble y1, gdouble x2, gdouble y2)
-   : CanvasRE(GNOME_CANVAS_RE(gtk_object_new(get_type(),0)))
+   double x1, double y1, double x2, double y2)
+   : CanvasRE(GNOME_CANVAS_RE(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);
@@ -83,7 +83,7 @@ CanvasRect::CanvasRect(const CanvasGroup &parentx,
 }
 
 CanvasRect::CanvasRect(const CanvasGroup &parentx)
-   : CanvasRE(GNOME_CANVAS_RE(gtk_object_new(get_type(),0)))
+   : CanvasRE(GNOME_CANVAS_RE(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);

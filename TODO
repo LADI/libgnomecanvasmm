@@ -1,2 +1,5 @@
 LIBGNOMECANVASMM:
 
+* Put everything in a Gnome::Canvas namespace?
+
+

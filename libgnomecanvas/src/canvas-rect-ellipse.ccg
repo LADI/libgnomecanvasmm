@@ -50,13 +50,13 @@ public:
   WRAP_CTOR_CAST;
   WRAP_DTOR;
 
-  CANVAS_PROPERTY(x1,x1,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(x2,x2,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(y1,y1,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(y2,y2,gdouble,gdouble,gdouble,gdouble,double_data)
+  CANVAS_PROPERTY(x1,x1,double,double,double,double,double_data)
+  CANVAS_PROPERTY(x2,x2,double,double,double,double,double_data)
+  CANVAS_PROPERTY(y1,y1,double,double,double,double,double_data)
+  CANVAS_PROPERTY(y2,y2,double,double,double,double,double_data)
 
   CANVAS_PROPERTY(width_pixels,width_pixels,guint,guint)
-  CANVAS_PROPERTY(width_units,width_units,gdouble,gdouble)
+  CANVAS_PROPERTY(width_units,width_units,double,double)
 
   CANVAS_PROPERTY(fill_color,fill_color,const Glib::ustring&,char*)
   CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk_Color&,GdkColor*,Gdk_Color,void*,pointer_data)
@@ -98,7 +98,7 @@ namespace Gnome
 {
 
 CanvasRE::CanvasRE(const CanvasGroup &parent)
-    : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+    : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parent);

@@ -38,18 +38,18 @@ class CanvasImage : public CanvasItem
              CanvasItem, GnomeCanvasItem, GNOME_CANVAS_ITEM);
 public:
   CanvasImage(const CanvasGroup &parent,
-              gdouble x, gdouble y,const Gdk_Imlib::Image& image);
+              double x, double y,const Gdk_Imlib::Image& image);
   CanvasImage(const CanvasGroup &parentx);
   WRAP_CTOR_CAST;
   WRAP_DTOR;
 
   void set_image  (const Gdk_Imlib::Image &image);
   
-  CANVAS_PROPERTY(x,x,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(y,y,gdouble,gdouble,gdouble,gdouble,double_data)
+  CANVAS_PROPERTY(x,x,double,double,double,double,double_data)
+  CANVAS_PROPERTY(y,y,double,double,double,double,double_data)
 
-  CANVAS_PROPERTY(width,width,gdouble,gdouble,gdouble,gdouble,double_data)
-  CANVAS_PROPERTY(height,height,gdouble,gdouble,gdouble,gdouble,double_data)
+  CANVAS_PROPERTY(width,width,double,double,double,double,double_data)
+  CANVAS_PROPERTY(height,height,double,double,double,double,double_data)
 
   CANVAS_PROPERTY(anchor,anchor,GtkAnchorType,GtkAnchorType,GtkAnchorType,int,int_data)
 };
@@ -83,8 +83,8 @@ IMPL_START;
 
 namespace Gnome {
 
-CanvasImage::CanvasImage(const CanvasGroup &parentx,gdouble x,gdouble y,const Gdk_Imlib::Image& image)
-  : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+CanvasImage::CanvasImage(const CanvasGroup &parentx,double x,double y,const Gdk_Imlib::Image& image)
+  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);
@@ -93,7 +93,7 @@ CanvasImage::CanvasImage(const CanvasGroup &parentx,gdouble x,gdouble y,const Gd
 }
 
 CanvasImage::CanvasImage(const CanvasGroup &parentx)
-  : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);

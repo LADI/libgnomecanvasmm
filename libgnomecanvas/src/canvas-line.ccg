@@ -35,7 +35,7 @@
 #m4 GTKMM_CONVERSION(int,GdkJoinStyle,`$2($3)')
 #m4 GTKMM_CONVERSION(int,GdkLineStyle,`$2($3)')
 #m4 GTKMM_CONVERSION(char*,const Glib::ustring&,,`$3.c_str()')
-#m4 GTKMM_EQUAL(gdouble,double)
+#m4 GTKMM_EQUAL(double,double)
 
 
 CLASS_START(Gnome);
@@ -91,7 +91,7 @@ public:
   CANVAS_PROPERTY(fill_stipple,fill_stipple,const Gdk_Pixmap&,GdkWindow*,Gdk_Pixmap,void*,pointer_data)
 
   CANVAS_PROPERTY(width_pixels,width_pixels,guint,guint)
-  CANVAS_PROPERTY(width_units,width_units,gdouble,gdouble)
+  CANVAS_PROPERTY(width_units,width_units,double,double)
 
   CANVAS_PROPERTY(cap_style,cap_style,GdkCapStyle,GdkCapStyle,GdkCapStyle,int,int_data)
   CANVAS_PROPERTY(join_style,join_style,GdkJoinStyle,GdkJoinStyle,GdkJoinStyle,int,int_data)
@@ -103,9 +103,9 @@ public:
   CANVAS_PROPERTY(smooth,smooth,bool,gboolean,bool,int,int_data)
   CANVAS_PROPERTY(spline_step,spline_step,guint,guint,guint,guint,uint_data)
 
-  CANVAS_PROPERTY(arrow_shape_a,arrow_shape_a,gdouble,gdouble,gdouble,double,double_data)
-  CANVAS_PROPERTY(arrow_shape_b,arrow_shape_b,gdouble,gdouble,gdouble,double,double_data)
-  CANVAS_PROPERTY(arrow_shape_c,arrow_shape_c,gdouble,gdouble,gdouble,double,double_data)
+  CANVAS_PROPERTY(arrow_shape_a,arrow_shape_a,double,double,double,double,double_data)
+  CANVAS_PROPERTY(arrow_shape_b,arrow_shape_b,double,double,double,double,double_data)
+  CANVAS_PROPERTY(arrow_shape_c,arrow_shape_c,double,double,double,double,double_data)
 };
 
 PRIVATE_START;
@@ -187,14 +187,14 @@ CanvasPoints::_gobj() const
 }
 
 CanvasLine::CanvasLine(const CanvasGroup &parentx)
-  : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);
 }
 
 CanvasLine::CanvasLine(const CanvasGroup &parentx, const CanvasPoints& points)
-  : CanvasItem(GNOME_CANVAS_ITEM(gtk_object_new(get_type(),0)))
+  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);
