@@ -18,7 +18,7 @@ Source: 	ftp://download.sourceforge.net/gtkmm/%{name}-%{version}.tar.gz
 URL: 		http://gtkmm.sourceforge.net/
 Prefix: 	/usr
 BuildRoot: 	/var/tmp/%{name}-%{version}-root
-Requires:	gnome-libs, gtkmm
+Requires:	gnome-libs, gtkmm2
 
 %description
 This package provides a C++ interface for GnomeUI.  It is a subpackage
@@ -95,6 +95,8 @@ rm -rf $RPM_BUILD_ROOT
 
 ###########################################################################
 %changelog
+* Sun Dec 21 2003 Eric Bourque <ericb@computer.org>
+- fixed dependency to gtkmm2 instead of gtkmm
 * Thu Sep 25 2003 Eric Bourque <ericb@computer.org>
 - updated for libgnomecanvasmm-2.0
 * Tue Mar 20 2001 Eric Bourque <ericb@computer.org>
