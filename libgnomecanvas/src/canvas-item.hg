@@ -135,7 +135,7 @@ public:
 
 
   //: Returns the canvas we're on.
-  _MEMBER_GET(canvas, canvas, Gnome::Canvas*, GnomeCanvas*)
+  //TODO: problems with convert.m4: _MEMBER_GET(canvas, canvas, Gnome::Canvas*, GnomeCanvas*)
 
   //: Returns the parent canvas item - could be 0 for root item
 
@@ -149,7 +149,7 @@ public:
   //: defined above.  The item should update its internal state from its
   //: queued state, recompute and request its repaint area, etc.  The
   //: affine, if used, is a pointer to a 6-element array of doubles.
-  _WRAP_SIGNAL(void update(double*,ArtSVP*,int), "update")
+  _WRAP_SIGNAL(void update(double*, ArtSVP*, int), "update")
 
 //   //: Realize an item -- create GCs, etc. 
   _WRAP_SIGNAL(void realize(), "realize")

@@ -1,3 +1,10 @@
+2001-12-12  root  <murrayc@localhost.localdomain>
+
+	* Changed build files to use -I instead of --m4 with
+	gtkmmproc, as needed by the latest gtkmm-1.3. The new
+	gtkmmproc doesn't seem to be picking up the libgnomecanvasmm
+	conversions so I had to comment out a _MEMBER_GET in CanvasItem.
+
 2001-12-11  Murray Cumming  <murrayc@usa.net>
 
 	* Gnome::wrap_init() is now Gnome::canvas_wrap_init()
