@@ -13,8 +13,7 @@ canvas_demo_SOURCES = canvas.cc	\
 	curve.h curve.cc
 
 #Where to find the header files needed by the source files:
-INCLUDES = -I$(top_builddir)/libgnomecanvasmm \
-           $(LIBGNOMECANVASMM_CFLAGS) 
+INCLUDES = -I$(top_builddir)/libgnomecanvas -I$(top_srcdir)/libgnomecanvas $(LIBGNOMECANVASMM_CFLAGS)
 
 #The libraries that the executable needs to link against:
 LIBS = $(top_builddir)/libgnomecanvas/libgnomecanvasmm/libgnomecanvasmm-2.5.la \

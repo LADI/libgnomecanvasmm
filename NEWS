@@ -1,3 +1,12 @@
+2.5.2:
+
+* Canvas: set_dither(), get_dither(): Use C++ enum instead of C enum.
+* Item: draw(): Use C++ Gdk::Drawable instead of C type.  
+* Text: Changed all C Pango properties to their C++
+  counterparts.
+(Bryan Forbes)
+
+
 2.5.1:
 
 * Use new libsigc++ 2 syntax.
