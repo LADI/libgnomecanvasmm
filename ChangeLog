@@ -1,3 +1,8 @@
+2002-03-17  Murray Cumming  <murrayc@usa.net>
+
+	* Added BoxedType-like methods to Gnome::Points, so that it can
+	be used for Properties.
+
 2002-03-16  Murary Cumming  <murrayc@usa.net>
 
 	* Gnome::Art::AffineTrans and Gnome::Art::Point obj() methods
