@@ -4,6 +4,8 @@
 	build_files are now abstracted for all Gnome::Something libraries, 
 	so I can now just copy them into the other libraries.
 
+1.3.4:
+	
 2002-04-04  Andreas Holzmann  <Andreas.Holzmann@epost.de>
 
 	* Use new Glib::Value and Glib::PropertyProxy implementation.
