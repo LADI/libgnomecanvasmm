@@ -1,11 +1,32 @@
 Makefile
 Makefile.in
 
+canvas-ellipse.cc
+canvas-ellipse.h
+
 canvas-group.cc
 canvas-group.h
 
 canvas-item.cc
 canvas-item.h
+
+canvas-line.cc
+canvas-line.h
+
+canvas-polygon.cc
+canvas-polygon.h
+
+canvas-rect-ellipse.cc
+canvas-rect-ellipse.h
+
+canvas-rect.cc
+canvas-rect.h
+
+canvas-text.cc
+canvas-text.h
+
+canvas-widget.cc
+canvas-widget.h
 
 canvas.cc
 canvas.h
