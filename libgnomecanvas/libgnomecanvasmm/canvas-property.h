@@ -28,7 +28,7 @@
 
 #include <glibmm/propertyproxy.h>
 #include <gdkmm/color.h>
-#include <gdkmm/pixmap.h>
+#include <gdkmm/bitmap.h>
 #include <pangomm/fontdescription.h>
 #include <gtkmm/enums.h>
 
@@ -182,21 +182,21 @@ public:
 };
 
 template<>
-class Property< Glib::RefPtr<Gdk::Pixmap> >  : public PropertyBase
+class Property< Glib::RefPtr<Gdk::Bitmap> >  : public PropertyBase
 {
 public:
-  Property(const char* name, const Glib::RefPtr<Gdk::Pixmap>& value)
+  Property(const char* name, const Glib::RefPtr<Gdk::Bitmap>& value)
   : PropertyBase(name), value_(value)
   {}
 
   void set_value_in_object(Glib::Object& object) const
   {
-    Glib::PropertyProxy< Glib::RefPtr<Gdk::Pixmap> > proxy(&object, get_name());
+    Glib::PropertyProxy< Glib::RefPtr<Gdk::Bitmap> > proxy(&object, get_name());
     proxy.set_value(value_);
   }
 
 protected:
-  Glib::RefPtr<Gdk::Pixmap> value_;
+  Glib::RefPtr<Gdk::Bitmap> value_;
 };
 
 class fill_color : public Property<Gdk::Color>
@@ -275,7 +275,7 @@ GNOMEMM_PROPERTY(y2,y2,double)
 GNOMEMM_PROPERTY(anchor,anchor,Gtk::AnchorType)
 
 // CanvasPolygon, CanvasRect, CanvasEllipse
-GNOMEMM_PROPERTY(outline_stipple,outline_stipple,Glib::RefPtr<Gdk::Pixmap>)
+GNOMEMM_PROPERTY(outline_stipple,outline_stipple,Glib::RefPtr<Gdk::Bitmap>)
 
 // CanvasLine, CanvasPolygon, CanvasRect, CanvasEllipse
 GNOMEMM_PROPERTY(width_pixels,width_pixels,guint)
@@ -286,7 +286,7 @@ GNOMEMM_PROPERTY(x,x,double)
 GNOMEMM_PROPERTY(y,y,double)
 
 // CanvasLine, CanvasPolygon, CanvasRect, CanvasEllipse, CanvasText
-GNOMEMM_PROPERTY(fill_stipple,fill_stipple,Glib::RefPtr<Gdk::Pixmap>)
+GNOMEMM_PROPERTY(fill_stipple,fill_stipple,Glib::RefPtr<Gdk::Bitmap>)
 
 } /* namespace Properties */
 } /* namespace Canvas */
