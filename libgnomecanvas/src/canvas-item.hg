@@ -142,7 +142,7 @@ public:
   // Commented out for now, because there an interdependency with
   // Gnome::CanvasGroup which I don't know how to solve yet. - GL
 
-  //_MEMBER_GET(parent, parent, Gnome::CanvasGroup*, GnomeCanvasItem*)
+  _MEMBER_GET(parent,parent,Gnome::CanvasGroup*,GnomeCanvasItem*)
 
   
   //: Tell the item to update itself.  The flags are from the update flags
