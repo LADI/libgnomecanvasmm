@@ -50,12 +50,12 @@ public:
   CANVAS_PROPERTY(x_offset,x_offset,double,double,double,double,double_data)
   CANVAS_PROPERTY(y_offset,y_offset,double,double,double,double,double_data)
 
-  CANVAS_PROPERTY(font,font_desc,const Pango::FontDescription&,PangoFontDescription*)
+  CANVAS_PROPERTY(font,font_desc,Pango::FontDescription&,PangoFontDescription*)
   CANVAS_PROPERTY(font,font,const Glib::ustring&,char*)
   CANVAS_PROPERTY(fontset,fontset,const Glib::ustring&,char*)
 
   CANVAS_PROPERTY(anchor,anchor,GtkAnchorType,GtkAnchorType,GtkAnchorType,int,int_data)
-  CANVAS_PROPERTY(justification,justification,GtkJustification,GtkJustification,GtkJustification,int,int_data)
+  //CANVAS_PROPERTY(justification,justification,GtkJustification,GtkJustification,GtkJustification,int,int_data)
 
   CANVAS_PROPERTY(clip,clip,bool,gboolean,bool,int,int_data)
   CANVAS_PROPERTY(clip_width,clip_width,double,double,double,double,double_data)
