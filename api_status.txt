@@ -1,0 +1,19 @@
+
+This file gives an overview of the status of libgnomeuimm development.
+
+done	= every item implemented
+almost	= some stuff commented out for various reasons
+partly	= there's still a lot of work
+-	= category doesn't apply here == There are none to wrap.
+<empty>	= you should probably volunteer to get this done
+
+If it's "almost" or "partly" then there should be a //TODO comment
+in the  file explaining why.
+
+
+Class				Methods		Signals		Properties	VFuncs		Interfaces
+==========================================================================================================
+
+Gnome::Canvas
+
+
