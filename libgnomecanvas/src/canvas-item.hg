@@ -46,8 +46,6 @@ class Group;
 class Item : public Gtk::Object
 {
   _CLASS_GTKOBJECT(Item, GnomeCanvasItem, GNOME_CANVAS_ITEM, Gtk::Object, GtkObject)
-
-  friend class CanvasHelpers::Properties;
 public:
   _CTOR_CAST;
   _DTOR;

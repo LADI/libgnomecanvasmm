@@ -61,22 +61,14 @@ public:
   : PropertyBase(name), value_(value)
   {}
 
-  const T_Value& value() const
-  { return value_; }
+  void set_value_in_object(Glib::Object& object) const
+  {
+    Glib::PropertyProxy<T_Value> proxy(&object, get_name());
+    proxy.set_value(value_);
+  }
 
 protected:
   T_Value value_;
-};
-
-class Properties
-{
-public:
-  template <class O, class T_Value>
-  static void apply(O& object, const Property<T_Value>& property)
-  {
-    Glib::PropertyProxy<T_Value> proxy(&object, property.get_name());
-    proxy.set_value(property.value());
-  }
 };
 
 
@@ -87,14 +79,13 @@ public:
 template <class O, class T>
 O& operator << (O& object, const Property<T>& property)
 {
-  Properties::apply(object, property);
+  property.set_value_in_object(object);
   return object;
 }
 
 /********* specializations *********/
 
-//Colors can be specified with a string or a Gdk::Color.
-//FIXME: rgb constructor?
+//Colors can be specified with a string or a Gdk::Color, or an rgba guint.
 //TODO: Put implementation in a .cc file.
 template<>
 class Property<Gdk::Color> : public PropertyBase
@@ -112,16 +103,24 @@ public:
     : PropertyBase(name), value_gobj_used_(false), value_rgba_(rgba_color)
   {}
 
-  const void* value() const
+  void set_value_in_object(Glib::Object& object) const
   {
-    //We return void* because there is more than 1 possible type.
-
+    //Set the appropriate property name with the appropriately-typed value:
     if(value_string_.size())
-      return (void*)(value_string_.c_str());
+    {
+      Glib::PropertyProxy<Glib::ustring> proxy(&object, get_name());
+      proxy.set_value(value_string_);
+    }
     else if(value_gobj_used_)
-      return (void*)(value_.gobj());
+    {
+      Glib::PropertyProxy_Boxed<Gdk::Color> proxy(&object, get_name());
+      proxy.set_value(value_);
+    }
     else
-      return (void*)value_rgba_;
+    {
+      Glib::PropertyProxy<guint> proxy(&object, get_name());
+      proxy.set_value(value_rgba_);
+    }
   }
 
 protected:
@@ -129,7 +128,6 @@ protected:
   bool value_gobj_used_; //Whether the Gdk::Value was intialised in the constructor.
   Glib::ustring value_string_;
   guint value_rgba_;
-
 };
 
 //Font can be specified with a string or a Pango::FontDescription.
@@ -142,17 +140,26 @@ public:
   {}
 
   Property(const char* name, const Glib::ustring& font)
-    : PropertyBase(name), value_(0), strfont_(font)
+    : PropertyBase(name), value_(0), value_string_(font)
   {}
 
-  const void* value() const
+  void set_value_in_object(Glib::Object& object) const
   {
-    return (strfont_.size() == 0) ? (void*)(value_.gobj()) : (void*)(strfont_.c_str());
+    if(value_string_.size())
+    {
+      Glib::PropertyProxy<Glib::ustring> proxy(&object, get_name());
+      proxy.set_value(value_string_);
+    }
+    else
+    {
+      Glib::PropertyProxy_Boxed<Pango::FontDescription> proxy(&object, get_name());
+      proxy.set_value(value_);
+    }
   }
 
 protected:
   Pango::FontDescription value_;
-  Glib::ustring strfont_;
+  Glib::ustring value_string_;
 };
 
 
@@ -174,16 +181,17 @@ public:
 };
 
 template<>
-class Property< Glib::RefPtr<Gdk::Pixmap> >  : PropertyBase
+class Property< Glib::RefPtr<Gdk::Pixmap> >  : public PropertyBase
 {
 public:
   Property(const char* name, const Glib::RefPtr<Gdk::Pixmap>& value)
   : PropertyBase(name), value_(value)
   {}
 
-  GdkPixmap* value() const
+  void set_value_in_object(Glib::Object& object) const
   {
-    return ( value_ ? value_->gobj() : 0 );
+    Glib::PropertyProxy_RefPtr<Gdk::Pixmap> proxy(&object, get_name());
+    proxy.set_value(value_);
   }
 
 protected:

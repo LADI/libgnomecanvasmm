@@ -1,7 +1,7 @@
 LIBGNOMECANVASMM:
 
-* The Canvas properties seem to use the regular GTK+2 properties mechanism, so we can use our normal properties wrappers.
-* Put everything in a Gnome::Canvas namespace?
+* Check that we have all the necessary streams-based properties.
+
 
 
 

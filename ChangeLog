@@ -1,3 +1,11 @@
+2002-01-08  Murray Cumming  <murrayc@usa.net>
+
+	* canvas-properties.[h|c]: Properly implemented the shared 
+	streams-based properties, using the gtkmm2 PropertyProxy* templates.
+	I think that the implementation is much clearer than before.
+	We probably need to review the properties in case any streams-based
+	properties need to be added.
+
 2002-01-05  Murray Cumming  <murrayc@usa.net>
 
 	* Change properties to normal gtkmm-1.3 properties. The 
