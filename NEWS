@@ -1,3 +1,8 @@
+2.5.0:
+ 
+This is the new unstable branch of the parallel-installable 
+libgnomevanvasmm 2.6, for use with gtkmm 2.4.
+
 2.0.1:
 
 * Corrected segfault in CanvasAA destructor.
