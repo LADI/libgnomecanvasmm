@@ -71,27 +71,6 @@ fi
 if [ -d $RPM_BUILD_ROOT ]; then rm -rf $RPM_BUILD_ROOT; fi
 make DESTDIR=$RPM_BUILD_ROOT install
 
-# replace examples.conf by a really simple one
-(
-  echo 'CXXBUILD = g++ -O2 $< -o $@ `gnome-config gnomemm --cflags --libs` '
-  echo 'CXXCOMPILE = g++ -O2 -c $< -o $@ `gnome-config gnomemm --cflags` '
-  echo 'CXXLINK = g++ -O2 -o $@ `gnome-config gnomemm --libs` '
-) > examples/examples.conf
-
-rm examples/Makefile.am examples/Makefile.in examples/Makefile
-rm examples/examples.conf.in
-
-# strip down the docs 
-find docs/ \
-\( 	-name 'Makefile' -or	\
-	-name 'Makefile.in' -or	\
-	-name 'Makefile.am' -or	\
-	-name '*.m4' -or	\
-	-name 'html' -or	\
-	-name 'header' -or 	\
-	-name '*.h' 		\
-\)	-exec rm -rf {} \;
-
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
@@ -106,21 +85,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %files  devel
 %defattr(-, root, root)
-%doc examples/ docs/  AUTHORS COPYING ChangeLog INSTALL NEWS README
-#{prefix}/bin/*
-%{prefix}/include/*.h
-%{prefix}/include/gnome--
+%doc AUTHORS COPYING ChangeLog INSTALL NEWS README
+%{prefix}/include/libgnomecanvasmm-2.0
 %{prefix}/lib/*.la
 #{prefix}/lib/*.a # uncomment this one for static libs 
-%{prefix}/lib/*.sh
 %{prefix}/lib/*.so
-#{prefix}/lib/gtkmm
-#{prefix}/man/man3/*
-#{prefix}/share/aclocal/gtk--.m4
-%{prefix}/share/aclocal/gnome--.m4
+%{prefix}/lib/libgnomecanvasmm-2.0
+%{prefix}/lib/pkgconfig/libgnomecanvasmm-2.0.pc
 
 ###########################################################################
 %changelog
+* Thu Sep 25 2003 Eric Bourque <ericb@computer.org>
+- updated for libgnomecanvasmm-2.0
 * Tue Mar 20 2001 Eric Bourque <ericb@computer.org>
 - added gnome--.m4 to files devel section
 
