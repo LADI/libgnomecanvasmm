@@ -30,13 +30,11 @@ files_stamp	= $(files_hg:%.hg=$(stamp_dir)/stamp-%)
 #Installed gtkmmproc stuff, from gtkmm:
 gtkmmproc_path	= $(GTKMM_PROC)
 gtkmmproc_dir	= $(GTKMM_PROCDIR)
-gtkmmproc_dir_m4	= $(GTKMM_PROCDIR)/m4
-gtkmmproc_dir_pm	= $(GTKMM_PROCDIR)/pm
 
 # We use our own m4 and pm files as well as the ones installed by gtkmm:
 # Our override m4 include seems to need to be before the default one.
-gtkmmproc_args	= -I $(gtkmmproc_dir_m4) -I $(tools_dir_m4) --defs $(srcdir)
-run_gtkmmproc	= $(PERL_PATH) -I$(gtkmmproc_dir_pm) $(gtkmmproc_path) $(gtkmmproc_args)
+gtkmmproc_args	= -I $(tools_dir_m4) --defs $(srcdir)
+run_gtkmmproc	= $(gtkmmproc_path) $(gtkmmproc_args)
 
 EXTRA_DIST	= Makefile_list_of_hg.am_fragment \
 		  $(files_defs) $(files_hg) $(files_ccg)
