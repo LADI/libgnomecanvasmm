@@ -52,6 +52,16 @@ Points::~Points()
     gnome_canvas_points_free(points_);
 }
 
+Points::operator bool() const
+{
+  return !(!is_null());
+}
+
+bool Points::is_null() const
+{
+  return size() == 0;
+}
+
 GnomeCanvasPoints* Points::_gobj() const
 {
   int i = 0;

@@ -61,7 +61,14 @@ public:
   Points(size_type nbpoints = 0);
   explicit Points(GnomeCanvasPoints* castitem);
   ~Points();
-  
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+  typedef  GnomeCanvasPoints BaseObjectType;  //So that this works with tempaltes that are intended for normal BoxedTypes.
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */
+
+  operator bool() const;
+  virtual bool is_null() const;
+
   const GnomeCanvasPoints* gobj() const { return _gobj(); }
   GnomeCanvasPoints* gobj() { return _gobj(); }
 
