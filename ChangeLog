@@ -1,3 +1,5 @@
+2.0.0:
+
 2002-12-10  Bradley Bell  <btb@debian.org>
 	
  	* scripts/Makefile.am: distribute macros.m4
@@ -337,7 +339,7 @@ Release 1.1.21
     fixed and set_font(const string&) added.
     (Murray Cumming)
   * CanvasItem: event signal marshalled again. We lost
-    this fix sometime after 1.1.17. (Gergı …rdi)
+    this fix sometime after 1.1.17. (Gerg√µ √ârdi)
   * Uncommented the CanvasHelper::anchor property,
     adding the necessary gtkpacker.h #include.
     (Murray Cumming)
@@ -377,7 +379,7 @@ Release 1.1.17
   * Added Gnome::Pixmap::find_file() as wrapper for
     gnome_pixmap_file(). (Murray Cumming)
   * CanvasItem::event()'s propagation can be stopped by
-    returning TRUE in signal handler (Gergı …rdi)
+    returning TRUE in signal handler (Gerg√µ √ârdi)
 
 Release 1.1.16
   * Fixed AppBar default constructor. (Murray Cumming)
