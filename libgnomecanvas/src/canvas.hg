@@ -84,7 +84,7 @@ public:
   //- specified in world coordinates.  Arguments are in world coordinates.
   //- Returns 0 if no item is at that
   //- location.
-//  _WRAP_METHOD(Item* get_item_at(double x, double y), gnome_canvas_get_item_at)
+  _WRAP_METHOD(Item* get_item_at(double x, double y), gnome_canvas_get_item_at)
 
   //: Repaint small area (internal)
   //- Used only by item implementations. Request an eventual redraw

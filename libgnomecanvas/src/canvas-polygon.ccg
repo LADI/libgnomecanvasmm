@@ -26,14 +26,14 @@ namespace Canvas
 {
 
 Polygon::Polygon(Group& parent,const Points& points)
-  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+  : Shape(GNOME_CANVAS_SHAPE(g_object_new(get_type(),0)))
 {
   item_construct(parent);
   property_points().set_value(points);
 }
 
 Polygon::Polygon(Group& parent)
-    : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+    : Shape(GNOME_CANVAS_SHAPE(g_object_new(get_type(),0)))
 {
   item_construct(parent);
 }

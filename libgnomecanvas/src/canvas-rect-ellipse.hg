@@ -23,11 +23,11 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <libgnomecanvasmm/canvas-item.h>
+#include <libgnomecanvasmm/shape.h>
 //#include <libgnomecanvasmm/canvas-group.h>
 #include <libgnomecanvas/gnome-canvas-rect-ellipse.h>
 _DEFS(libgnomecanvas)
-_PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
+_PINCLUDE(libgnomecanvasmm/private/shape_p.h)
 
 namespace Gnome
 {
@@ -38,13 +38,11 @@ namespace Canvas
 /** Abstract class for all rectangular shapes
  * Corresponds to GnomeCanvasRE in libgnomecanvas
  */
-class RectEllipse : public Item
+class RectEllipse : public Shape
 {
-  _CLASS_GTKOBJECT(RectEllipse, GnomeCanvasRE, GNOME_CANVAS_RE, Item, GnomeCanvasItem)
+  _CLASS_GTKOBJECT(RectEllipse, GnomeCanvasRE, GNOME_CANVAS_RE, Shape, GnomeCanvasShape)
 public:
-  RectEllipse(Group& parent,
-		      const gchar *first_arg_name,
-		      ...);
+  RectEllipse(Group& parent, const gchar *first_arg_name, ...);
   RectEllipse(Group& parent);
   _CTOR_CAST;
   _DTOR;

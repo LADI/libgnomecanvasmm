@@ -3,5 +3,5 @@
 # so it's like copy-and-pasting this into each of those Makefile.am files.
 
 files_hg = canvas-ellipse.hg canvas-rect.hg canvas-group.hg canvas-item.hg canvas-line.hg canvas-polygon.hg \
-           canvas-rect-ellipse.hg canvas-text.hg canvas-widget.hg canvas.hg
+           canvas-rect-ellipse.hg shape.hg canvas-text.hg canvas-widget.hg canvas.hg
 

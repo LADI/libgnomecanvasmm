@@ -20,11 +20,11 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <libgnomecanvasmm/canvas-item.h>
+#include <libgnomecanvasmm/shape.h>
 #include <libgnomecanvasmm/canvas-line.h>
 #include <libgnomecanvas/gnome-canvas-polygon.h>
 _DEFS(libgnomecanvas)
-_PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
+_PINCLUDE(libgnomecanvasmm/private/shape_p.h)
 
 namespace Gnome
 {
@@ -32,9 +32,9 @@ namespace Gnome
 namespace Canvas
 {
 
-class Polygon : public Item
+class Polygon : public Shape
 {
-  _CLASS_GTKOBJECT(Polygon, GnomeCanvasPolygon, GNOME_CANVAS_POLYGON, Item, GnomeCanvasItem)
+  _CLASS_GTKOBJECT(Polygon, GnomeCanvasPolygon, GNOME_CANVAS_POLYGON, Shape, GnomeCanvasShape)
 public:
   Polygon(Group& parent,const Points& points);
   Polygon(Group& parent);
