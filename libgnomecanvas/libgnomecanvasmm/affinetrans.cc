@@ -21,7 +21,7 @@
  */
 
 #include <libgnomecanvasmm/affinetrans.h>
-#include <libgnomeui/gnome-canvas.h>
+#include <libgnomecanvas/gnome-canvas.h>
 
 namespace Gnome
 {
