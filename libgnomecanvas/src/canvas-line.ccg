@@ -25,6 +25,9 @@
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 CanvasPoints::CanvasPoints(size_type nbpoints)
   : std::vector<Art::Point>(nbpoints),
     points_(0), owned_(false)
@@ -89,5 +92,6 @@ CanvasLine::CanvasLine(CanvasGroup &parentx, const CanvasPoints& points)
   set_points(points);
 }
 
+} /* namespace Canvas */
 } /* namespace Gnome */
 

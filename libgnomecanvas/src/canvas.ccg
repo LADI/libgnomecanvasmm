@@ -30,6 +30,9 @@
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 bool
 Canvas::get_color(const Glib::ustring& spec, Gdk::Color& color)
 {
@@ -48,4 +51,5 @@ CanvasAA::~CanvasAA()
 {
 }
 
+} /* namespace Canvas */
 } /* namespace Gnome */

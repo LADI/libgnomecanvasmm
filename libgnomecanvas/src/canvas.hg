@@ -32,6 +32,9 @@ _PINCLUDE(gtkmm/private/layout_p.h)
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 class CanvasItem;
 class CanvasGroup;
 
@@ -50,7 +53,7 @@ public:
   _DTOR;
 
   //: Get the root canvas item
-  _WRAP_METHOD(Gnome::CanvasGroup* root(), gnome_canvas_root)
+  _WRAP_METHOD(CanvasGroup* root(), gnome_canvas_root)
            
   //: Limits of scroll region
   _WRAP_METHOD(void set_scroll_region(double x1, double y1, double x2, double y2), gnome_canvas_set_scroll_region)
@@ -83,7 +86,7 @@ public:
   //- specified in world coordinates.  Arguments are in world coordinates.
   //- Returns 0 if no item is at that
   //- location.
-//  _WRAP_METHOD(Gnome::CanvasItem* get_item_at(double x, double y), gnome_canvas_get_item_at)
+//  _WRAP_METHOD(CanvasItem* get_item_at(double x, double y), gnome_canvas_get_item_at)
 
   //: Repaint small area (internal)
   //- Used only by item implementations. Request an eventual redraw
@@ -130,5 +133,6 @@ class CanvasAA : public Canvas
     virtual ~CanvasAA();
 };
 
-} /* namespace Gtk */
+} /* namespace Canvas */
+} /* namespace Gnome */
 

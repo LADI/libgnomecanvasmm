@@ -23,6 +23,9 @@
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 CanvasText::CanvasText(CanvasGroup &parentx,double x,double y, const Glib::ustring& text)
   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(), 0)))
 {
@@ -36,4 +39,5 @@ CanvasText::CanvasText(CanvasGroup &parentx)
   item_construct(parentx);
 }
 
+} /* namespace Canvas */
 } /* namespace Gnome */

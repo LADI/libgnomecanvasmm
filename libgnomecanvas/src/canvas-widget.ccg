@@ -25,6 +25,9 @@
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 CanvasWidget::CanvasWidget(CanvasGroup& parentx, double x, double y,
                            Gtk::Widget& w)
   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
@@ -39,4 +42,5 @@ CanvasWidget::CanvasWidget(CanvasGroup& parentx)
   item_construct(parentx);
 }
 
+} /* namespace Canvas */
 } /* namespace Gnome */

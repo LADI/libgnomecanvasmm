@@ -24,6 +24,9 @@
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 CanvasGroup::CanvasGroup(CanvasGroup& parentx, double x, double y)
   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(), 0)))
 {
@@ -31,4 +34,5 @@ CanvasGroup::CanvasGroup(CanvasGroup& parentx, double x, double y)
   set("x", x, "y", y, 0);
 }
 
+} /* namespace Canvas */
 } /* namespace Gnome */

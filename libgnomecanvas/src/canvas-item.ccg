@@ -32,6 +32,9 @@ extern "C"
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 void
 CanvasItem::item_construct(CanvasGroup& group)
 {
@@ -105,6 +108,5 @@ CanvasItem::get_i2c_affine() const
   return Art::AffineTrans(tmp);
 }
 
-
-
+} /* namespace Canvas */
 } /* namespace Gnome */

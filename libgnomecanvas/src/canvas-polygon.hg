@@ -31,6 +31,9 @@ _PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 class CanvasPolygon : public CanvasItem
 {
   _CLASS_GTKOBJECT(CanvasPolygon, GnomeCanvasPolygon, GNOME_CANVAS_POLYGON, CanvasItem, GnomeCanvasItem)
@@ -57,5 +60,6 @@ public:
  
 };
 
+} /* namespace Canvas */
 } /* namespace Gnome */
 

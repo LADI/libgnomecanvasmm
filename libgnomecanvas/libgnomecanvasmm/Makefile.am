@@ -4,7 +4,7 @@
 SUBDIRS			= private
 
 sublib_name		= libgnomecanvasmm
-sublib_namespace	= Gnome
+sublib_namespace	= Canvas
 sublib_cflags		= $(LIBGNOMECANVASMM_CFLAGS)
 
 files_extra_h		= affinetrans.h canvas-property.h init.h point.h

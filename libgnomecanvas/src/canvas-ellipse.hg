@@ -32,6 +32,9 @@ _PINCLUDE(libgnomecanvasmm/private/canvas-rect-ellipse_p.h)
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 class CanvasEllipse : public CanvasRE
 {
   _CLASS_GTKOBJECT(CanvasEllipse, GnomeCanvasEllipse, GNOME_CANVAS_ELLIPSE, CanvasRE, GnomeCanvasRE);
@@ -43,4 +46,5 @@ public:
   _DTOR;
 };
 
+} /* namespace Canvas */
 } /* namespace Gnome */

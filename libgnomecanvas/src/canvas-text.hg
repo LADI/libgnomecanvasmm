@@ -32,6 +32,9 @@ _PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 class CanvasGroup;
 
 class CanvasText : public CanvasItem
@@ -71,4 +74,5 @@ public:
  
 };
 
+} /* namespace Canvas */
 } /* namespace Gnome */

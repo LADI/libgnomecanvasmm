@@ -23,11 +23,15 @@
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 /* Initialize libgnomecanvas wrap table:
  * You still need a Gtk::Main instance, or a subclass such as Gnome::Main.
  */
-void canvas_init();
+void init();
 
+} /* namespace Canvas */
 } /* namespace Gnome */
 
 #endif // _LIBGNOMEUIMM_INIT_H

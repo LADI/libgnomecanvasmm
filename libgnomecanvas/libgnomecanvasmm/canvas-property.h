@@ -7,7 +7,12 @@
 #include <gdkmm/pixmap.h>
 #include <pangomm/fontdescription.h>
 
-namespace Gnome {
+namespace Gnome
+{
+
+namespace Canvas
+{
+
 namespace CanvasHelpers {
 
 template <class T>
@@ -182,6 +187,7 @@ GNOMEMM_PROPERTY(y,y,double)
 GNOMEMM_PROPERTY(fill_stipple,fill_stipple,Glib::RefPtr<Gdk::Pixmap>)
 
 } /* namespace CanvasHelpers */
+} /* namespace Canvas */
 } /* namespace Gnome */
 
 #endif /* _LIBGNOMECANVASMM_PROPERTY_H_ */

@@ -24,13 +24,17 @@
 namespace Gnome
 {
 
-void canvas_init()
+namespace Canvas
+{
+
+void init()
 {
   if (!Glib::quark_) //If init_gtkmm_internals hasn't already been called, or therefore if this hasn't already been called.
   {
     Gtk::Main::init_gtkmm_internals(); //Sets up the g type system and the Glib::wrap() table.
-    canvas_wrap_init(); //Tells the Glib::wrap() table about the libgnomecanvasmm classes.
+    wrap_init(); //Tells the Glib::wrap() table about the libgnomecanvasmm classes.
   }
 }
 
+} /* namespace Canvas */
 } /* namespace Gnome */

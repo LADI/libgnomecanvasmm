@@ -37,6 +37,9 @@ _PINCLUDE(gtkmm/private/object_p.h)
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 class Canvas;
 class CanvasGroup;
 
@@ -46,7 +49,7 @@ class CanvasItem : public Gtk::Object
                   GNOME_CANVAS_ITEM,
                   Gtk::Object, GtkObject)
 
-  friend class Gnome::CanvasHelpers::Properties;
+  friend class CanvasHelpers::Properties;
 public:
   _CTOR_CAST;
   _DTOR;
@@ -129,14 +132,14 @@ public:
 
 
   //: Returns the canvas we're on.
-  _MEMBER_GET(canvas, canvas, Gnome::Canvas*, GnomeCanvas*)
+  _MEMBER_GET(canvas, canvas, Canvas*, GnomeCanvas*)
 
   //: Returns the parent canvas item - could be 0 for root item
 
   // Commented out for now, because there an interdependency with
-  // Gnome::CanvasGroup which I don't know how to solve yet. - GL
+  // CanvasGroup which I don't know how to solve yet. - GL
 
-  _MEMBER_GET(parent,parent,Gnome::CanvasGroup*,GnomeCanvasItem*)
+  _MEMBER_GET(parent,parent,CanvasGroup*,GnomeCanvasItem*)
 
 
   //: Tell the item to update itself.  The flags are from the update flags
@@ -205,4 +208,5 @@ protected:
   
 };
 
+} /* namespace Canvas */
 } /* namespace Gnome */

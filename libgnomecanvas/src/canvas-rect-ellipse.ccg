@@ -21,10 +21,14 @@
 namespace Gnome
 {
 
+namespace Canvas
+{
+
 CanvasRE::CanvasRE(CanvasGroup &parent)
     : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   item_construct(parent);
 }
 
+} /* namespace Canvas */
 } /* namespace Gnome */

@@ -32,9 +32,11 @@ _PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
 #m4 include(canvas_property.m4)
 
 
-
 namespace Gnome
-{;
+{
+
+namespace Canvas
+{
 
 // Abstract class for all rectangular shapes 
 class CanvasRE : public CanvasItem
@@ -67,4 +69,5 @@ public:
 
 };
 
+} /* namespace Canvas */
 } /* namespace Gnome */

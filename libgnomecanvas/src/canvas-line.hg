@@ -33,8 +33,10 @@ _PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
 #m4 include(canvas_property.m4)
 
 
-
 namespace Gnome
+{
+
+namespace Canvas
 {
 
 class GnomeGroup;
@@ -102,5 +104,6 @@ public:
   CANVAS_PROPERTY(arrow_shape_c,arrow_shape_c,double,double,double,double,double_data)
 };
 
+} /* namespace Canvas */
 } /* namespace Gnome */
 
