@@ -1,3 +1,7 @@
+2.8.0:
+
+* Increased version for GNOME 2.8 release version.
+
 2.6.1:
 
 * Build fixes for gcc 3.4 and for the Intel compiler.
