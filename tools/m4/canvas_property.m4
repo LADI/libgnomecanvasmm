@@ -28,10 +28,17 @@ $5 __NAMESPACE__::__CPPNAME__::get_$1`'() const
 _POP()
 ')
 
+dnl Gdk::Pixmap
 _CONVERSION(`const Glib::RefPtr<Gdk::Pixmap>&',`void*',`(void*)(($3)->gobj())')
 _CONVERSION(`void*',`Glib::RefPtr<Gdk::Pixmap>',`Gdk::Pixmap::wrap_specific_type((GdkPixmap*)($3), true)')
 _CONVERSION(`const Glib::RefPtr<Gdk::Pixmap>&',`GdkWindow*',`(GdkWindow*)(($3)->gobj())')
 
+dnl Gdk::Bitmap
+_CONVERSION(`const Glib::RefPtr<Gdk::Bitmap>&',`void*',`(void*)(($3)->gobj())')
+_CONVERSION(`void*',`Glib::RefPtr<Gdk::Bitmap>',`Gdk::Bitmap::wrap_specific_type((GdkBitmap*)($3), true)')
+_CONVERSION(`const Glib::RefPtr<Gdk::Bitmap>&',`GdkWindow*',`(GdkWindow*)(($3)->gobj())')
+
+dnl Gdk::Color
 _CONVERSION(`void*',`Gdk::Color',`Glib::wrap((GdkColor*)($3), true)')
 
 _CONVERSION(int,GdkCapStyle,`$2($3)')

@@ -64,7 +64,7 @@ public:
   CANVAS_PROPERTY(fill_color,fill_color,const Glib::ustring&,char*)
   CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk::Color&,GdkColor*,Gdk::Color,void*,pointer_data)
   //FIXME: fill_color_rgba?
-  CANVAS_PROPERTY(fill_stipple,fill_stipple,const Glib::RefPtr<Gdk::Pixmap>&,GdkWindow*,Glib::RefPtr<Gdk::Pixmap>,void*,pointer_data)
+  CANVAS_PROPERTY(fill_stipple,fill_stipple,const Glib::RefPtr<Gdk::Bitmap>&,GdkWindow*,Glib::RefPtr<Gdk::Bitmap>,void*,pointer_data)
 
   CANVAS_PROPERTY(text_width,text_width,double,double,double,double,double_data)
   CANVAS_PROPERTY(text_height,text_height,double,double,double,double,double_data)
