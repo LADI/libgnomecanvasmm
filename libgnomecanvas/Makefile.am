@@ -10,4 +10,3 @@ libgnomecanvasmm_config_DATA	= libgnomecanvasmmconfig.h
 
 pkgconfigdir		= $(libdir)/pkgconfig
 pkgconfig_DATA		= libgnomecanvasmm-2.0.pc
-

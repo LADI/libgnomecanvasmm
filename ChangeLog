@@ -1,3 +1,9 @@
+2002-04-23  Murray Cumming  <murrayc@usa.net>
+
+	* generated sources are now distributed. The am_fragments in 
+	build_files are now abstracted for all Gnome::Something libraries, 
+	so I can now just copy them into the other libraries.
+
 2002-04-04  Andreas Holzmann  <Andreas.Holzmann@epost.de>
 
 	* Use new Glib::Value and Glib::PropertyProxy implementation.

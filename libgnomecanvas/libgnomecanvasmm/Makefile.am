@@ -4,8 +4,11 @@
 SUBDIRS			= private
 
 sublib_name		= libgnomecanvasmm
+sublib_libname = libgnomecanvasmm-2.0
+sublib_libversion = $(LIBGNOMECANVASMM_SO_VERSION)
 sublib_namespace	= Canvas
 sublib_cflags		= $(LIBGNOMECANVASMM_CFLAGS)
+sublib_topdir = libgnomecanvas
 
 files_extra_h		= affinetrans.h canvas-property.h init.h point.h
 files_extra_cc		= affinetrans.cc canvas-property.cc init.cc point.cc
