@@ -1,2 +1,7 @@
 Makefile
 Makefile.in
+
+libenomecanvasmm-2.0.pc
+libgnomecanvasmmconfig.h
+
+stamp*
