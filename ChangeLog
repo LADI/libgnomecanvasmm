@@ -1,3 +1,9 @@
+2002-06-02  Daniel Elstner  <daniel.elstner@gmx.net>
+
+	* libgnomecanvas/src/pixbuf.hg (property_pixbuf): Change the
+	property type to Glib::RefPtr<Gdk::Pixbuf>.  (Reported by
+	Ole Laursen <olau@hardworking.dk>.)
+
 2002-05-14  Daniel Elstner  <daniel.elstner@gmx.net>
 
 	* libgnomecanvas/src/line.hg (Canvas::Points::is_null): Remove

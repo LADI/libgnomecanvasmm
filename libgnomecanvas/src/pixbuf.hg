@@ -41,7 +41,7 @@ public:
   Pixbuf(Group& parent, double x, double y, const Glib::RefPtr<Gdk::Pixbuf>& image);
   explicit Pixbuf(Group& parent);
 
-  _WRAP_PROPERTY("pixbuf", Gdk::Pixbuf)
+  _WRAP_PROPERTY("pixbuf", Glib::RefPtr<Gdk::Pixbuf>)
   _WRAP_PROPERTY("width", double)
   _WRAP_PROPERTY("width-set", bool)
   _WRAP_PROPERTY("width-in-pixels", bool)
