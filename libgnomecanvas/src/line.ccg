@@ -54,7 +54,7 @@ Points::~Points()
 
 Points::operator bool() const
 {
-  return !(!is_null());
+  return (!is_null());
 }
 
 bool Points::is_null() const
