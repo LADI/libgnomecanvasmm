@@ -1,3 +1,9 @@
+1.3.7:
+	
+2002-06-23  Murray Cumming  <murrayc@usa.net>
+
+	* Rebuilt for latest gtkmm.
+
 1.3.6:
 	
 2002-06-11  Andreas Holzmann  <Andreas.Holzmann@epost.de>
