@@ -80,7 +80,7 @@ Fifteen::Fifteen()
   
   Gtk::Button* button = manage(new Gtk::Button("Scramble"));
   button->signal_clicked().connect(slot(*this, &Fifteen::on_scramble));
-  pack_start(*button, Gtk::AttachOptions(0));
+  pack_start(*button, Gtk::PACK_SHRINK);
 }
 
 

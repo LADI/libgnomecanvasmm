@@ -35,7 +35,7 @@ Curve::Curve()
       = manage(new Gtk::Label("Drag a line with button 1. Then mark 2 control points wth\n"
                               "button 1. Shift+click with button 1 to destroy the curve.\n"));
   
-  pack_start(*label, Gtk::AttachOptions (0));
+  pack_start(*label, Gtk::PACK_SHRINK);
 
   Gtk::Widget* canvas_frame = create_canvas(false);
   pack_start(*canvas_frame);

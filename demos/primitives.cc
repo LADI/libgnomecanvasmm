@@ -61,8 +61,8 @@ Primitives::Primitives(bool aa)
   Gtk::Frame* frame = manage(new Gtk::Frame());
   frame->set_shadow_type(Gtk::SHADOW_IN);
   table->attach(*frame, 0, 1, 0, 1, 
-                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::SHRINK),
-                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::SHRINK));
+                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::PACK_SHRINK),
+                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::PACK_SHRINK));
   
   Gnome::Canvas::Canvas* canvas;
   if(aa == true) {
@@ -70,7 +70,7 @@ Primitives::Primitives(bool aa)
   } else {
       canvas = manage(new Gnome::Canvas::Canvas());
   }
-  canvas->set_flags(GTK_CAN_FOCUS);
+  canvas->set_flags(Gtk::CAN_FOCUS);
   canvas->grab_focus();
   frame->add(*canvas);
   canvas->set_size_request(600, 450);
@@ -81,14 +81,14 @@ Primitives::Primitives(bool aa)
   Gtk::HScrollbar* hscroll 
       = manage(new Gtk::HScrollbar(*canvas->get_hadjustment()));
   table->attach(*hscroll, 0, 1, 1, 2,
-                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::SHRINK),
+                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::PACK_SHRINK),
                 Gtk::AttachOptions(Gtk::FILL));
   
   Gtk::VScrollbar* vscroll 
       = manage(new Gtk::VScrollbar(*canvas->get_vadjustment()));
   table->attach(*vscroll, 1, 2, 0, 1,
                 Gtk::AttachOptions(Gtk::FILL),
-                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::SHRINK));
+                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::PACK_SHRINK));
   
   spin_adj->signal_value_changed()
       .connect(bind(slot(*this, &Primitives::on_zoom_changed),

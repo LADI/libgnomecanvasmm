@@ -159,7 +159,7 @@ Arrowhead::Arrowhead()
       = manage(new Gtk::Label("This demo allows you to edit arrowhead shapes.  Drag the little boxes\n"
                               "to change the shape of the line and its arrowhead.  You can see the\n"
                               "arrows at their normal scale on the right hand side of the window."));
-  pack_start(*label, Gtk::AttachOptions(0));
+  pack_start(*label, Gtk::PACK_SHRINK);
   
   Gtk::Alignment* alignment 
       = manage(new Gtk::Alignment(0.5, 0.5, 0.0, 0.0));
