@@ -1,9 +1,9 @@
+// -*- c++ -*-
 /* $Id$ */
 
-
-/* canvas-polygon.hg
- * 
- * Copyright (C) 1999 The Gtk-- Development Team
+/* canvas-property.cc
+ *
+ * Copyright (C) 2002 The Free Software Foundation
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -20,32 +20,28 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <libgnomecanvasmm/canvas-item.h>
-#include <libgnomecanvasmm/canvas-line.h>
-#include <libgnomecanvas/gnome-canvas-polygon.h>
-_DEFS(libgnomecanvas,gnomecanvaspolygon)
-_PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
-
-#m4 include(canvas_property.m4)
-
+#include <libgnomecanvasmm/canvas-property.h>
 namespace Gnome
 {
 
 namespace Canvas
 {
 
-class Polygon : public Item
+namespace CanvasHelpers
 {
-  _CLASS_GTKOBJECT(Polygon, GnomeCanvasPolygon, GNOME_CANVAS_POLYGON, Item, GnomeCanvasItem)
-public:
-  Polygon(Group& parent,const Points& points);
-  Polygon(Group& parent);
-  _CTOR_CAST;
-  _DTOR;
 
-  _WRAP_PROPERTY("points", Points)
-};
+PropertyBase::PropertyBase(const char* name)
+: name_(name)
+{}
 
+PropertyBase::~PropertyBase()
+{}
+
+const char* PropertyBase::get_name() const
+{
+  return name_;
+}
+
+} /* namespace CanvasHelpers */
 } /* namespace Canvas */
 } /* namespace Gnome */
-

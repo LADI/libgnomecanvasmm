@@ -32,7 +32,6 @@ _PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
 
 #m4 include(canvas_property.m4)
 
-
 namespace Gnome
 {
 
@@ -54,6 +53,10 @@ class GnomeGroup;
 
 //using std::vector;
 
+/** Wrapper for GnomeCanvasPoints.
+ * GnomeCanvasPoints is actually a BoxedType,
+ * but this acts in a similar way, with the advantage of acting like a std::vector.
+ */
 class Points : public std::vector<Art::Point>
 {
 public:
@@ -79,29 +82,23 @@ public:
   _CTOR_CAST;
   _DTOR;
 
-  CANVAS_PROPERTY(points,points,const Points&,GnomeCanvasPoints*)
-
-  CANVAS_PROPERTY(fill_color,fill_color,const Glib::ustring&,char*)
-  CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk::Color&,GdkColor*,Gdk::Color,void*,pointer_data)
-  //FIXME: fill_color_rgba?
-  CANVAS_PROPERTY(fill_stipple,fill_stipple,const Glib::RefPtr<Gdk::Bitmap>&,GdkWindow*,Glib::RefPtr<Gdk::Bitmap>,void*,pointer_data)
-
-  CANVAS_PROPERTY(width_pixels,width_pixels,guint,guint)
-  CANVAS_PROPERTY(width_units,width_units,double,double)
-
-  CANVAS_PROPERTY(cap_style,cap_style,GdkCapStyle,GdkCapStyle,GdkCapStyle,int,int_data)
-  CANVAS_PROPERTY(join_style,join_style,GdkJoinStyle,GdkJoinStyle,GdkJoinStyle,int,int_data)
-  CANVAS_PROPERTY(line_style,line_style,GdkLineStyle,GdkLineStyle,GdkLineStyle,int,int_data)
-
-  CANVAS_PROPERTY(first_arrowhead,first_arrowhead,bool,gboolean,bool,int,int_data)
-  CANVAS_PROPERTY(last_arrowhead,last_arrowhead,bool,gboolean,bool,int,int_data)
-
-  CANVAS_PROPERTY(smooth,smooth,bool,gboolean,bool,int,int_data)
-  CANVAS_PROPERTY(spline_step,spline_step,guint,guint,guint,guint,uint_data)
-
-  CANVAS_PROPERTY(arrow_shape_a,arrow_shape_a,double,double,double,double,double_data)
-  CANVAS_PROPERTY(arrow_shape_b,arrow_shape_b,double,double,double,double,double_data)
-  CANVAS_PROPERTY(arrow_shape_c,arrow_shape_c,double,double,double,double,double_data)
+  _WRAP_PROPERTY("points", Points)
+  _WRAP_PROPERTY("fill-color", Glib::ustring)
+  _WRAP_PROPERTY("fill-color-gdk", Gdk::Color)
+  _WRAP_PROPERTY("fill-color-rgba", guint)
+  _WRAP_PROPERTY("fill-stipple", Gdk::Drawable)
+  _WRAP_PROPERTY("width-pixels", guint)
+  _WRAP_PROPERTY("width-units", double)
+  _WRAP_PROPERTY("cap-style", GdkCapStyle)
+  _WRAP_PROPERTY("join-style", GdkJoinStyle)
+  _WRAP_PROPERTY("line-style", GdkLineStyle)
+  _WRAP_PROPERTY("first-arrowhead", bool)
+  _WRAP_PROPERTY("last-arrowhead", bool)
+  _WRAP_PROPERTY("smooth", bool)
+  _WRAP_PROPERTY("spline-steps", guint)
+  _WRAP_PROPERTY("arrow-shape-a", double)
+  _WRAP_PROPERTY("arrow-shape-b", double)
+  _WRAP_PROPERTY("arrow-shape-c", double)
 };
 
 } /* namespace Canvas */

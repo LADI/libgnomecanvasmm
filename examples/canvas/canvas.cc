@@ -34,7 +34,7 @@ CanvasExample::CanvasExample()
   // we want to use the stream like interface
   using namespace Gnome::Canvas;
 
-  m_line = new Gnome::Canvas::Line(m_canvasgroup,m_points);
+  m_line = new Gnome::Canvas::Line(m_canvasgroup, m_points);
   *m_line << CanvasHelpers::fill_color("red")
           << CanvasHelpers::width_units(4.0)
           << CanvasHelpers::cap_style(GDK_CAP_ROUND);

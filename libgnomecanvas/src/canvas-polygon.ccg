@@ -29,7 +29,7 @@ Polygon::Polygon(Group& parent,const Points& points)
   : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   item_construct(parent);
-  set_points(points);
+  property_points().set_value(points);
 }
 
 Polygon::Polygon(Group& parent)

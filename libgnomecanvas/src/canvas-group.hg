@@ -47,9 +47,8 @@ public:
   _CTOR_CAST;
   _DTOR;
 
-  CANVAS_PROPERTY(x,x,double,double,double,double,double_data)   
-  CANVAS_PROPERTY(y,y,double,double,double,double,double_data)   
-
+  _WRAP_PROPERTY("x", double)
+  _WRAP_PROPERTY("y", double)
 };
 
 } /* namespace Canvas */

@@ -14,6 +14,14 @@ in the  file explaining why.
 Class				Methods		Signals		Properties	VFuncs		Interfaces
 ==========================================================================================================
 
-Gnome::Canvas
+Canvas								done
+Ellipse								done
+Group								done				
+Item								done
+Polygon								done
+Rect								done
+RectEllipse							done
+Text								done
+Widget								done
 
 

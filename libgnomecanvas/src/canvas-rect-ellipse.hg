@@ -52,23 +52,10 @@ public:
   _CTOR_CAST;
   _DTOR;
 
-  CANVAS_PROPERTY(x1,x1,double,double,double,double,double_data)
-  CANVAS_PROPERTY(x2,x2,double,double,double,double,double_data)
-  CANVAS_PROPERTY(y1,y1,double,double,double,double,double_data)
-  CANVAS_PROPERTY(y2,y2,double,double,double,double,double_data)
-
-  CANVAS_PROPERTY(width_pixels,width_pixels,guint,guint)
-  CANVAS_PROPERTY(width_units,width_units,double,double)
-
-  CANVAS_PROPERTY(fill_color,fill_color,const Glib::ustring&,char*)
-  CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk::Color&,GdkColor*,Gdk::Color,void*,pointer_data)
-  //FIXME: fill_color_rgba?
-  CANVAS_PROPERTY(fill_stipple,fill_stipple,const Glib::RefPtr<Gdk::Bitmap>&,GdkWindow*,Glib::RefPtr<Gdk::Bitmap>,void*,pointer_data)
-
-  CANVAS_PROPERTY(outline_color,outline_color,const Glib::ustring&,char*)
-  CANVAS_PROPERTY(outline_color,outline_color_gdk,const Gdk::Color&,GdkColor*,Gdk::Color,void*,pointer_data)
-  CANVAS_PROPERTY(outline_stipple,outline_stipple,const Glib::RefPtr<Gdk::Bitmap>&,GdkWindow*,Glib::RefPtr<Gdk::Bitmap>,void*,pointer_data)
-
+  _WRAP_PROPERTY("x1", double)
+  _WRAP_PROPERTY("y1", double)
+  _WRAP_PROPERTY("x2", double)
+  _WRAP_PROPERTY("y2", double)
 };
 
 } /* namespace Canvas */

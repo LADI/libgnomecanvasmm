@@ -1,11 +1,35 @@
 #ifndef _LIBGNOMECANVASMM_CANVAS_PROPERTY_H_
 #define _LIBGNOMECANVASMM_CANVAS_PROPERTY_H_
 
+// -*- c++ -*-
+/* $Id$ */
+
+/* canvas-property.h
+ *
+ * Copyright (C) 1999-2002 The Free Software Foundation
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
 //#include <gtk/gtkpacker.h> //For GtkAnchorType.
 
+#include <glibmm/propertyproxy.h>
 #include <gdkmm/color.h>
 #include <gdkmm/pixmap.h>
 #include <pangomm/fontdescription.h>
+#include <gtk/gtkenums.h>
 
 namespace Gnome
 {
@@ -13,31 +37,57 @@ namespace Gnome
 namespace Canvas
 {
 
-namespace CanvasHelpers {
-
-template <class T>
-struct Property
+namespace CanvasHelpers
 {
+
+//TODO: Put implementation in a .cc file:
+class PropertyBase
+{
+public:
+  PropertyBase(const char* name);
+  ~PropertyBase();
+
+  const char* get_name() const;
+
+protected:
   const char* name_;
-  T arg_;
-  Property(const char* name, const T& arg)
-    : name_(name), arg_(arg)
-    {}
-  const T& arg() const {return arg_; }
 };
 
-struct Properties
+template <class T_Value>
+class Property : public PropertyBase
 {
-  template <class O, class T>
-  static void apply(O& object, const Property<T>& property)
-    { object.set(property.name_,property.arg(),0); }
+public:
+  Property(const char* name, const T_Value& value)
+  : PropertyBase(name), value_(value)
+  {}
+
+  const T_Value& value() const
+  { return value_; }
+
+protected:
+  T_Value value_;
+};
+
+class Properties
+{
+public:
+  template <class O, class T_Value>
+  static void apply(O& object, const Property<T_Value>& property)
+  {
+    Glib::PropertyProxy<T_Value> proxy(&object, property.get_name());
+    proxy.set_value(property.value());
+  }
 };
 
 
+/** Allow use of << operator on objects:
+  * For instance:
+  * canvasgroup << Gnome::Canvas::CanvasHelpers::x(2);
+  */
 template <class O, class T>
 O& operator << (O& object, const Property<T>& property)
 {
-  Properties::apply(object,property);
+  Properties::apply(object, property);
   return object;
 }
 
@@ -45,50 +95,77 @@ O& operator << (O& object, const Property<T>& property)
 
 //Colors can be specified with a string or a Gdk::Color.
 //FIXME: rgb constructor?
+//TODO: Put implementation in a .cc file.
 template<>
-struct Property<Gdk::Color>
+class Property<Gdk::Color> : public PropertyBase
 {
-  const char* name_;
-  Glib::ustring color_;
-  Gdk::Color arg_;
-  Property(const char* name, const Gdk::Color& arg)
-    : name_(name), color_(), arg_(arg)
-    {}
+public:
+  Property(const char* name, const Gdk::Color& value)
+    : PropertyBase(name), value_(value), value_gobj_used_(true), value_rgba_(0)
+  {}
+
   Property(const char* name, const Glib::ustring& color)
-    : name_(name), color_(color), arg_(0)
-    {}
-  const void* arg() const
+    : PropertyBase(name), value_gobj_used_(false), value_string_(color), value_rgba_(0)
+  {}
+
+  Property(const char* name, const guint& rgba_color)
+    : PropertyBase(name), value_gobj_used_(false), value_rgba_(rgba_color)
+  {}
+
+  const void* value() const
   {
-    return (color_.size() == 0) ? (void*)(arg_.gobj()) : (void*)(color_.c_str());
+    //We return void* because there is more than 1 possible type.
+
+    if(value_string_.size())
+      return (void*)(value_string_.c_str());
+    else if(value_gobj_used_)
+      return (void*)(value_.gobj());
+    else
+      return (void*)value_rgba_;
   }
+
+protected:
+  Gdk::Color value_;
+  bool value_gobj_used_; //Whether the Gdk::Value was intialised in the constructor.
+  Glib::ustring value_string_;
+  guint value_rgba_;
+
 };
 
 //Font can be specified with a string or a Pango::FontDescription.
 template<>
-struct Property<Pango::FontDescription>
+class Property<Pango::FontDescription> : public PropertyBase
 {
-  const char* name_;
-  Pango::FontDescription arg_;
-  Glib::ustring strfont_;
-
-  Property(const char* name,const Pango::FontDescription& arg)
-    : name_(name), arg_(arg)
+public:
+  Property(const char* name,const Pango::FontDescription& value)
+    : PropertyBase(name), value_(value)
   {}
 
   Property(const char* name,const Glib::ustring& font)
-    : name_(name), arg_(0), strfont_(font)
+    : PropertyBase(name), value_(0), strfont_(font)
   {}
 
-  const void* arg() const
+  const void* value() const
   {
-    return (strfont_.size() == 0) ? (void*)(arg_.gobj()) : (void*)(strfont_.c_str());
+    return (strfont_.size() == 0) ? (void*)(value_.gobj()) : (void*)(strfont_.c_str());
   }
+
+protected:
+  Pango::FontDescription value_;
+  Glib::ustring strfont_;
 };
 
-struct font : public Property<Pango::FontDescription>  //Used by CanvasText.
+
+//We now define some specific properties.
+//Some of these are unusual, so we define them manually.
+//Others are regular so we define them with a macro:
+
+
+class font : public Property<Pango::FontDescription>  //Used by CanvasText.
 {
+public:
   font(const Pango::FontDescription& v)
-  : Property<Pango::FontDescription>("font_gdk", v)
+  : Property<Pango::FontDescription>("font-desc", v)
   {}
 
   font(const Glib::ustring& v)
@@ -97,28 +174,37 @@ struct font : public Property<Pango::FontDescription>  //Used by CanvasText.
 };
 
 template<>
-struct Property< Glib::RefPtr<Gdk::Pixmap> >
+class Property< Glib::RefPtr<Gdk::Pixmap> >  : PropertyBase
 {
-  const char* name_;
-  Glib::RefPtr<Gdk::Pixmap> arg_;
-  Property(const char* name,const Glib::RefPtr<Gdk::Pixmap>& arg)
-    : name_(name), arg_(arg)
+public:
+  Property(const char* name, const Glib::RefPtr<Gdk::Pixmap>& value)
+  : PropertyBase(name), value_(value)
   {}
 
-  GdkPixmap* arg() const
+  GdkPixmap* value() const
   {
-    return ( arg_ ? arg_->gobj() : 0 );
+    return ( value_ ? value_->gobj() : 0 );
   }
+
+protected:
+  Glib::RefPtr<Gdk::Pixmap> value_;
 };
 
-struct fill_color : public Property<Gdk::Color>
+class fill_color : public Property<Gdk::Color>
 {
-  fill_color(const Gdk::Color& v): Property<Gdk::Color>("fill_color_gdk",v) {}
-  fill_color(const Glib::ustring& v): Property<Gdk::Color>("fill_color",v) {}
+public:
+  fill_color(const Gdk::Color& v)
+  : Property<Gdk::Color>("fill_color_gdk",v)
+  {}
+
+  fill_color(const Glib::ustring& v)
+  : Property<Gdk::Color>("fill_color",v)
+  {}
 };
 
-struct outline_color : public Property<Gdk::Color>
+class outline_color : public Property<Gdk::Color>
 {
+public:
   outline_color(const Gdk::Color& v)
   : Property<Gdk::Color>("outline_color_gdk", v)
   {}
@@ -129,8 +215,15 @@ struct outline_color : public Property<Gdk::Color>
 };
 
 
+// GNOMEMM_PROPERTY(C++ name, C property name, C++ type)
 #define GNOMEMM_PROPERTY(N,N2,T) \
-struct N : public Property<T> { N(const T& v): Property<T>(#N2,v) {}};
+class N : public Property<T> \
+{ \
+public: \
+  N(const T& v) \
+  : Property<T>(#N2, v) \
+  {} \
+};
 
 
 // CanvasLine

@@ -33,8 +33,9 @@ namespace Gnome
 namespace Art
 {
 
-//: Wrapper for ArtPoint struct.
-//- Used by AffineTrans and CanvasPoints
+/** Wrapper for ArtPoint struct.
+ * Used by AffineTrans and CanvasPoints.
+ */
 class Point
 {
 public:
@@ -58,6 +59,8 @@ public:
   const ArtPoint* obj() const;
 
   protected:
+    //GnomeCanvasPoints uses arrays of double, 2 at a time, which is the same as a set of ArtPoints
+    //because an ArtPoint struct only has 2 double members.
     ArtPoint m_ArtPoint;
 };
 

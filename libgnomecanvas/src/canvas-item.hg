@@ -132,8 +132,6 @@ public:
   /// Returns the canvas we're on.
   _MEMBER_GET(canvas, canvas, Canvas*, GnomeCanvas*)
 
-  /// Returns the parent canvas item - could be 0 for root item
-  _MEMBER_GET(parent,parent,Group*,GnomeCanvasItem*)
 
   //: Tell the item to update itself.  The flags are from the update flags
   //: defined above.  The item should update its internal state from its
@@ -181,6 +179,8 @@ public:
   //: Signal: an event ocurred for an item of this type.  The(x, y)
   //: coordinates are in the canvas world coordinate system.  
   _WRAP_SIGNAL(int event(GdkEvent*), "event")
+
+  _WRAP_PROPERTY("parent", Group)
 
 protected:
 

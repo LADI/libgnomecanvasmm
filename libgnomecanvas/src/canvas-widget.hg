@@ -47,14 +47,13 @@ public:
   _CTOR_CAST;
   _DTOR;
 
-  CANVAS_PROPERTY(x,x,double,double,double,double,double_data)
-  CANVAS_PROPERTY(y,y,double,double,double,double,double_data)
-  CANVAS_PROPERTY(width,width,double,double,double,double,double_data)
-  CANVAS_PROPERTY(height,height,double,double,double,double,double_data)
-  CANVAS_PROPERTY(anchor,anchor,GtkAnchorType,GtkAnchorType,GtkAnchorType,int,int_data)
-
-  CANVAS_PROPERTY(size_pixels,size_pixels,bool,gboolean)
-
+  _WRAP_PROPERTY("widget", Gtk::Widget)
+  _WRAP_PROPERTY("x", double)
+  _WRAP_PROPERTY("y", double)
+  _WRAP_PROPERTY("width", double)
+  _WRAP_PROPERTY("height", double)
+  _WRAP_PROPERTY("anchor", GtkAnchorType)
+  _WRAP_PROPERTY("size-pixels", bool)
 };
 
 } /* namespace Canvas */

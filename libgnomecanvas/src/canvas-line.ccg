@@ -29,27 +29,27 @@ namespace Canvas
 {
 
 Points::Points(size_type nbpoints)
-  : std::vector<Art::Point>(nbpoints),
-    points_(0), owned_(false)
+: std::vector<Art::Point>(nbpoints), points_(0), owned_(false)
 {}
 
-Points::Points(GnomeCanvasPoints *castitem) :
-  points_(castitem),owned_(false)
+Points::Points(GnomeCanvasPoints *castitem)
+: points_(castitem),owned_(false)
 {
-  int i = 0;
-  
   reserve(points_->num_points);
-  
-  for(iterator it = begin(); i < points_->num_points; i+=2, ++it)
-    {
-      (*it).set_x(points_->coords[i]);
-      (*it).set_y(points_->coords[i+1]);
-    }
+
+  //GnomeCanvasPoints has an array of doubles, used 2 at a time:
+  int i = 0;
+  for(iterator it = begin(); i < points_->num_points; i += 2, ++it)
+  {
+    (*it).set_x(points_->coords[i]);
+    (*it).set_y(points_->coords[i+1]);
+  }
 }
 
 Points::~Points()
 {
-  if (owned_ && points_) gnome_canvas_points_free(points_);
+  if (owned_ && points_)
+    gnome_canvas_points_free(points_);
 }
 
 GnomeCanvasPoints* Points::_gobj() const
@@ -57,22 +57,25 @@ GnomeCanvasPoints* Points::_gobj() const
   int i = 0;
   
   if(!points_)
-    {
-      points_ = gnome_canvas_points_new(size());
-      owned_ = true;
-    }
+  {
+    points_ = gnome_canvas_points_new(size());
+    owned_ = true;
+  }
   else if(size() != static_cast<unsigned int>(points_->num_points))
-    {
-      if (owned_) gnome_canvas_points_free(points_);
-      points_ = gnome_canvas_points_new(size());
-      owned_ = true;
-    }
+  {
+    if (owned_)
+     gnome_canvas_points_free(points_);
+
+    points_ = gnome_canvas_points_new(size());
+    owned_ = true;
+  }
   
   for(const_iterator it = begin(); it != end(); ++it, i+=2)
-    {
-      points_->coords[i] = (*it).get_x();
-      points_->coords[i+1] = (*it).get_y();
-    }
+  {
+    points_->coords[i] = (*it).get_x();
+    points_->coords[i+1] = (*it).get_y();
+  }
+
   return points_;
 }
 
@@ -88,7 +91,7 @@ Line::Line(Group& parentx, const Points& points)
   : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   item_construct(parentx);
-  set_points(points);
+  property_points().set_value(points);
 }
 
 } /* namespace Canvas */
