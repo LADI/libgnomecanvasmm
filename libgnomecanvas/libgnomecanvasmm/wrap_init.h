@@ -25,7 +25,7 @@
 namespace Gnome
 {
 
-void wrap_init();
+void canvas_wrap_init();
 
 } /* namespace Gnome */
 
