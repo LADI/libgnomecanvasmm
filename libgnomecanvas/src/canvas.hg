@@ -133,8 +133,8 @@ public:
 /* Allocates a color from the RGB value passed into this function. */
   _WRAP_METHOD(gulong get_color_pixel(guint rgba) const, gnome_canvas_get_color_pixel)
   _WRAP_METHOD(void set_stipple_origin(const Glib::RefPtr<Gdk::GC>& gc), gnome_canvas_set_stipple_origin)
-  _WRAP_METHOD(void set_dither(GdkRgbDither dither), gnome_canvas_set_dither)
-  _WRAP_METHOD(GdkRgbDither get_dither() const, gnome_canvas_get_dither)
+  _WRAP_METHOD(void set_dither(Gdk::RgbDither dither), gnome_canvas_set_dither)
+  _WRAP_METHOD(Gdk::RgbDither get_dither() const, gnome_canvas_get_dither)
 
 
   //TODO: Look at ArtSVP.
