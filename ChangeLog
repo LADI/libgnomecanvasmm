@@ -12,7 +12,8 @@
 	* libgnomecanvas/src/path-def.[hg|ccg]: New wrapper for 
 	GnomeCanvasPathDef.
 	* demos/*: Missing curve demos added. More conform to coding standards.
-	
+
+1.3.3:
 2002-03-10  Murray Cumming  <murrayc@usa.net>
 
 	* Changed signal args to C++ types.
