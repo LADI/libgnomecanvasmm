@@ -134,6 +134,8 @@ AC_OUTPUT([
     docs/reference/Doxyfile
 
   examples/Makefile
-  examples/examples.conf
+    examples/canvas/Makefile
+    examples/canvas_affine/Makefile
+    examples/canvas_events/Makefile
 ])
 
