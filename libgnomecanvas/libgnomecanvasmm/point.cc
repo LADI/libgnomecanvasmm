@@ -102,7 +102,7 @@ ArtPoint* Point::gobj()
 
 const ArtPoint* Point::gobj() const
 {
-  return m_ArtPoint;
+  return &m_ArtPoint;
 }
 
 
