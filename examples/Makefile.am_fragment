@@ -1,10 +1,10 @@
-local_libgnomecanvasmm_lib = $(top_builddir)/libgnomecanvas/libgnomecanvasmm/libgnomecanvasmm-2.0.la
+local_libgnomecanvasmm_lib	= $(top_builddir)/libgnomecanvas/libgnomecanvasmm/libgnomecanvasmm-2.0.la
 
-LIBS = $(local_libgnomecanvasmm_lib) $(LIBGNOMECANVASMM_LIBS)
+LIBS  = $(local_libgnomecanvasmm_lib) $(LIBGNOMECANVASMM_LIBS)
 
-all_includes = -I$(top_builddir)/libgnomecanvas $(LIBGNOMECANVASMM_CFLAGS)
+all_includes	= -I$(top_builddir)/libgnomecanvas -I$(top_srcdir)/libgnomecanvas $(LIBGNOMECANVASMM_CFLAGS)
 
-DEFS = @DEFS@
-DEFAULT_INCLUDES =
-INCLUDES = -I. -I$(srcdir) $(strip $(all_includes))
+DEFS			= @DEFS@
+DEFAULT_INCLUDES	=
+INCLUDES		= -I. -I$(srcdir) $(strip $(all_includes))
 

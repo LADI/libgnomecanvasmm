@@ -1,3 +1,10 @@
+2.0.1:
+	
+2003-08-22  Murray Cumming  <murrayc@usa.net>
+
+	* examples/Makefile.am: Fixed the distcheck.
+
+
 2003-07-21  Murray Cumming  <murrayc@usa.net>
 
 	* libgnomecanvas/src/canvas.hg: Use the new GMMPROC_PROTECTED_GCLASS

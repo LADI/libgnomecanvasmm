@@ -1,3 +1,9 @@
+2.0.1:
+
+* Corrected segfault in CanvasAA destructor.
+  The AA Canvas was probably useless before this.
+  (Murray Cumming)
+
 2.0.0:
 
 Documentation:
