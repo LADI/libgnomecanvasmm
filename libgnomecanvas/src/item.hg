@@ -48,8 +48,6 @@ class Item : public Gtk::Object
   _CLASS_GTKOBJECT(Item, GnomeCanvasItem, GNOME_CANVAS_ITEM, Gtk::Object, GtkObject)
   _IGNORE(gnome_canvas_item_construct, gnome_canvas_item_set, gnome_canvas_item_set_valist)
 public:
-  _CTOR_CAST;
-  _DTOR;
 
   //:  Move an item by the specified amount
   _WRAP_METHOD(void move(double dx, double dy), gnome_canvas_item_move)

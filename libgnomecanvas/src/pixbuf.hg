@@ -39,8 +39,6 @@ class Pixbuf : public Item
 public:
   Pixbuf(Group& parent, double x, double y, const Glib::RefPtr<Gdk::Pixbuf>& image);
   explicit Pixbuf(Group& parent)
-  _CTOR_CAST;
-  _DTOR;
 
   _WRAP_PROPERTY("pixbuf", Gdk::Pixbuf)
   _WRAP_PROPERTY("width", double)

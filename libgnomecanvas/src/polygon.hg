@@ -38,8 +38,6 @@ class Polygon : public Shape
 public:
   Polygon(Group& parent, const Points& points);
   explicit Polygon(Group& parent);
-  _CTOR_CAST;
-  _DTOR;
 
   _WRAP_PROPERTY("points", Points)
 };

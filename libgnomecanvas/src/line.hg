@@ -84,8 +84,6 @@ class Line : public Item
 public:
   explicit Line(Group& parent);
   Line(Group& parent, const Points& points);
-  _CTOR_CAST;
-  _DTOR;
 
   _WRAP_PROPERTY("points", Points)
   _WRAP_PROPERTY("fill-color", Glib::ustring)

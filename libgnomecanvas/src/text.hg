@@ -42,8 +42,6 @@ class Text : public Item
 public:
   Text(Group& parent, double x, double y, const Glib::ustring& text);
   explicit Text(Group& parent);
-  _CTOR_CAST;
-  _DTOR;
 
   _WRAP_PROPERTY("text", Glib::ustring)
   _WRAP_PROPERTY("markup", Glib::ustring)

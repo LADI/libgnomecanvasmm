@@ -38,8 +38,6 @@ class Shape : public Item
   _CLASS_GTKOBJECT(Shape, GnomeCanvasShape, GNOME_CANVAS_SHAPE, Item, GnomeCanvasItem)
   _IGNORE(gnome_canvas_shape_set_path_def, gnome_canvas_shape_get_path_def)
 public:
-  _CTOR_CAST;
-  _DTOR;
 
   _WRAP_PROPERTY("fill-color", Glib::ustring)
   _WRAP_PROPERTY("fill-color-gdk", Gdk::Color)

@@ -41,9 +41,8 @@ class Group : public Item
 public:
   friend class Canvas;
   explicit Group(Group& parent, double x = 0, double y = 0);
-  _CTOR_DEFAULT;
-  _CTOR_CAST;
-  _DTOR;
+  _CTOR_DEFAULT
+
 
   _WRAP_PROPERTY("x", double)
   _WRAP_PROPERTY("y", double)

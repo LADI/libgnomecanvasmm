@@ -42,8 +42,6 @@ class Widget : public Item
 public:
   Widget(Group& parent, double x, double y, Gtk::Widget& w);
   explicit Widget(Group& parent);
-  _CTOR_CAST;
-  _DTOR;
 
   _WRAP_PROPERTY("widget", Gtk::Widget)
   _WRAP_PROPERTY("x", double)

@@ -49,8 +49,6 @@ class Canvas : public Gtk::Layout
   _CLASS_GTKOBJECT(Canvas, GnomeCanvas, GNOME_CANVAS, Gtk::Layout, GtkLayout);
 public:
   _CTOR_DEFAULT;
-  _CTOR_CAST;
-  _DTOR;
 
   //: Get the root canvas item
   _WRAP_METHOD(Group* root(), gnome_canvas_root)

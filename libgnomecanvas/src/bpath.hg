@@ -38,8 +38,6 @@ class Bpath : public Shape
   _CLASS_GTKOBJECT(Bpath, GnomeCanvasBpath, GNOME_CANVAS_BPATH, Shape, GnomeCanvasShape)
 public:
   explicit Bpath(Group& parent);
-  _CTOR_CAST;
-  _DTOR;
 
   // This property stores a pointer to GnomeCanvasPathDef
   _WRAP_PROPERTY("bpath", gpointer)

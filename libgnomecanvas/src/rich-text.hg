@@ -39,8 +39,6 @@ class RichText : public Item
 public:
   RichText(Group& parent, double x, double y, const Glib::ustring& text);
   explicit RichText(Group& parent);
-  _CTOR_CAST;
-  _DTOR;
 
   _WRAP_METHOD(void cut_clipboard(), gnome_canvas_rich_text_cut_clipboard)
   _WRAP_METHOD(void copy_clipboard(), gnome_canvas_rich_text_copy_clipboard)
