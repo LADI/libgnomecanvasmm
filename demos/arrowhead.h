@@ -20,22 +20,16 @@
 #ifndef __ARROWHEAD_HH
 #define __ARROWHEAD_HH
 
-#include <string>
-#include <vector>
+
 
 #include <gtkmm/box.h>
 #include <libgnomecanvasmm/canvas-rect.h>
-
-namespace Gnome
-{
-    namespace Canvas
-    {
-        class Canvas;
-        class Group;
-        class Text;
-        class Line;
-    }
-}
+#include <libgnomecanvasmm/canvas.h>
+#include <libgnomecanvasmm/canvas-rect.h>
+#include <libgnomecanvasmm/canvas-group.h>
+#include <libgnomecanvasmm/canvas-text.h>
+#include <libgnomecanvasmm/canvas-line.h>
+#include <vector>
 
 class DragBox : public Gnome::Canvas::Rect
 {

@@ -19,11 +19,6 @@
 
 #include "arrowhead.h"
 
-#include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-rect.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-text.h>
-#include <libgnomecanvasmm/canvas-line.h>
 #include <gtkmm/frame.h>
 #include <gtkmm/alignment.h>
 #include <gtkmm/label.h>

@@ -23,15 +23,13 @@
 //This file would be called features.h, but there is a system header of the same name.
 
 #include <gtkmm/box.h>
-
-namespace Gnome
-{
-    namespace Canvas
-    {
-        class Item;
-        class Group;
-    }
-}
+#include <libgnomecanvasmm/canvas.h>
+#include <libgnomecanvasmm/canvas-ellipse.h>
+#include <libgnomecanvasmm/canvas-rect.h>
+#include <libgnomecanvasmm/canvas-group.h>
+#include <gtkmm/label.h>
+#include <gtkmm/frame.h>
+#include <gtkmm/alignment.h>
 
 class Features : public Gtk::VBox
 {

@@ -74,10 +74,7 @@ static void button_event_stub_notify(GdkEventButton *b, guint caller)
 }
 
 int main(int argc, char* argv[])
-{
-  using SigC::bind;
-  using SigC::slot;
-	
+{	
   Gnome::Canvas::init();
   Gtk::Main canvasmain(argc, argv);
   
@@ -92,13 +89,13 @@ int main(int argc, char* argv[])
   *item << Gnome::Canvas::Properties::fill_color("black");
 
   //Connect canvas signals:
-  canvas->signal_event().connect_notify(bind(slot(&event_explorer_notify),CE));
-  canvas->signal_event().connect(bind(slot(&event_explorer),CEA));
-  canvas->signal_button_press_event().connect_notify(bind(slot(&button_event_stub_notify),CBE));
-  canvas->signal_button_press_event().connect(bind(slot(&button_event_stub),CBEA));
+  canvas->signal_event().connect_notify(SigC::bind(SigC::slot(&event_explorer_notify),CE));
+  canvas->signal_event().connect(SigC::bind(SigC::slot(&event_explorer),CEA));
+  canvas->signal_button_press_event().connect_notify(SigC::bind(SigC::slot(&button_event_stub_notify),CBE));
+  canvas->signal_button_press_event().connect(SigC::bind(SigC::slot(&button_event_stub),CBEA));
 	
-  item->signal_event().connect_notify(bind(slot(&event_explorer_notify),IE));
-  item->signal_event().connect(bind(slot(&event_explorer),IEA));
+  item->signal_event().connect_notify(SigC::bind(SigC::slot(&event_explorer_notify),IE));
+  item->signal_event().connect(SigC::bind(SigC::slot(&event_explorer),IEA));
 	
   window.add(*canvas);
   canvas->show();

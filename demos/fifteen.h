@@ -20,10 +20,16 @@
 #ifndef __FIFTEEN_HH
 #define __FIFTEEN_HH
 
-#include <string>
-#include <vector>
-
+#include <libgnomecanvasmm/canvas.h>
+#include <libgnomecanvasmm/canvas-rect.h>
+#include <libgnomecanvasmm/canvas-group.h>
+#include <libgnomecanvasmm/canvas-text.h>
+#include <gtkmm/frame.h>
+#include <gtkmm/alignment.h>
+#include <gtkmm/label.h>
+#include <gtkmm/button.h>
 #include <gtkmm/box.h>
+#include <vector>
 
 namespace Gnome
 {
@@ -42,7 +48,7 @@ public:
     
 protected:
     void scramble (void);
-    std::string getPieceColor (int piece);
+    Glib::ustring getPieceColor (int piece);
     bool pieceEvent (GdkEvent* event,
                      Gnome::Canvas::Group* item,
                      Gnome::Canvas::Text* text);

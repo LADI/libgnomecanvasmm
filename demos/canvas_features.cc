@@ -19,13 +19,6 @@
 
 #include "canvas_features.h"
 
-#include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-ellipse.h>
-#include <libgnomecanvasmm/canvas-rect.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <gtkmm/label.h>
-#include <gtkmm/frame.h>
-#include <gtkmm/alignment.h>
 
 
 Features::Features ()

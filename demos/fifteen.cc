@@ -19,14 +19,6 @@
 
 #include "fifteen.h"
 
-#include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-rect.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-text.h>
-#include <gtkmm/frame.h>
-#include <gtkmm/alignment.h>
-#include <gtkmm/label.h>
-#include <gtkmm/button.h>
 #include <stdio.h>
 
 
@@ -92,7 +84,7 @@ Fifteen::Fifteen ()
 }
 
 
-string
+Glib::ustring
 Fifteen::getPieceColor (int piece)
 {
     static char buf[50];

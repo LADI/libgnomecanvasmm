@@ -26,8 +26,6 @@ Gnome::Canvas::Line* some_lines(Gnome::Canvas::Group *group, gchar * color="blac
 
 int main(int argc, char* argv[])
 {
-  using SigC::bind;
-  using SigC::slot;
   using namespace Gnome::Art;
 	
   Gnome::Canvas::init();

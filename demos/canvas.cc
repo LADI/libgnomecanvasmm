@@ -28,8 +28,7 @@
 #include "arrowhead.h"
 #include "richtext.h"
 
-class MainWin 
-    : public Gtk::Window
+class MainWin  : public Gtk::Window
 {
 public:
     MainWin ();

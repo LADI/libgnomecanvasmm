@@ -17,27 +17,7 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 #include "primitives.h"
-#include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-rect.h>
-#include <libgnomecanvasmm/canvas-ellipse.h>
-#include <libgnomecanvasmm/canvas-line.h>
-#include <libgnomecanvasmm/canvas-text.h>
-#include <libgnomecanvasmm/canvas-polygon.h>
-#include <libgnomecanvasmm/canvas-widget.h>
-#include <libgnomecanvasmm/pixbuf.h>
-#include <gtkmm/label.h>
-#include <gtkmm/spinbutton.h>
-#include <gtkmm/adjustment.h>
-#include <gtkmm/button.h>
-#include <gtkmm/scrollbar.h>
-#include <gtkmm/frame.h>
-#include <gtkmm/table.h>
 #include <cmath>
-
-
-using std::string;
-
 
 Primitives::Primitives (bool aa)
 : Gtk::VBox (false, 4)
@@ -220,7 +200,7 @@ Primitives::itemEvent (GdkEvent* event, Gnome::Canvas::Item* item)
 
 void
 Primitives::setupHeading (Gnome::Canvas::Group& root,
-                          const string& heading,
+                          const Glib::ustring& heading,
                           int pos)
 {
     Gnome::Canvas::Text* text = manage (new Gnome::Canvas::Text (root));
@@ -550,7 +530,7 @@ Primitives::polishDiamond (Gnome::Canvas::Group& root)
 void
 Primitives::makeHilbert (Gnome::Canvas::Group& root)
 {
-    string hilbert ("urdrrulurulldluuruluurdrurddldrrruluurdrurddldrddlulldrdldrrurd");
+    Glib::ustring hilbert ("urdrrulurulldluuruluurdrurddldrrruluurdrurddldrddlulldrdldrrurd");
 
     Gnome::Canvas::Points points (hilbert.size () + 1);
     points[0] = Gnome::Art::Point (340.0, 290.0);

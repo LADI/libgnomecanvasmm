@@ -20,25 +20,30 @@
 #ifndef __PRIMITIVES_HH
 #define __PRIMITIVES_HH
 
+#include <libgnomecanvasmm/canvas.h>
+#include <libgnomecanvasmm/canvas-group.h>
+#include <libgnomecanvasmm/canvas-rect.h>
+#include <libgnomecanvasmm/canvas-ellipse.h>
+#include <libgnomecanvasmm/canvas-line.h>
+#include <libgnomecanvasmm/canvas-text.h>
+#include <libgnomecanvasmm/canvas-polygon.h>
+#include <libgnomecanvasmm/canvas-widget.h>
+#include <libgnomecanvasmm/pixbuf.h>
+#include <gtkmm/label.h>
+#include <gtkmm/spinbutton.h>
+#include <gtkmm/adjustment.h>
+#include <gtkmm/button.h>
+#include <gtkmm/scrollbar.h>
+#include <gtkmm/frame.h>
+#include <gtkmm/table.h>
 #include <gtkmm/box.h>
-
-namespace Gnome
-{
-    namespace Canvas
-    {
-        class Canvas;
-        class Group;
-        class Item;
-    }
-}
 
 namespace Gtk
 {
     class Adjustment;
 }
 
-class Primitives
-    : public Gtk::VBox
+class Primitives : public Gtk::VBox
 {
 public:
     Primitives (bool aa);
@@ -50,7 +55,7 @@ protected:
     bool itemEvent (GdkEvent* event, Gnome::Canvas::Item* item);
 
     void setupHeading (Gnome::Canvas::Group& root,
-                       const std::string& text,
+                       const Glib::ustring& text,
                        int pos);
     void setupDivisions (Gnome::Canvas::Group& root);
     void setupRectangles (Gnome::Canvas::Group& root);
