@@ -1,3 +1,5 @@
+(include libgnomecanvas_signals.defs)
+
 ;; -*- scheme -*-
 ; object definitions ...
 (define-object Canvas

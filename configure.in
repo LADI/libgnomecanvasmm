@@ -119,6 +119,7 @@ AC_OUTPUT([
 	    libgnomecanvas/libgnomecanvasmm/private/Makefile
 
 	tools/Makefile
+    tools/extra_defs_gen/Makefile
     tools/m4/Makefile
 
 	demos/Makefile
