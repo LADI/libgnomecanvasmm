@@ -7,5 +7,4 @@ config.*
 aclocal.m4
 libtool
 
-libgnomecanvasmm-2.0.pc
 libgnomecanvasmm.spec

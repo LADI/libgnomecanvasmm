@@ -1,0 +1,13 @@
+Makefile
+Makefile.in
+
+canvas-group.cc
+canvas-group.h
+
+canvas-item.cc
+canvas-item.h
+
+canvas.cc
+canvas.h
+
+wrap_init.cc
