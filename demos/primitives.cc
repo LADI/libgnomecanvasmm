@@ -31,6 +31,7 @@
 #include <libgnomecanvasmm/pixbuf.h>
 #include <libgnomecanvasmm/bpath.h>
 #include <libgnomecanvasmm/path-def.h>
+#include <libgnomecanvasmm/properties.h>
 
 Primitives::Primitives(bool aa)
 : Gtk::VBox(false, 4)
@@ -464,16 +465,29 @@ Primitives::setup_texts(Gnome::Canvas::Group& root)
   
   text = manage(new Gnome::Canvas::Text(*make_anchor(root, 
                                                      590.0, 140.0)));
-  text->property_text() = "Clipped text\nClipped text\nClipped text\nClipped text\nClipped text\nClipped text";
-  text->property_x() = 0.0;
-  text->property_y() = 0.0;
-  text->property_font() = "Sans 12";
-  text->property_anchor() = Gtk::ANCHOR_SE;
-  text->property_clip() = true;
-  text->property_clip_width() = 50.0;
-  text->property_clip_height() = 55.0;
-  text->property_x_offset() = 10.0;
-  text->property_fill_color() = "darkgreen";
+
+//   text->property_text() = "Clipped text\nClipped text\nClipped text\nClipped text\nClipped text\nClipped text";
+//   text->property_x() = 0.0;
+//   text->property_y() = 0.0;
+//   text->property_font() = "Sans 12";
+//   text->property_anchor() = Gtk::ANCHOR_SE;
+//   text->property_clip() = true;
+//   text->property_clip_width() = 50.0;
+//   text->property_clip_height() = 55.0;
+//   text->property_x_offset() = 10.0;
+//   text->property_fill_color() = "darkgreen";
+
+  // example for setting values using the properties mechanism
+  *text << Gnome::Canvas::Properties::text ("Clipped text\nClipped text\nClipped text\nClipped text\nClipped text\nClipped text")
+        << Gnome::Canvas::Properties::x (0.0)
+        << Gnome::Canvas::Properties::y (0.0)
+        << Gnome::Canvas::Properties::font ("Sans 12")
+        << Gnome::Canvas::Properties::anchor (Gtk::ANCHOR_SE)
+        << Gnome::Canvas::Properties::clip (true)
+        << Gnome::Canvas::Properties::clip_width (50.0)
+        << Gnome::Canvas::Properties::clip_height (55.0)
+        << Gnome::Canvas::Properties::x_offset (10.0)
+        << Gnome::Canvas::Properties::fill_color ("darkgreen");
 }
 
 
@@ -649,13 +663,24 @@ Primitives::setup_lines(Gnome::Canvas::Group& root)
   points.push_back(Gnome::Art::Point(374.0, 180.0));
   line = manage(new Gnome::Canvas::Line(root));
   line->property_points().set_value(points);
-  line->property_fill_color() = "blue";
-  line->property_width_pixels() = 0;
-  line->property_first_arrowhead() = true;
-  line->property_last_arrowhead() = true;
-  line->property_arrow_shape_a() = 6.0;
-  line->property_arrow_shape_b() = 6.0;
-  line->property_arrow_shape_c() = 4.0;
+
+//   line->property_fill_color() = "blue";
+//   line->property_width_pixels() = 0;
+//   line->property_first_arrowhead() = true;
+//   line->property_last_arrowhead() = true;
+//   line->property_arrow_shape_a() = 6.0;
+//   line->property_arrow_shape_b() = 6.0;
+//   line->property_arrow_shape_c() = 4.0;
+
+  // example for setting values using the properties mechanism
+  *line << Gnome::Canvas::Properties::fill_color ("blue")
+        << Gnome::Canvas::Properties::width_pixels (0)
+        << Gnome::Canvas::Properties::first_arrowhead (true)
+        << Gnome::Canvas::Properties::last_arrowhead (true)
+        << Gnome::Canvas::Properties::arrow_shape_a (6.0)
+        << Gnome::Canvas::Properties::arrow_shape_b (6.0)
+        << Gnome::Canvas::Properties::arrow_shape_c (4.0);
+
   line->signal_event()
       .connect(bind(slot(*this, &Primitives::on_item_event), line));
 }

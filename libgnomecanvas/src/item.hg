@@ -29,7 +29,7 @@
 
 #include <libgnomecanvasmm/point.h>
 #include <libgnomecanvasmm/affinetrans.h>
-#include <libgnomecanvasmm/canvas-property.h>
+#include <libgnomecanvasmm/properties.h>
 
 _DEFS(libgnomecanvasmm,libgnomecanvas)
 _PINCLUDE(gtkmm/private/object_p.h)

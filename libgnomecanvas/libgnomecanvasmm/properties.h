@@ -1,10 +1,10 @@
-#ifndef _LIBGNOMECANVASMM_CANVAS_PROPERTY_H_
-#define _LIBGNOMECANVASMM_CANVAS_PROPERTY_H_
+#ifndef _LIBGNOMECANVASMM_PROPERTIES_H_
+#define _LIBGNOMECANVASMM_PROPERTIES_H_
 
 // -*- c++ -*-
 /* $Id$ */
 
-/* canvas-property.h
+/* properties.h
  *
  * Copyright (C) 1999-2002 The Free Software Foundation
  *
@@ -41,7 +41,6 @@ namespace Canvas
 namespace Properties
 {
 
-//TODO: Put implementation in a .cc file:
 class PropertyBase
 {
 public:
@@ -129,28 +128,18 @@ protected:
 class font : public Property<Pango::FontDescription>  //Used by CanvasText.
 {
 public:
-  font(const Pango::FontDescription& v)
-  : Property<Pango::FontDescription>("font-desc", v)
-  {}
+  font(const Pango::FontDescription& v);
 
-  font(const Glib::ustring& v)
-  : Property<Pango::FontDescription>("font", v)
-  {}
+  font(const Glib::ustring& v);
 };
 
 template<>
-class Property< Glib::RefPtr<Gdk::Bitmap> >  : public PropertyBase
+class Property< Glib::RefPtr<Gdk::Bitmap> > : public PropertyBase
 {
 public:
-  Property(const char* name, const Glib::RefPtr<Gdk::Bitmap>& value)
-  : PropertyBase(name), value_(value)
-  {}
+  Property(const char* name, const Glib::RefPtr<Gdk::Bitmap>& value);
 
-  void set_value_in_object(Glib::Object& object) const
-  {
-    Glib::PropertyProxy< Glib::RefPtr<Gdk::Bitmap> > proxy(&object, get_name());
-    proxy.set_value(value_);
-  }
+  void set_value_in_object(Glib::Object& object) const;
 
 protected:
   Glib::RefPtr<Gdk::Bitmap> value_;
@@ -159,25 +148,17 @@ protected:
 class fill_color : public Property<Gdk::Color>
 {
 public:
-  fill_color(const Gdk::Color& v)
-  : Property<Gdk::Color>("fill_color_gdk",v)
-  {}
+  fill_color(const Gdk::Color& v);
 
-  fill_color(const Glib::ustring& v)
-  : Property<Gdk::Color>("fill_color",v)
-  {}
+  fill_color(const Glib::ustring& v);
 };
 
 class outline_color : public Property<Gdk::Color>
 {
 public:
-  outline_color(const Gdk::Color& v)
-  : Property<Gdk::Color>("outline_color_gdk", v)
-  {}
+  outline_color(const Gdk::Color& v);
 
-  outline_color(const Glib::ustring& v)
-  : Property<Gdk::Color>("outline_color", v)
-  {}
+  outline_color(const Glib::ustring& v);
 };
 
 
@@ -186,9 +167,7 @@ public:
 class N : public Property<T> \
 { \
 public: \
-  N(const T& v) \
-  : Property<T>(#N2, v) \
-  {} \
+  N(const T& v); \
 };
 
 
@@ -200,20 +179,34 @@ GNOMEMM_PROPERTY(cap_style,cap_style,Gdk::CapStyle)
 GNOMEMM_PROPERTY(first_arrowhead,first_arrowhead,bool)
 GNOMEMM_PROPERTY(join_style,join_style,Gdk::JoinStyle)
 GNOMEMM_PROPERTY(last_arrowhead,last_arrowhead,bool)
-GNOMEMM_PROPERTY(line_stype,line_style,Gdk::LineStyle)
+GNOMEMM_PROPERTY(line_style,line_style,Gdk::LineStyle)
 GNOMEMM_PROPERTY(smooth,smooth,bool)
-GNOMEMM_PROPERTY(spline_step,spline_step,guint)
+GNOMEMM_PROPERTY(spline_steps,spline_steps,guint)
 
 // CanvasText
 GNOMEMM_PROPERTY(clip,clip,bool)
 GNOMEMM_PROPERTY(clip_height,clip_height,double)
 GNOMEMM_PROPERTY(clip_width,clip_width,double)
 GNOMEMM_PROPERTY(justification,justification,Gtk::Justification)
+GNOMEMM_PROPERTY(direction,direction,Gtk::DirectionType)
+GNOMEMM_PROPERTY(wrap_mode,wrap_mode,Gtk::WrapMode)
 GNOMEMM_PROPERTY(text_height,text_height,double)
 GNOMEMM_PROPERTY(text_width,text_width,double)
 GNOMEMM_PROPERTY(x_offset,x_offset,double)
 GNOMEMM_PROPERTY(y_offset,y_offset,double)
-//FIXME: fontset
+GNOMEMM_PROPERTY(text,text,Glib::ustring)
+GNOMEMM_PROPERTY(markup,markup,Glib::ustring)
+GNOMEMM_PROPERTY(editable,editable,bool)
+GNOMEMM_PROPERTY(visible,visible,bool)
+GNOMEMM_PROPERTY(cursor_visible,cursor_visible,bool)
+GNOMEMM_PROPERTY(cursor_blink,cursor_blink,bool)
+GNOMEMM_PROPERTY(grow_height,grow_height,bool)
+GNOMEMM_PROPERTY(pixels_above_lines,pixels_above_lines,int)
+GNOMEMM_PROPERTY(pixels_below_lines,pixels_below_lines,int)
+GNOMEMM_PROPERTY(pixels_inside_wrap,pixels_inside_wrap,int)
+GNOMEMM_PROPERTY(left_margin,left_margin,int)
+GNOMEMM_PROPERTY(right_margin,right_margin,int)
+GNOMEMM_PROPERTY(indent,indent,int)
 
 // CanvasWidget
 GNOMEMM_PROPERTY(size_pixels,size_pixels,bool)
@@ -233,6 +226,8 @@ GNOMEMM_PROPERTY(anchor,anchor,Gtk::AnchorType)
 
 // CanvasPolygon, CanvasRect, CanvasEllipse
 GNOMEMM_PROPERTY(outline_stipple,outline_stipple,Glib::RefPtr<Gdk::Bitmap>)
+GNOMEMM_PROPERTY(wind,wind,guint)
+GNOMEMM_PROPERTY(miterlimit,miterlimit,double)
 
 // CanvasLine, CanvasPolygon, CanvasRect, CanvasEllipse
 GNOMEMM_PROPERTY(width_pixels,width_pixels,guint)
@@ -249,5 +244,5 @@ GNOMEMM_PROPERTY(fill_stipple,fill_stipple,Glib::RefPtr<Gdk::Bitmap>)
 } /* namespace Canvas */
 } /* namespace Gnome */
 
-#endif /* _LIBGNOMECANVASMM_PROPERTY_H_ */
+#endif /* _LIBGNOMECANVASMM_PROPERTIES_H_ */
 

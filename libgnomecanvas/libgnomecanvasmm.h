@@ -29,7 +29,7 @@ extern const int libgnomecanvasmm_micro_version;
 #include <gtkmm.h>
 
 #include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-property.h>
+#include <libgnomecanvasmm/properties.h>
 #include <libgnomecanvasmm/group.h>
 #include <libgnomecanvasmm/init.h>
 #include <libgnomecanvasmm/line.h>

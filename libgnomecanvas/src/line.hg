@@ -23,7 +23,6 @@
  */
 
 #include <libgnomecanvasmm/item.h>
-#include <libgnomecanvasmm/canvas-property.h>
 #include <libgnomecanvas/gnome-canvas-line.h>
 #include <libgnomecanvas/gnome-canvas-util.h>
 #include <libgnomecanvas/libgnomecanvas.h>

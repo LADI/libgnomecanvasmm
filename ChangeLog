@@ -1,4 +1,10 @@
-2002-12-09  Andreas Holzmann  <Andreas.Holzmann@epost.de>
+2002-12-10  Andreas Holzmann  <Andreas.Holzmann@epost.de>
+
+	* Properties: Files renamed to be more conform with the rest,
+	moved implementation from header into implementation file,
+	some typos fixed, some properties added.
+
+2002-12-09  Andreas Holzmann  <Andreas.Holzmann@epost.de>	
 
 	* libgnomecanvas/src/rich-text.[ccg|hg]: Replaced 
 	void get_iter_at_location(const Gtk::TextIter&, int, int) with
