@@ -7,5 +7,5 @@ Name: libgnomecanvasmm
 Description: C++ wrapper for libgnomecanvas
 Requires: gtkmm-2.4 >= @GTKMM_VERSION_NEEDED@  libgnomecanvas-2.0 >= @LIBGNOMECANVAS_VERSION_NEEDED@
 Version: @VERSION@
-Libs: -L${libdir} -lgnomecanvasmm-2.5
+Libs: -L${libdir} -lgnomecanvasmm-2.6
 Cflags: -I${includedir}/libgnomecanvasmm-2.6 -I${libdir}/libgnomecanvasmm-2.6/include
