@@ -36,11 +36,22 @@ namespace Gnome
 namespace Canvas
 {
 
+//This function creates an empty va_list instead of just passing 0 to gnome_canvas_item_construct().
+//This is necessary on the alpha platform.
+//It needs to be a separate helper function because we need a ... argument. 
+static void
+item_construct_helper(GnomeCanvasItem *item, GnomeCanvasGroup *group, ...)
+{
+  va_list va;
+  va_start(va, group);
+  gnome_canvas_item_construct(item, group, 0, va);
+  va_end(va);
+}
+
 void
 Item::item_construct(Group& group)
 {
-  gnome_canvas_item_construct(GNOME_CANVAS_ITEM(gobj()), group.gobj(),
-                              0, 0);
+  item_construct_helper(GNOME_CANVAS_ITEM(gobj()), group.gobj()); //With no ... arguments.
 }
 
 void

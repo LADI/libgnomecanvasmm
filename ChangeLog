@@ -1,3 +1,10 @@
+2005-02-02  Bradley Bell  <btb@debian.org>
+
+	* libgnomecanvasmm/src/item.ccg: item_construct(): Use an extra 
+	helper function to create an empty va_list, instead of passing 0 to 
+	gnome_canvas_item_construct(). Needed by the alpha platform. 
+	Bug # 136930.
+	
 2.8.0:
 	
 2004-09-12  Murray Cumming  <murrayc@murrayc.com>
