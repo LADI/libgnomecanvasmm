@@ -1,3 +1,5 @@
+2.6.0:
+
 2004-04-12  Bryan Forbes  <bryan@reigndropsfall.net>
 
 	* tools/extra_defs_gen/Makefile.am: link against the 2.4 release of glibmm.

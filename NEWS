@@ -1,3 +1,7 @@
+2.6.0:
+
+Increased version.
+
 2.5.2:
 
 * Canvas: set_dither(), get_dither(): Use C++ enum instead of C enum.
