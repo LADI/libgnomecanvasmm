@@ -1,5 +1,5 @@
-#ifndef _LIBGNOMEUIMM_WRAP_INIT_H
-#define _LIBGNOMEUIMM_WRAP_INIT_H
+#ifndef _LIBGNOMECANVASMM_WRAP_INIT_H
+#define _LIBGNOMECANVASMM_WRAP_INIT_H
 
 /* wrap_init.h
  *
@@ -33,4 +33,4 @@ void wrap_init();
 } /* namespace Canvas */
 } /* namespace Gnome */
 
-#endif // _LIBGNOMEUIMM_WRAP_INIT_H
+#endif // _LIBGNOMECANVASMM_WRAP_INIT_H

@@ -29,11 +29,12 @@ namespace Canvas
 
 void init()
 {
-  if (!Glib::quark_) //If init_gtkmm_internals hasn't already been called, or therefore if this hasn't already been called.
-  {
+  //Commented-out this check, because I don't know why it's there. init_gtkmm_internals and wrap_init() can be called multiple times without problems.
+  //if (!Glib::quark_) //If init_gtkmm_internals hasn't already been called, or therefore if this hasn't already been called.
+  //{
     Gtk::Main::init_gtkmm_internals(); //Sets up the g type system and the Glib::wrap() table.
     wrap_init(); //Tells the Glib::wrap() table about the libgnomecanvasmm classes.
-  }
+  //}
 }
 
 } /* namespace Canvas */
