@@ -138,7 +138,7 @@ public:
   //: coordinates are in the canvas world coordinate system.
   _WRAP_SIGNAL(bool event(GdkEvent*), "event")
 
-  _WRAP_PROPERTY("parent", Group)
+  _WRAP_PROPERTY("parent", Group*)
 
 protected:
 

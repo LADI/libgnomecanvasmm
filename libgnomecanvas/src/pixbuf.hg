@@ -22,6 +22,7 @@
  */
 
 #include <gdkmm/pixbuf.h>
+#include <gtkmm/enums.h>
 #include <libgnomecanvasmm/item.h>
 #include <libgnomecanvas/gnome-canvas-pixbuf.h>
 _DEFS(libgnomecanvasmm,libgnomecanvas)
@@ -51,7 +52,7 @@ public:
   _WRAP_PROPERTY("x-in-pixels", bool)
   _WRAP_PROPERTY("y", double)
   _WRAP_PROPERTY("y-in-pixels", bool)
-  _WRAP_PROPERTY("anchor", GtkAnchorType)
+  _WRAP_PROPERTY("anchor", Gtk::AnchorType)
 };
 
 } /* namespace Canvas */

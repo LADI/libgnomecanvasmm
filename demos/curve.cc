@@ -74,11 +74,11 @@ Curve::create_canvas(bool aa)
                                        270.0, 6.0,
                                        aa ? "AntiAlias" : "Non-AntiAlias"));
   text->property_font() = "Sans 12";
-  text->property_anchor() = GTK_ANCHOR_N;
+  text->property_anchor() = Gtk::ANCHOR_N;
   text->property_fill_color() = "black";
 
   Gtk::Frame* frame = manage(new Gtk::Frame());
-  frame->set_shadow_type(GTK_SHADOW_IN);
+  frame->set_shadow_type(Gtk::SHADOW_IN);
   frame->add(*canvas);
 
   return frame;
@@ -168,16 +168,17 @@ Curve::draw_curve(Gnome::Canvas::Canvas& canvas, double x, double y)
   case STATE_FIRST_PRESS: {
     m_points[1] = Gnome::Art::Point(x, y);
     
-    Gnome::Canvas::PathDef path;
+    Glib::RefPtr<Gnome::Canvas::PathDef> path 
+        = Gnome::Canvas::PathDef::create();
     
-    path.moveto(m_points[0].get_x(), m_points[0].get_y());
-    path.lineto(m_points[1].get_x(), m_points[1].get_y());
+    path->moveto(m_points[0].get_x(), m_points[0].get_y());
+    path->lineto(m_points[1].get_x(), m_points[1].get_y());
     
     if(m_current_item == NULL) {
       m_current_item = manage(new Gnome::Canvas::Bpath(*canvas.root()));
       m_current_item->property_outline_color() = "blue";
       m_current_item->property_width_pixels() = 5;
-      m_current_item->property_cap_style() = GDK_CAP_ROUND;
+      m_current_item->property_cap_style() = Gdk::CAP_ROUND;
       
       m_current_item->signal_event()
           .connect(bind(slot(*this, &Curve::on_item_event), m_current_item));
@@ -192,12 +193,13 @@ Curve::draw_curve(Gnome::Canvas::Canvas& canvas, double x, double y)
     
     m_points[2] = Gnome::Art::Point(x, y);
     
-    Gnome::Canvas::PathDef path;
+    Glib::RefPtr<Gnome::Canvas::PathDef> path 
+        = Gnome::Canvas::PathDef::create();
     
-    path.moveto(m_points[0].get_x(), m_points[0].get_y());
-    path.curveto(m_points[2].get_x(), m_points[2].get_y(),
-                 m_points[2].get_x(), m_points[2].get_y(),
-                 m_points[1].get_x(), m_points[1].get_y());
+    path->moveto(m_points[0].get_x(), m_points[0].get_y());
+    path->curveto(m_points[2].get_x(), m_points[2].get_y(),
+                  m_points[2].get_x(), m_points[2].get_y(),
+                  m_points[1].get_x(), m_points[1].get_y());
     
     m_current_item->set_bpath(path);
     break;
@@ -207,12 +209,13 @@ Curve::draw_curve(Gnome::Canvas::Canvas& canvas, double x, double y)
     
     m_points[3] = Gnome::Art::Point(x, y);
     
-    Gnome::Canvas::PathDef path;
+    Glib::RefPtr<Gnome::Canvas::PathDef> path 
+        = Gnome::Canvas::PathDef::create();
     
-    path.moveto(m_points[0].get_x(), m_points[0].get_y());
-    path.curveto(m_points[2].get_x(), m_points[2].get_y(),
-                 m_points[3].get_x(), m_points[3].get_y(),
-                 m_points[1].get_x(), m_points[1].get_y());
+    path->moveto(m_points[0].get_x(), m_points[0].get_y());
+    path->curveto(m_points[2].get_x(), m_points[2].get_y(),
+                  m_points[3].get_x(), m_points[3].get_y(),
+                  m_points[1].get_x(), m_points[1].get_y());
     
     m_current_item->set_bpath(path);
     

@@ -38,7 +38,6 @@ protected:
 };
 
 MainWin::MainWin()
-: Gtk::Window(GTK_WINDOW_TOPLEVEL)
 {
   using namespace Gtk::Notebook_Helpers;
   

@@ -26,6 +26,7 @@
 #include <libgnomecanvasmm/canvas-property.h>
 #include <libgnomecanvas/gnome-canvas-line.h>
 #include <libgnomecanvas/gnome-canvas-util.h>
+#include <libgnomecanvas/libgnomecanvas.h>
 #include <vector>
 _DEFS(libgnomecanvasmm,libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/item_p.h)
@@ -71,6 +72,7 @@ public:
 
   const GnomeCanvasPoints* gobj() const { return _gobj(); }
   GnomeCanvasPoints* gobj() { return _gobj(); }
+  static GType get_type () { return GNOME_TYPE_CANVAS_POINTS; }
 
 protected:
   GnomeCanvasPoints* _gobj() const;
@@ -89,12 +91,12 @@ public:
   _WRAP_PROPERTY("fill-color", Glib::ustring)
   _WRAP_PROPERTY("fill-color-gdk", Gdk::Color)
   _WRAP_PROPERTY("fill-color-rgba", guint)
-  _WRAP_PROPERTY("fill-stipple", Gdk::Drawable)
+  _WRAP_PROPERTY("fill-stipple", Glib::RefPtr<Gdk::Drawable>)
   _WRAP_PROPERTY("width-pixels", guint)
   _WRAP_PROPERTY("width-units", double)
-  _WRAP_PROPERTY("cap-style", GdkCapStyle)
-  _WRAP_PROPERTY("join-style", GdkJoinStyle)
-  _WRAP_PROPERTY("line-style", GdkLineStyle)
+  _WRAP_PROPERTY("cap-style", Gdk::CapStyle)
+  _WRAP_PROPERTY("join-style", Gdk::JoinStyle)
+  _WRAP_PROPERTY("line-style", Gdk::LineStyle)
   _WRAP_PROPERTY("first-arrowhead", bool)
   _WRAP_PROPERTY("last-arrowhead", bool)
   _WRAP_PROPERTY("smooth", bool)

@@ -1,3 +1,8 @@
+2002-04-04  Andreas Holzmann  <Andreas.Holzmann@epost.de>
+
+	* Use new Glib::Value and Glib::PropertyProxy implementation.
+	* Use new namespace enums.
+	
 2002-04-01  Murray Cumming  <murrayc@usa.net>
 
 	* Use new _DEFS() format in *.hg.

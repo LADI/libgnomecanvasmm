@@ -41,6 +41,7 @@ class PathDef
   _IGNORE(gnome_canvas_path_def_ref, gnome_canvas_path_def_unref, gnome_canvas_path_def_copy, gnome_canvas_path_def_duplicate)
 
 public:
+  _WRAP_METHOD(static Glib::RefPtr<PathDef> create(), gnome_canvas_path_def_new)
   _WRAP_METHOD(static Glib::RefPtr<PathDef> create(int length), gnome_canvas_path_def_new_sized)
   _WRAP_METHOD(static Glib::RefPtr<PathDef> create(ArtBpath& bpath), gnome_canvas_path_def_new_from_bpath)
 

@@ -42,7 +42,7 @@ public:
   // This property stores a pointer to GnomeCanvasPathDef
   _WRAP_PROPERTY("bpath", gpointer)
 
-  void set_bpath(const PathDef& path);
+  void set_bpath(const Glib::RefPtr<PathDef>& path);
 };
 
 } /* namespace Canvas */

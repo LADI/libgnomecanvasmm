@@ -36,7 +36,7 @@ Richtext::Richtext()
   pack_start(*alignment, true, true, 0);
   
   Gtk::Frame* frame = manage(new Gtk::Frame());
-  frame->set_shadow_type(GTK_SHADOW_IN);
+  frame->set_shadow_type(Gtk::SHADOW_IN);
   alignment->add(*frame);
   
   Gnome::Canvas::Canvas* canvas = manage(new Gnome::Canvas::Canvas());

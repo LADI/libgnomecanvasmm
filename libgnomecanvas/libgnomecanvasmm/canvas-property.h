@@ -25,11 +25,12 @@
 
 //#include <gtk/gtkpacker.h> //For GtkAnchorType.
 
+
 #include <glibmm/propertyproxy.h>
 #include <gdkmm/color.h>
 #include <gdkmm/pixmap.h>
 #include <pangomm/fontdescription.h>
-#include <gtk/gtkenums.h>
+#include <gtkmm/enums.h>
 
 namespace Gnome
 {
@@ -113,7 +114,7 @@ public:
     }
     else if(value_gobj_used_)
     {
-      Glib::PropertyProxy_Boxed<Gdk::Color> proxy(&object, get_name());
+      Glib::PropertyProxy<Gdk::Color> proxy(&object, get_name());
       proxy.set_value(value_);
     }
     else
@@ -152,7 +153,7 @@ public:
     }
     else
     {
-      Glib::PropertyProxy_Boxed<Pango::FontDescription> proxy(&object, get_name());
+      Glib::PropertyProxy<Pango::FontDescription> proxy(&object, get_name());
       proxy.set_value(value_);
     }
   }
@@ -190,7 +191,7 @@ public:
 
   void set_value_in_object(Glib::Object& object) const
   {
-    Glib::PropertyProxy_RefPtr<Gdk::Pixmap> proxy(&object, get_name());
+    Glib::PropertyProxy< Glib::RefPtr<Gdk::Pixmap> > proxy(&object, get_name());
     proxy.set_value(value_);
   }
 
@@ -238,11 +239,11 @@ public: \
 GNOMEMM_PROPERTY(arrow_shape_a,arrow_shape_a,double)
 GNOMEMM_PROPERTY(arrow_shape_b,arrow_shape_b,double)
 GNOMEMM_PROPERTY(arrow_shape_c,arrow_shape_c,double)
-GNOMEMM_PROPERTY(cap_style,cap_style,GdkCapStyle)
+GNOMEMM_PROPERTY(cap_style,cap_style,Gdk::CapStyle)
 GNOMEMM_PROPERTY(first_arrowhead,first_arrowhead,bool)
-GNOMEMM_PROPERTY(join_style,join_style,GdkJoinStyle)
+GNOMEMM_PROPERTY(join_style,join_style,Gdk::JoinStyle)
 GNOMEMM_PROPERTY(last_arrowhead,last_arrowhead,bool)
-GNOMEMM_PROPERTY(line_stype,line_style,GdkLineStyle)
+GNOMEMM_PROPERTY(line_stype,line_style,Gdk::LineStyle)
 GNOMEMM_PROPERTY(smooth,smooth,bool)
 GNOMEMM_PROPERTY(spline_step,spline_step,guint)
 
@@ -250,7 +251,7 @@ GNOMEMM_PROPERTY(spline_step,spline_step,guint)
 GNOMEMM_PROPERTY(clip,clip,bool)
 GNOMEMM_PROPERTY(clip_height,clip_height,double)
 GNOMEMM_PROPERTY(clip_width,clip_width,double)
-GNOMEMM_PROPERTY(justification,justification,GtkJustification)
+GNOMEMM_PROPERTY(justification,justification,Gtk::Justification)
 GNOMEMM_PROPERTY(text_height,text_height,double)
 GNOMEMM_PROPERTY(text_width,text_width,double)
 GNOMEMM_PROPERTY(x_offset,x_offset,double)
@@ -271,7 +272,7 @@ GNOMEMM_PROPERTY(y1,y1,double)
 GNOMEMM_PROPERTY(y2,y2,double)
 
 // CanvasImage, CanvasText, CanvasWidget
-GNOMEMM_PROPERTY(anchor,anchor,GtkAnchorType)
+GNOMEMM_PROPERTY(anchor,anchor,Gtk::AnchorType)
 
 // CanvasPolygon, CanvasRect, CanvasEllipse
 GNOMEMM_PROPERTY(outline_stipple,outline_stipple,Glib::RefPtr<Gdk::Pixmap>)

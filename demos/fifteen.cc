@@ -34,7 +34,7 @@ Fifteen::Fifteen()
   pack_start(*alignment, true, true, 0);
   
   Gtk::Frame* frame = manage(new Gtk::Frame());
-  frame->set_shadow_type(GTK_SHADOW_IN);
+  frame->set_shadow_type(Gtk::SHADOW_IN);
   alignment->add(*frame);
   
   m_canvas = manage(new Gnome::Canvas::Canvas());
@@ -68,7 +68,7 @@ Fifteen::Fifteen()
                                            PIECE_SIZE / 2.0,
                                            buf));
       text->property_font() = "Sans bold 24";
-      text->property_anchor() = GTK_ANCHOR_CENTER;
+      text->property_anchor() = Gtk::ANCHOR_CENTER;
       text->property_fill_color() = "black";
       
       m_board.back()->signal_event()

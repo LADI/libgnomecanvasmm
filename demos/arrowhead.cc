@@ -71,7 +71,7 @@ DragBox::on_event(GdkEvent* event)
       
   case GDK_BUTTON_PRESS:
     grab(GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK,
-         Gdk::Cursor(GDK_FLEUR),
+         Gdk::Cursor(Gdk::FLEUR),
          event->button.time);
     break;
       
@@ -87,7 +87,7 @@ DragBox::on_event(GdkEvent* event)
 }
 
 
-Dimension::Dimension(Gnome::Canvas::Group& root, GtkAnchorType anchor)
+Dimension::Dimension(Gnome::Canvas::Group& root, Gtk::AnchorType anchor)
 : m_line(NULL),
   m_text(NULL)
 {
@@ -166,7 +166,7 @@ Arrowhead::Arrowhead()
   pack_start(*alignment, true, true, 0);
   
   Gtk::Frame* frame = manage(new Gtk::Frame());
-  frame->set_shadow_type(GTK_SHADOW_IN);
+  frame->set_shadow_type(Gtk::SHADOW_IN);
   alignment->add(*frame);
   
   Gnome::Canvas::Canvas* canvas = manage(new Gnome::Canvas::Canvas());
@@ -187,8 +187,8 @@ Arrowhead::Arrowhead()
   m_outline = manage(new Gnome::Canvas::Line(*canvas->root()));
   m_outline->property_fill_color() = "black";
   m_outline->property_width_pixels() = 2;
-  m_outline->property_cap_style() = GDK_CAP_ROUND;
-  m_outline->property_join_style() = GDK_JOIN_ROUND;
+  m_outline->property_cap_style() = Gdk::CAP_ROUND;
+  m_outline->property_join_style() = Gdk::JOIN_ROUND;
   
   // Drag boxes
   m_width_drag_box = manage(new DragBox(*canvas->root()));
@@ -205,10 +205,10 @@ Arrowhead::Arrowhead()
                     m_shape_b_c_drag_box));
   
   // Dimension
-  m_width_arrow = new Dimension(*canvas->root(), GTK_ANCHOR_E);
-  m_shape_a_arrow = new Dimension(*canvas->root(), GTK_ANCHOR_N);
-  m_shape_b_arrow = new Dimension(*canvas->root(), GTK_ANCHOR_N);
-  m_shape_c_arrow = new Dimension(*canvas->root(), GTK_ANCHOR_W);
+  m_width_arrow = new Dimension(*canvas->root(), Gtk::ANCHOR_E);
+  m_shape_a_arrow = new Dimension(*canvas->root(), Gtk::ANCHOR_N);
+  m_shape_b_arrow = new Dimension(*canvas->root(), Gtk::ANCHOR_N);
+  m_shape_c_arrow = new Dimension(*canvas->root(), Gtk::ANCHOR_W);
   
   // Info
   m_width_info = create_info(*canvas->root(), LEFT, 260);
@@ -257,7 +257,7 @@ Arrowhead::create_info(Gnome::Canvas::Group& root, double x, double y)
   text->property_y() = y;
   text->property_fill_color() = "black";
   text->property_font() = "Sans 14";
-  text->property_anchor() = GTK_ANCHOR_NW;
+  text->property_anchor() = Gtk::ANCHOR_NW;
   
   return text;
 }

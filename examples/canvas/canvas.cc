@@ -37,7 +37,7 @@ CanvasExample::CanvasExample()
   m_line = new Gnome::Canvas::Line(m_canvasgroup, m_points);
   *m_line << Properties::fill_color("red")
           << Properties::width_units(4.0)
-          << Properties::cap_style(GDK_CAP_ROUND);
+          << Properties::cap_style(Gdk::CAP_ROUND);
 
   m_ellipse = new Gnome::Canvas::Ellipse(m_canvasgroup, 0, 0, 100, 100);
   *m_ellipse << Properties::fill_color("blue");
@@ -77,7 +77,6 @@ protected:
 };
 
 MainWin::MainWin(const std::string& title)
-: Gtk::Window(GTK_WINDOW_TOPLEVEL)
 {
   set_title (title);
   add(m_canvas);

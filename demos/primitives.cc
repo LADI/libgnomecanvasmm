@@ -59,10 +59,10 @@ Primitives::Primitives(bool aa)
   table->set_col_spacings(4);
   
   Gtk::Frame* frame = manage(new Gtk::Frame());
-  frame->set_shadow_type(GTK_SHADOW_IN);
+  frame->set_shadow_type(Gtk::SHADOW_IN);
   table->attach(*frame, 0, 1, 0, 1, 
-                GtkAttachOptions(GTK_EXPAND | GTK_FILL | GTK_SHRINK),
-                GtkAttachOptions(GTK_EXPAND | GTK_FILL | GTK_SHRINK));
+                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::SHRINK),
+                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::SHRINK));
   
   Gnome::Canvas::Canvas* canvas;
   if(aa == true) {
@@ -81,14 +81,14 @@ Primitives::Primitives(bool aa)
   Gtk::HScrollbar* hscroll 
       = manage(new Gtk::HScrollbar(*canvas->get_hadjustment()));
   table->attach(*hscroll, 0, 1, 1, 2,
-                GtkAttachOptions(GTK_EXPAND | GTK_FILL | GTK_SHRINK),
-                GtkAttachOptions(GTK_FILL));
+                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::SHRINK),
+                Gtk::AttachOptions(Gtk::FILL));
   
   Gtk::VScrollbar* vscroll 
       = manage(new Gtk::VScrollbar(*canvas->get_vadjustment()));
   table->attach(*vscroll, 1, 2, 0, 1,
-                GtkAttachOptions(GTK_FILL),
-                GtkAttachOptions(GTK_EXPAND | GTK_FILL | GTK_SHRINK));
+                Gtk::AttachOptions(Gtk::FILL),
+                Gtk::AttachOptions(Gtk::EXPAND | Gtk::FILL | Gtk::SHRINK));
   
   spin_adj->signal_value_changed()
       .connect(bind(slot(*this, &Primitives::on_zoom_changed),
@@ -165,7 +165,7 @@ Primitives::on_item_event(GdkEvent* event, Gnome::Canvas::Item* item)
         y = item_y;
         
         item->grab(GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK,
-                   Gdk::Cursor(GDK_FLEUR),
+                   Gdk::Cursor(Gdk::FLEUR),
                    event->button.time);
         dragging = true;
       }
@@ -227,7 +227,7 @@ Primitives::setup_heading(Gnome::Canvas::Group& root,
   text->property_x() =(double)((pos % 3) * 200 + 100);
   text->property_y() =(double)((pos / 3) * 150 + 5);
   text->property_font() = "Sans 12";
-  text->property_anchor() = GTK_ANCHOR_N;
+  text->property_anchor() = Gtk::ANCHOR_N;
   text->property_fill_color() = "black";
 }
 
@@ -434,7 +434,7 @@ Primitives::setup_texts(Gnome::Canvas::Group& root)
     text->property_x() = 0.0;
     text->property_y() = 0.0;
     text->property_font() = "Sans Bold 24";
-    text->property_anchor() = GTK_ANCHOR_NW;
+    text->property_anchor() = Gtk::ANCHOR_NW;
     text->property_fill_color_rgba() = 0x0000ff80;
   } else {
     text = manage(new Gnome::Canvas::Text(*make_anchor(root, 
@@ -443,7 +443,7 @@ Primitives::setup_texts(Gnome::Canvas::Group& root)
     text->property_x() = 0.0;
     text->property_y() = 0.0;
     text->property_font() = "Sans Bold 24";
-    text->property_anchor() = GTK_ANCHOR_NW;
+    text->property_anchor() = Gtk::ANCHOR_NW;
     text->property_fill_color() = "blue";
     text->property_fill_stipple() 
         .set_value(Gdk::Bitmap::create(gray50_bits,
@@ -457,8 +457,8 @@ Primitives::setup_texts(Gnome::Canvas::Group& root)
   text->property_x() = 0.0;
   text->property_y() = 0.0;
   text->property_font() = "monospace bold 14";
-  text->property_anchor() = GTK_ANCHOR_CENTER;
-  text->property_justification() = GTK_JUSTIFY_CENTER;
+  text->property_anchor() = Gtk::ANCHOR_CENTER;
+  text->property_justification() = Gtk::JUSTIFY_CENTER;
   text->property_fill_color() = "firebrick";
   
   text = manage(new Gnome::Canvas::Text(*make_anchor(root, 
@@ -467,7 +467,7 @@ Primitives::setup_texts(Gnome::Canvas::Group& root)
   text->property_x() = 0.0;
   text->property_y() = 0.0;
   text->property_font() = "Sans 12";
-  text->property_anchor() = GTK_ANCHOR_SE;
+  text->property_anchor() = Gtk::ANCHOR_SE;
   text->property_clip() = true;
   text->property_clip_width() = 50.0;
   text->property_clip_height() = 55.0;
@@ -538,7 +538,7 @@ Primitives::polish_diamond(Gnome::Canvas::Group& root)
       line->property_points().set_value(points);
       line->property_fill_color() = "black";
       line->property_width_units() = 1.0;
-      line->property_cap_style() = GDK_CAP_ROUND;
+      line->property_cap_style() = Gdk::CAP_ROUND;
     }
   }
 }
@@ -583,8 +583,8 @@ Primitives::make_hilbert(Gnome::Canvas::Group& root)
     line->property_points().set_value(points);
     line->property_fill_color_rgba() = 0xff000080;
     line->property_width_units() = 4.0;
-    line->property_cap_style() = GDK_CAP_PROJECTING;
-    line->property_join_style() = GDK_JOIN_MITER;
+    line->property_cap_style() = Gdk::CAP_PROJECTING;
+    line->property_join_style() = Gdk::JOIN_MITER;
     line->signal_event()
         .connect(bind(slot(*this, &Primitives::on_item_event), line));
   } else {
@@ -596,8 +596,8 @@ Primitives::make_hilbert(Gnome::Canvas::Group& root)
                                        gray50_width,
                                        gray50_height));
     line->property_width_units() = 4.0;
-    line->property_cap_style() = GDK_CAP_PROJECTING;
-    line->property_join_style() = GDK_JOIN_MITER;
+    line->property_cap_style() = Gdk::CAP_PROJECTING;
+    line->property_join_style() = Gdk::JOIN_MITER;
     line->signal_event()
         .connect(bind(slot(*this, &Primitives::on_item_event), line));
   }
@@ -718,9 +718,10 @@ Primitives::setup_polygons(Gnome::Canvas::Group& root)
 void
 Primitives::setup_curves(Gnome::Canvas::Group& root)
 {
-  Gnome::Canvas::PathDef pathdef;
-  pathdef.moveto(500.0, 175.0);
-  pathdef.curveto(550.0, 175.0, 550.0, 275.0, 500.0, 275.0);
+  Glib::RefPtr<Gnome::Canvas::PathDef> pathdef 
+      = Gnome::Canvas::PathDef::create();
+  pathdef->moveto(500.0, 175.0);
+  pathdef->curveto(550.0, 175.0, 550.0, 275.0, 500.0, 275.0);
   Gnome::Canvas::Bpath* bpath
       = manage(new Gnome::Canvas::Bpath(root));
   bpath->set_bpath(pathdef);
@@ -741,7 +742,7 @@ Primitives::setup_widgets(Gnome::Canvas::Group& root)
 //     widget->property_y() = 330.0;
   widget->property_width() = 100.0;
   widget->property_height() = 40.0;
-  widget->property_anchor() = GTK_ANCHOR_NW;
+  widget->property_anchor() = Gtk::ANCHOR_NW;
   widget->property_size_pixels() = false;
   widget->signal_event()
       .connect(bind(slot(*this, &Primitives::on_item_event), widget));

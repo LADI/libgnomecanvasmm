@@ -47,7 +47,7 @@ protected:
 class Dimension
 {
 public:
-  Dimension(Gnome::Canvas::Group& root, GtkAnchorType anchor);
+  Dimension(Gnome::Canvas::Group& root, Gtk::AnchorType anchor);
   ~Dimension();
 
   void set_dimension(double x1, double y1, 

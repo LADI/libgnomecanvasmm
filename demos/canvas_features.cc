@@ -35,7 +35,7 @@ Features::Features()
   pack_start(*alignment, false, false, 0);
   
   Gtk::Frame* frame = manage(new Gtk::Frame());
-  frame->set_shadow_type(GTK_SHADOW_IN);
+  frame->set_shadow_type(Gtk::SHADOW_IN);
   alignment->add(*frame);
   
   Gnome::Canvas::Canvas* canvas = manage(new Gnome::Canvas::Canvas());
@@ -110,7 +110,7 @@ Features::on_item_event(GdkEvent* event,
       return false;
   }
   
-  if(item->property_parent().get_value().operator->() == m_parent1) {
+  if(item->property_parent().get_value() == m_parent1) {
       item->reparent(*m_parent2);
   } else {
       item->reparent(*m_parent1);

@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
   Gnome::Canvas::init();
   Gtk::Main canvasmain(argc, argv);
   
-  Gtk::Window window(GTK_WINDOW_TOPLEVEL);
+  Gtk::Window window;
 	
   Gnome::Canvas::Canvas *canvas = Gtk::manage(new Gnome::Canvas::Canvas());
   window.set_default_size(600, 500);

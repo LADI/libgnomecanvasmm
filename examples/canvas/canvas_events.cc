@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
   Gnome::Canvas::init();
   Gtk::Main canvasmain(argc, argv);
   
-  Gtk::Window window(GTK_WINDOW_TOPLEVEL);
+  Gtk::Window window;
 	
   Gnome::Canvas::Canvas *canvas = manage(new Gnome::Canvas::Canvas());
 

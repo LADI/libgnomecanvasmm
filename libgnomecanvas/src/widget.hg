@@ -48,7 +48,7 @@ public:
   _WRAP_PROPERTY("y", double)
   _WRAP_PROPERTY("width", double)
   _WRAP_PROPERTY("height", double)
-  _WRAP_PROPERTY("anchor", GtkAnchorType)
+  _WRAP_PROPERTY("anchor", Gtk::AnchorType)
   _WRAP_PROPERTY("size-pixels", bool)
 };
 
