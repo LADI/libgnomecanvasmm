@@ -1,3 +1,7 @@
+2004-02-07  Alexander Nedotsukov <bland@FreeBSD.org>
+
+ 	* Fixed m4 files installation directory missed after 2.0 -> 2.6 change.
+
 2.5.1:
  
 2004-02-13  Murray Cumming  <murrayc@usa.net>
