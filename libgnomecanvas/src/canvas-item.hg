@@ -24,16 +24,12 @@
  */
 
 #include <gtkmm/object.h>
+#include <gdkmm/cursor.h>
+#include <libgnomecanvas/gnome-canvas.h>
 
-//Art:
 #include <libgnomecanvasmm/point.h>
 #include <libgnomecanvasmm/affinetrans.h>
 #include <libgnomecanvasmm/canvas-property.h>
-
-#include <gdkmm/cursor.h>
-
-#include <libgnomecanvas/gnome-canvas.h>
-
 
 _DEFS(libgnomecanvas,gnomecanvasitem)
 _PINCLUDE(gtkmm/private/object_p.h)
@@ -43,13 +39,12 @@ namespace Gnome
 
 class Canvas;
 class CanvasGroup;
-struct CanvasItem_private;
 
 class CanvasItem : public Gtk::Object
 {
   _CLASS_GTKOBJECT(CanvasItem, GnomeCanvasItem,
-             GNOME_CANVAS_ITEM,
-             Gtk::Object, GtkObject)
+                  GNOME_CANVAS_ITEM,
+                  Gtk::Object, GtkObject)
 
   friend class Gnome::CanvasHelpers::Properties;
 public:
@@ -112,8 +107,7 @@ public:
   //: Apply an absolute affine transformation to the item
   void affine_absolute(const Art::AffineTrans &affine);
 
-
-  //  // Those are present in the header file but not in the libgnomeui library !
+  //  // Those are present in the header file but not in the libgnomecanvas library !
   //  //: Scale an item about a point by the specified factors
   //  _WRAP_METHOD(void gnome_canvas_item_scale(GnomeCanvasItem *, double,
   //                                         double, double, double),
@@ -135,7 +129,7 @@ public:
 
 
   //: Returns the canvas we're on.
-  //TODO: problems with convert.m4: _MEMBER_GET(canvas, canvas, Gnome::Canvas*, GnomeCanvas*)
+  _MEMBER_GET(canvas, canvas, Gnome::Canvas*, GnomeCanvas*)
 
   //: Returns the parent canvas item - could be 0 for root item
 
@@ -144,51 +138,49 @@ public:
 
   _MEMBER_GET(parent,parent,Gnome::CanvasGroup*,GnomeCanvasItem*)
 
-  
+
   //: Tell the item to update itself.  The flags are from the update flags
   //: defined above.  The item should update its internal state from its
   //: queued state, recompute and request its repaint area, etc.  The
   //: affine, if used, is a pointer to a 6-element array of doubles.
-  _WRAP_SIGNAL(void update(double*, ArtSVP*, int), "update")
+  _WRAP_VFUNC(void update(double*, ArtSVP*, int), "update")
 
-//   //: Realize an item -- create GCs, etc. 
-  _WRAP_SIGNAL(void realize(), "realize")
-  
-//   //: Unrealize an item 
-  _WRAP_SIGNAL(void unrealize(), "unrealize")
-  
-//   //: Map an item - normally only need by items with their own GdkWindows 
-  _WRAP_SIGNAL(void map(),"map")
-  
-//   //: Unmap an item 
-  _WRAP_SIGNAL(void unmap(),"unmap")
+  //: Realize an item -- create GCs, etc.
+  _WRAP_VFUNC(void realize(), "realize")
 
-//   //: Return the microtile coverage of the item
-  _WRAP_SIGNAL(ArtUta* coverage(), "coverage")
-  
-//   //: Draw an item of this type. (x, y) are the upper-left canvas
-//   //: pixel coordinates of the drawable, a temporary pixmap,
-//   //: where things get drawn. (width, height) are the dimensions
-//   //: of the drawable.  
+  //: Unrealize an item
+  _WRAP_VFUNC(void unrealize(), "unrealize")
 
-  _WRAP_SIGNAL(void draw(GdkDrawable*,int,int,int,int), "draw")
+  //: Map an item - normally only need by items with their own GdkWindows
+  _WRAP_VFUNC(void map(),"map")
 
-//   //: Calculate the distance from an item to the specified point.  It
-//   //: also returns a canvas item which is the item itself in the case
-//   //: of the object being an actual leaf item, or a child in case of
-//   //: the object being a canvas group. (cx, cy) are the canvas pixel
-//   //: coordinates that correspond to the item-relative coordinates(x,
-//   //: y). 
+  //: Unmap an item
+  _WRAP_VFUNC(void unmap(),"unmap")
 
-//   _WRAP_SIGNAL("point", vfunc,
-// 	      double point(double,double,int,int,Gnome::CanvasItem**),
-// 	      double point(GnomeCanvasItem*, double,double,int,int,GnomeCanvasItem**))
-  
-//   //: Move an item by the specified amount 
+  //: Return the microtile coverage of the item
+  _WRAP_VFUNC(ArtUta* coverage(), "coverage")
+
+  //: Draw an item of this type. (x, y) are the upper-left canvas
+  //: pixel coordinates of the drawable, a temporary pixmap,
+  //: where things get drawn. (width, height) are the dimensions
+  //: of the drawable.
+
+  _WRAP_VFUNC(void draw(GdkDrawable*,int,int,int,int), "draw")
+
+  //: Calculate the distance from an item to the specified point.  It
+  //: also returns a canvas item which is the item itself in the case
+  //: of the object being an actual leaf item, or a child in case of
+  //: the object being a canvas group. (cx, cy) are the canvas pixel
+  //: coordinates that correspond to the item-relative coordinates(x,
+  //: y).
+
+ _WRAP_VFUNC(double point(double, double, int, int), "point")
+
+  //: Move an item by the specified amount
   _WRAP_SIGNAL(void translate(double, double), "translate")
 
-//   //: Fetch the bounding box of the item
-  _WRAP_SIGNAL(void bounds(double*, double*, double*, double*), "bounds", )
+  //: Fetch the bounding box of the item
+  _WRAP_SIGNAL(void bounds(double*, double*, double*, double*), "bounds")
   
   //: Signal: an event ocurred for an item of this type.  The(x, y)
   //: coordinates are in the canvas world coordinate system.  
@@ -206,6 +198,10 @@ protected:
 
   //- Set arguments - For class children use only
   void set(const gchar* first_arg_name, ...);
+
+  //: Request that the update method eventually get called.  This should be used
+  //: only by item implementations.
+  _WRAP_METHOD(void request_update(), gnome_canvas_item_request_update)
   
 };
 

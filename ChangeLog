@@ -1,4 +1,14 @@
-2001-12-12  root  <murrayc@localhost.localdomain>
+2001-12-15  Murray Cumming  <murrayc@usa.net>
+
+	* Committed Paul Davis's first patch to properly wrap the old
+	CanvasItem 'signals' as vfuncs, using his hand-written 
+	libgnomecanvas_vfuncs.defs. He also fixed the canvas/canvas 
+	example, which now runs.
+	* Fixed libgnomecanvasmm.h and added Gnome::canvas_init() which
+	should be used before Gtk::Main, if you are not using libgnomeuimm 
+	and Gnome::Main.
+
+2001-12-12  Murray Cumming  <murrayc@usa.net>
 
 	* Changed build files to use -I instead of --m4 with
 	gtkmmproc, as needed by the latest gtkmm-1.3. The new

@@ -1,5 +1,5 @@
 /* $Id$ */
-/* libgnomeuimm - a C++ wrapper for libgnomeui
+/* libgnomecanvasmm - a C++ wrapper for libgnomecanvas
  *
  * Copyright 1999-2001 Free Software Foundation
  *
@@ -18,19 +18,30 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef LIBGNOMEUIMM_H
-#define LIBGNOMEUIMM_H
+#ifndef LIBGNOMECANVASMM_H
+#define LIBGNOMECANVASMM_H
 
 //extern "C" {
 //#include <gtk/gtk.h>
 //}
 
-/* libgnomeuimm version.  */
-extern const int libgnomeuimm_major_version;
-extern const int libgnomeuimm_minor_version;
-extern const int libgnomeuimm_micro_version;
+/* libgnomecanvasmm version.  */
+extern const int libgnomecanvasmm_major_version;
+extern const int libgnomecanvasmm_minor_version;
+extern const int libgnomecanvasmm_micro_version;
 
-#include <libgnomeuimm/about.h>
-#include <libgnomeuimm/app.h>
+#include <gtkmm.h>
 
-#endif /* #ifndef LIBGNOMEUIMM_H */
+#include <libgnomecanvasmm/canvas.h>
+#include <libgnomecanvasmm/canvas-group.h>
+#include <libgnomecanvasmm/canvas-group.h>
+#include <libgnomecanvasmm/canvas-line.h>
+#include <libgnomecanvasmm/canvas-property.h>
+#include <libgnomecanvasmm/canvas-rect-ellipse.h>
+#include <libgnomecanvasmm/canvas-ellipse.h>
+#include <libgnomecanvasmm/canvas-rect.h>
+#include <libgnomecanvasmm/canvas-text.h>
+#include <libgnomecanvasmm/init.h>
+#include <libgnomecanvasmm/point.h>
+
+#endif /* #ifndef LIBGNOMECANVASMM_H */

@@ -1,10 +1,6 @@
-// -*- C++ -*-
-/* $Id$ */
-
-/* canvas.cc
+/* init.cc
  *
- * Copyright (C) 1998 EMC Capital Management Inc.
- * Developed by Havoc Pennington <hp@pobox.com>
+ * Copyright (C) 2001 The libgnomeuimm Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -21,31 +17,20 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <gtk/gtk.h>
-
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-item.h>
+#include <libgnomecanvasmm/init.h>
+#include <gtkmm/main.h>
 #include <libgnomecanvasmm/wrap_init.h>
 
 namespace Gnome
 {
 
-bool
-Canvas::get_color(const Glib::ustring& spec, Gdk::Color& color)
+void canvas_init()
 {
-  GdkColor* pColor = 0;
-  gboolean result = gnome_canvas_get_color(gobj(), const_cast<gchar*>(spec.c_str()), pColor);
-  color = Glib::wrap(pColor);
-  return (result == TRUE);
-}
-
-
-CanvasAA::CanvasAA()
-{
-}
-
-CanvasAA::~CanvasAA()
-{
+  if (!Glib::quark_) //If init_gtkmm_internals hasn't already been called, or therefore if this hasn't already been called.
+  {
+    Gtk::Main::init_gtkmm_internals(); //Sets up the g type system and the Glib::wrap() table.
+    canvas_wrap_init(); //Tells the Glib::wrap() table about the libgnomecanvasmm classes.
+  }
 }
 
 } /* namespace Gnome */

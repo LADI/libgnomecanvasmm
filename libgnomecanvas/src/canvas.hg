@@ -42,69 +42,72 @@ class CanvasGroup;
 class Canvas : public Gtk::Layout
 {
   _CLASS_GTKOBJECT(Canvas, GnomeCanvas,
-             GNOME_CANVAS,
-             Gtk::Layout, GtkLayout);
+                  GNOME_CANVAS,
+                  Gtk::Layout, GtkLayout);
 public:
   _CTOR_DEFAULT;
   _CTOR_CAST;
   _DTOR;
 
-//  //: Get the root canvas item
-//  _WRAP_METHOD(Gnome::CanvasGroup* root(), gnome_canvas_root)
-//
-//  //: Limits of scroll region
-//  _WRAP_METHOD(void set_scroll_region(double x1, double y1, double x2, double y2), gnome_canvas_set_scroll_region)
-//
-//  //: Get limits of scroll region
-//  _WRAP_METHOD(void get_scroll_region(double& x1, double& y1, double& x2, double& y2), gnome_canvas_get_scroll_region)
-//
-//  //: Set the pixels/world coordinates ratio
-//  //- With no arguments sets to default of 1.0.
-//  _WRAP_METHOD(void set_pixels_per_unit(double n = 1.0), gnome_canvas_set_pixels_per_unit)
-//
-//  //: Shift window.
-//  //- Makes a canvas scroll to the specified offsets, given in canvas pixel
-//  //- units.
-//  //- The canvas will adjust the view so that it is not outside the scrolling
-//  //- region.  This function is typically not used, as it is better to hook
-//  //- scrollbars to the canvas layout's scrolling adjusments.
-//  _WRAP_METHOD(void scroll_to(int x, int y), gnome_canvas_scroll_to)
-//
-//  //: Scroll offsets in canvas pixel coordinates.
-//  _WRAP_METHOD(void get_scroll_offsets(int& cx, int& cy) const), get_scroll_offsets)
-//
-//  //: Repaint immediately, don't wait for idle loop
-//  //- normally the canvas queues repainting and does it in an
-//  //- idle loop
-//  _WRAP_METHOD(void update_now(), gnome_canvas_update_now)
-//
-//  //: Find an item at a location.
-//  //- Looks for the item that is under the specified position, which must be
-//  //- specified in world coordinates.  Arguments are in world coordinates.
-//  //- Returns 0 if no item is at that
-//  //- location.
+  //: Get the root canvas item
+  _WRAP_METHOD(Gnome::CanvasGroup* root(), gnome_canvas_root)
+           
+  //: Limits of scroll region
+  _WRAP_METHOD(void set_scroll_region(double x1, double y1, double x2, double y2), gnome_canvas_set_scroll_region)
+
+  //: Get limits of scroll region
+  _WRAP_METHOD(void get_scroll_region(double& x1, double& y1, double& x2, double& y2), gnome_canvas_get_scroll_region)
+
+  //: Set the pixels/world coordinates ratio
+  //- With no arguments sets to default of 1.0.
+  _WRAP_METHOD(void set_pixels_per_unit(double n = 1.0), gnome_canvas_set_pixels_per_unit)
+
+  //: Shift window.
+  //- Makes a canvas scroll to the specified offsets, given in canvas pixel
+  //- units.
+  //- The canvas will adjust the view so that it is not outside the scrolling
+  //- region.  This function is typically not used, as it is better to hook
+  //- scrollbars to the canvas layout's scrolling adjusments.
+  _WRAP_METHOD(void scroll_to(int x, int y), gnome_canvas_scroll_to)
+
+  //: Scroll offsets in canvas pixel coordinates.
+  // _WRAP_METHOD(void get_scroll_offsets(int& cx, int& cy) const, get_scroll_offsets)
+
+  //: Repaint immediately, don't wait for idle loop
+  //- normally the canvas queues repainting and does it in an
+  //- idle loop
+  _WRAP_METHOD(void update_now(), gnome_canvas_update_now)
+
+  //: Find an item at a location.
+  //- Looks for the item that is under the specified position, which must be
+  //- specified in world coordinates.  Arguments are in world coordinates.
+  //- Returns 0 if no item is at that
+  //- location.
 //  _WRAP_METHOD(Gnome::CanvasItem* get_item_at(double x, double y), gnome_canvas_get_item_at)
-//
-//  //: Repaint small area (internal)
-//  //- Used only by item implementations. Request an eventual redraw
-//  //- of the region, which includes x1,y1 but not x2,y2
-//  _WRAP_METHOD(void request_redraw(int x1, int y1, int x2, int y2), gnome_canvas_request_redraw)
-//
-//  //: Convert from World to canvas coordinates (units for the entire canvas)
-//  //: to Canvas coordinates (pixels starting at 0,0 in the top left
-//  //: of the visible area). The relationship depends on the current
-//  //: scroll position and the pixels_per_unit ratio (zoom factor)
-//  _WRAP_METHOD(void w2c(double wx, double wy, int& cx, int& cy) const), gnome_canvas_w2c)
-//
-//  //: From Canvas to World
-//  _WRAP_METHOD(void c2w(int cx, int cy, double& wx, double& wy) const), gnome_canvas_c2w)
-//
-//  //: Convert from Window coordinates to world coordinates.
-//  //- Window coordinates are based of the widget's GdkWindow.
-//  //- This is fairly low-level and not generally useful.
-//  _WRAP_METHOD(void window_to_world (double winx,double winy, double& worldx,double& worldy) const), window_to_world)
-//
-//  _WRAP_METHOD(void world_to_window (double worldx, double wolrdy, double& winx, double& winy) const), gnome_canvas_world_to_window)
+
+  //: Repaint small area (internal)
+  //- Used only by item implementations. Request an eventual redraw
+  //- of the region, which includes x1,y1 but not x2,y2
+  _WRAP_METHOD(void request_redraw(int x1, int y1, int x2, int y2), gnome_canvas_request_redraw)
+
+  //: Convert from World to canvas coordinates (units for the entire canvas)
+  //: to Canvas coordinates (pixels starting at 0,0 in the top left
+  //: of the visible area). The relationship depends on the current
+  //: scroll position and the pixels_per_unit ratio (zoom factor)
+  _WRAP_METHOD(void w2c(double wx, double wy, int& cx, int& cy) const, gnome_canvas_w2c)
+
+  //: From Canvas to World
+  _WRAP_METHOD(void c2w(int cx, int cy, double& wx, double& wy) const, gnome_canvas_c2w)
+
+  //: Convert from Window coordinates to world coordinates.
+  //- Window coordinates are based of the widget's GdkWindow.
+  //- This is fairly low-level and not generally useful.
+  _WRAP_METHOD(void window_to_world (double winx,double winy, double& worldx,double& worldy) const, gnome_canvas_window_to_world)
+
+  //: Convert from world coordinates to Window coordinates.
+  //- Window coordinates are based of the widget's GdkWindow.
+  //- This is fairly low-level and not generally useful.
+  _WRAP_METHOD(void world_to_window (double worldx, double worldy, double& winx, double& winy) const, gnome_canvas_world_to_window)
 
   //: Parse color spec string and allocate it into the GdkColor.
   bool get_color(const Glib::ustring& spec, Gdk::Color& color);
@@ -113,6 +116,7 @@ public:
   //  but Federico reports that they are meant to be used.
   //: Get the pixels per unit.
   _MEMBER_GET(pixels_per_unit, pixels_per_unit, double, double);
+
 };
 
 //: Antialiased Canvas
@@ -127,3 +131,4 @@ class CanvasAA : public Canvas
 };
 
 } /* namespace Gtk */
+

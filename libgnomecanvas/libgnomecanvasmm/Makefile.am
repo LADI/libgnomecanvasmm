@@ -7,8 +7,8 @@ sublib_name		= libgnomecanvasmm
 sublib_namespace	= Gnome
 sublib_cflags		= $(LIBGNOMECANVASMM_CFLAGS)
 
-files_extra_h		= affinetrans.h canvas-property.h point.h
-files_extra_cc		= affinetrans.cc point.cc
+files_extra_h		= affinetrans.h canvas-property.h init.h point.h
+files_extra_cc		= affinetrans.cc init.cc point.cc
 
 include $(top_srcdir)/build_shared/Makefile_build_gensrc.am_fragment
 
