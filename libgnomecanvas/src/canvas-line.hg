@@ -54,32 +54,32 @@ class GnomeGroup;
 
 //using std::vector;
 
-class CanvasPoints : public std::vector<Art::Point>
+class Points : public std::vector<Art::Point>
 {
- public:
-  CanvasPoints(size_type nbpoints = 0);
-  CanvasPoints(GnomeCanvasPoints *castitem);
-  ~CanvasPoints();
+public:
+  Points(size_type nbpoints = 0);
+  Points(GnomeCanvasPoints* castitem);
+  ~Points();
   
   const GnomeCanvasPoints* gobj() const { return _gobj(); }
   GnomeCanvasPoints* gobj() { return _gobj(); }
 
- protected:
+protected:
   GnomeCanvasPoints* _gobj() const;
-  mutable GnomeCanvasPoints *points_;
+  mutable GnomeCanvasPoints* points_;
   mutable bool owned_;
 };
 
-class CanvasLine : public CanvasItem
+class Line : public Item
 {
-  _CLASS_GTKOBJECT(CanvasLine, GnomeCanvasLine, GNOME_CANVAS_LINE, CanvasItem, GnomeCanvasItem)
+  _CLASS_GTKOBJECT(Line, GnomeCanvasLine, GNOME_CANVAS_LINE, Item, GnomeCanvasItem)
 public:
-  CanvasLine(CanvasGroup &parent);
-  CanvasLine(CanvasGroup &parent,const CanvasPoints&);
+  Line(Group& parent);
+  Line(Group& parent, const Points& points);
   _CTOR_CAST;
   _DTOR;
 
-  CANVAS_PROPERTY(points,points,const CanvasPoints&,GnomeCanvasPoints*)
+  CANVAS_PROPERTY(points,points,const Points&,GnomeCanvasPoints*)
 
   CANVAS_PROPERTY(fill_color,fill_color,const Glib::ustring&,char*)
   CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk::Color&,GdkColor*,Gdk::Color,void*,pointer_data)

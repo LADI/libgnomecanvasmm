@@ -34,16 +34,16 @@ namespace Gnome
 namespace Canvas
 {
 
-class CanvasPolygon : public CanvasItem
+class Polygon : public Item
 {
-  _CLASS_GTKOBJECT(CanvasPolygon, GnomeCanvasPolygon, GNOME_CANVAS_POLYGON, CanvasItem, GnomeCanvasItem)
+  _CLASS_GTKOBJECT(Polygon, GnomeCanvasPolygon, GNOME_CANVAS_POLYGON, Item, GnomeCanvasItem)
 public:
-  CanvasPolygon(CanvasGroup& parent,const CanvasPoints& points);
-  CanvasPolygon(CanvasGroup& parent);
+  Polygon(Group& parent,const Points& points);
+  Polygon(Group& parent);
   _CTOR_CAST;
   _DTOR;
  
-  CANVAS_PROPERTY(points,points,const CanvasPoints&,GnomeCanvasPoints*)
+  CANVAS_PROPERTY(points,points,const Points&,GnomeCanvasPoints*)
 
   CANVAS_PROPERTY(fill_color,fill_color,const Glib::ustring&,char*)
   CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk::Color&,GdkColor*,Gdk::Color,void*,pointer_data)

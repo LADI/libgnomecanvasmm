@@ -1,3 +1,9 @@
+2002-01-04  Murray Cumming  <murrayc@usa.net>
+
+	* Canvas::CanvasGroup, Canvas::CanvasItem, etc are now 
+	Canvas::Group, Canvas::Item, etc. Canvas::RE is now 
+	Canvas::RectEllipse.
+
 2002-01-03  Murray Cumming  <murrayc@usa.net>
 
 	* Moved things into the Gnome::Canvas namespace. We might want to 

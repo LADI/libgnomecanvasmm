@@ -36,14 +36,14 @@ namespace Canvas
 {
 
 void
-CanvasItem::item_construct(CanvasGroup& group)
+Item::item_construct(Group& group)
 {
   gnome_canvas_item_construct(GNOME_CANVAS_ITEM(gobj()), group.gobj(),
                               0, 0);
 }
 
 void
-CanvasItem::item_construct(CanvasGroup& group, const gchar* first_arg_name,
+Item::item_construct(Group& group, const gchar* first_arg_name,
                                  va_list ap)
 {
   gnome_canvas_item_construct(GNOME_CANVAS_ITEM(gobj()), group.gobj(),
@@ -52,7 +52,7 @@ CanvasItem::item_construct(CanvasGroup& group, const gchar* first_arg_name,
 }
 
 void 
-CanvasItem::set(const gchar* first_arg_name, ...)
+Item::set(const gchar* first_arg_name, ...)
 {
   va_list args;
   va_start(args,first_arg_name);
@@ -66,12 +66,12 @@ CanvasItem::set(const gchar* first_arg_name, ...)
 //: event_mask will be reported.  If cursor is non-NULL, it will be
 //: used during the duration of the grab.  Time is a proper X event
 //: time parameter.  Returns the same values as XGrabPointer().
-int CanvasItem::grab(unsigned int event_mask, const Gdk::Cursor& cursor, guint32 etime)
+int Item::grab(unsigned int event_mask, const Gdk::Cursor& cursor, guint32 etime)
 {
   return gnome_canvas_item_grab(gobj(), event_mask, const_cast<GdkCursor*>(cursor.gobj()), etime);
 }
 
-int CanvasItem::grab(unsigned int event_mask, guint32 etime)
+int Item::grab(unsigned int event_mask, guint32 etime)
 {
   return gnome_canvas_item_grab(gobj(), event_mask, 0, etime);
 }
@@ -79,19 +79,19 @@ int CanvasItem::grab(unsigned int event_mask, guint32 etime)
 //:  Move an item by the specified amount
 
 void
-CanvasItem::affine_relative(const Art::AffineTrans &affine)
+Item::affine_relative(const Art::AffineTrans &affine)
 {
   gnome_canvas_item_affine_relative (gobj(), affine.obj());
 }
 
 void
-CanvasItem::affine_absolute (const Art::AffineTrans &affine)
+Item::affine_absolute (const Art::AffineTrans &affine)
 {
   gnome_canvas_item_affine_absolute (gobj(), affine.obj());
 }
 
 Art::AffineTrans
-CanvasItem::get_i2w_affine() const
+Item::get_i2w_affine() const
 {
   double tmp[6] = {0};
   
@@ -100,7 +100,7 @@ CanvasItem::get_i2w_affine() const
 }
 
 Art::AffineTrans
-CanvasItem::get_i2c_affine() const
+Item::get_i2c_affine() const
 {
   double tmp[6] = {0};
   

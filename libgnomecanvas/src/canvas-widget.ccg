@@ -28,16 +28,16 @@ namespace Gnome
 namespace Canvas
 {
 
-CanvasWidget::CanvasWidget(CanvasGroup& parentx, double x, double y,
+Widget::Widget(Group& parentx, double x, double y,
                            Gtk::Widget& w)
-  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   item_construct(parentx);
   set("x", x, "y", y, "widget",w.gobj(), 0);
 }
 
-CanvasWidget::CanvasWidget(CanvasGroup& parentx)
-  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+Widget::Widget(Group& parentx)
+  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   item_construct(parentx);
 }

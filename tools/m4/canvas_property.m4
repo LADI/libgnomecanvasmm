@@ -46,6 +46,6 @@ _CONVERSION(int,GdkJoinStyle,`$2($3)')
 _CONVERSION(int,GdkLineStyle,`$2($3)')
 _CONVERSION(int,GtkAnchorType,`$2($3)')
 
-_CONVERSION(`const CanvasPoints&',`GnomeCanvasPoints*',`$3.gobj()')
+_CONVERSION(`const Points&',`GnomeCanvasPoints*',`$3.gobj()')
 
 _POP()

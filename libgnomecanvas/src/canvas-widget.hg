@@ -36,14 +36,14 @@ namespace Gnome
 namespace Canvas
 {
 
-class CanvasGroup;
+class Group;
 
-class CanvasWidget : public CanvasItem
+class Widget : public Item
 {
-  _CLASS_GTKOBJECT(CanvasWidget, GnomeCanvasWidget, GNOME_CANVAS_WIDGET, CanvasItem, GnomeCanvasItem)
+  _CLASS_GTKOBJECT(Widget, GnomeCanvasWidget, GNOME_CANVAS_WIDGET, Item, GnomeCanvasItem)
 public:
-  CanvasWidget(CanvasGroup& parent, double x, double y, Gtk::Widget& w);
-  CanvasWidget(CanvasGroup& parent);
+  Widget(Group& parent, double x, double y, Gtk::Widget& w);
+  Widget(Group& parent);
   _CTOR_CAST;
   _DTOR;
 

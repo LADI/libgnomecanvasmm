@@ -28,12 +28,12 @@ namespace Gnome
 namespace Canvas
 {
 
-CanvasPoints::CanvasPoints(size_type nbpoints)
+Points::Points(size_type nbpoints)
   : std::vector<Art::Point>(nbpoints),
     points_(0), owned_(false)
 {}
 
-CanvasPoints::CanvasPoints(GnomeCanvasPoints *castitem) :
+Points::Points(GnomeCanvasPoints *castitem) :
   points_(castitem),owned_(false)
 {
   int i = 0;
@@ -47,13 +47,12 @@ CanvasPoints::CanvasPoints(GnomeCanvasPoints *castitem) :
     }
 }
 
-CanvasPoints::~CanvasPoints()
+Points::~Points()
 {
   if (owned_ && points_) gnome_canvas_points_free(points_);
 }
 
-GnomeCanvasPoints*
-CanvasPoints::_gobj() const
+GnomeCanvasPoints* Points::_gobj() const
 {
   int i = 0;
   
@@ -79,14 +78,14 @@ CanvasPoints::_gobj() const
 
 
 
-CanvasLine::CanvasLine(CanvasGroup &parentx)
-  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+Line::Line(Group& parentx)
+  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   item_construct(parentx);
 }
 
-CanvasLine::CanvasLine(CanvasGroup &parentx, const CanvasPoints& points)
-  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+Line::Line(Group& parentx, const Points& points)
+  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   item_construct(parentx);
   set_points(points);

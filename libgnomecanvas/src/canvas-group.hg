@@ -37,14 +37,12 @@ namespace Canvas
 
 class Canvas;
 
-class CanvasGroup : public CanvasItem
+class Group : public Item
 {
-  _CLASS_GTKOBJECT(CanvasGroup, GnomeCanvasGroup,
-                  GNOME_CANVAS_GROUP,
-                  CanvasItem, GnomeCanvasItem);
+  _CLASS_GTKOBJECT(Group, GnomeCanvasGroup, GNOME_CANVAS_GROUP, Item, GnomeCanvasItem);
 public:
   friend class Canvas;
-  CanvasGroup(CanvasGroup& parent, double x = 0, double y = 0);
+  Group(Group& parent, double x = 0, double y = 0);
   _CTOR_DEFAULT;
   _CTOR_CAST;
   _DTOR;

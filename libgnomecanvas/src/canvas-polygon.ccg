@@ -25,15 +25,15 @@ namespace Gnome
 namespace Canvas
 {
 
-CanvasPolygon::CanvasPolygon(CanvasGroup& parent,const CanvasPoints& points)
-  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+Polygon::Polygon(Group& parent,const Points& points)
+  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   item_construct(parent);
   set_points(points);
 }
 
-CanvasPolygon::CanvasPolygon(CanvasGroup& parent)
-    : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+Polygon::Polygon(Group& parent)
+    : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   item_construct(parent);
 }

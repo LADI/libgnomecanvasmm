@@ -35,8 +35,8 @@ namespace Gnome
 namespace Canvas
 {
 
-class CanvasItem;
-class CanvasGroup;
+class Item;
+class Group;
 
 //- Canvas functions usually operate in either World coordinates
 //- (units for the entire canvas), or Canvas coordinates (pixels starting 
@@ -44,16 +44,14 @@ class CanvasGroup;
 //- one to the other.
 class Canvas : public Gtk::Layout
 {
-  _CLASS_GTKOBJECT(Canvas, GnomeCanvas,
-                  GNOME_CANVAS,
-                  Gtk::Layout, GtkLayout);
+  _CLASS_GTKOBJECT(Canvas, GnomeCanvas, GNOME_CANVAS, Gtk::Layout, GtkLayout);
 public:
   _CTOR_DEFAULT;
   _CTOR_CAST;
   _DTOR;
 
   //: Get the root canvas item
-  _WRAP_METHOD(CanvasGroup* root(), gnome_canvas_root)
+  _WRAP_METHOD(Group* root(), gnome_canvas_root)
            
   //: Limits of scroll region
   _WRAP_METHOD(void set_scroll_region(double x1, double y1, double x2, double y2), gnome_canvas_set_scroll_region)
@@ -86,7 +84,7 @@ public:
   //- specified in world coordinates.  Arguments are in world coordinates.
   //- Returns 0 if no item is at that
   //- location.
-//  _WRAP_METHOD(CanvasItem* get_item_at(double x, double y), gnome_canvas_get_item_at)
+//  _WRAP_METHOD(Item* get_item_at(double x, double y), gnome_canvas_get_item_at)
 
   //: Repaint small area (internal)
   //- Used only by item implementations. Request an eventual redraw
@@ -122,6 +120,7 @@ public:
 
 };
 
+// TODO: This doesn't seem to do anything.
 //: Antialiased Canvas
 //- This is very experimental and most likely buggy.
 //- To use you must first push GtkRGB colormap and visual, then

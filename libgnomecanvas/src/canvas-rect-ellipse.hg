@@ -38,15 +38,17 @@ namespace Gnome
 namespace Canvas
 {
 
-// Abstract class for all rectangular shapes 
-class CanvasRE : public CanvasItem
+/** Abstract class for all rectangular shapes
+ * Corresponds to GnomeCanvasRE in libgnomecanvas
+ */
+class RectEllipse : public Item
 {
-  _CLASS_GTKOBJECT(CanvasRE, GnomeCanvasRE, GNOME_CANVAS_RE, CanvasItem, GnomeCanvasItem)
+  _CLASS_GTKOBJECT(RectEllipse, GnomeCanvasRE, GNOME_CANVAS_RE, Item, GnomeCanvasItem)
 public:
-  CanvasRE(CanvasGroup& parent,
+  RectEllipse(Group& parent,
 		      const gchar *first_arg_name,
 		      ...);
-  CanvasRE(CanvasGroup& parent);
+  RectEllipse(Group& parent);
   _CTOR_CAST;
   _DTOR;
 

@@ -35,14 +35,14 @@ namespace Gnome
 namespace Canvas
 {
 
-class CanvasGroup;
+class Group;
 
-class CanvasText : public CanvasItem
+class Text : public Item
 {
-  _CLASS_GTKOBJECT(CanvasText, GnomeCanvasText, GNOME_CANVAS_TEXT, CanvasItem, GnomeCanvasItem)
+  _CLASS_GTKOBJECT(Text, GnomeCanvasText, GNOME_CANVAS_TEXT, Item, GnomeCanvasItem)
 public:
-  CanvasText(CanvasGroup& parent, double x, double y, const Glib::ustring& text);
-  CanvasText(CanvasGroup& parent);
+  Text(Group& parent, double x, double y, const Glib::ustring& text);
+  Text(Group& parent);
   _CTOR_CAST;
   _DTOR;
 

@@ -25,7 +25,7 @@
 #include <libgnomecanvasmm/canvas-item.h>
 #include <libgnomecanvasmm/canvas-group.h>
 #include <libgnomecanvasmm/canvas-rect-ellipse.h>
-_DEFS(libgnomecanvas,gnomecanvasrect)
+_DEFS(libgnomecanvas,gnomeRect)
 _PINCLUDE(libgnomecanvasmm/private/canvas-rect-ellipse_p.h)
 
 namespace Gnome
@@ -34,16 +34,15 @@ namespace Gnome
 namespace Canvas
 {
 
-class CanvasGroup;
+//class Group;
 
-class CanvasRect : public CanvasRE
+class Rect : public RectEllipse
 {
-  
-  _CLASS_GTKOBJECT(CanvasRect, GnomeCanvasRect, GNOME_CANVAS_RECT, CanvasRE, GnomeCanvasRE)
+  _CLASS_GTKOBJECT(Rect, GnomeCanvasRect, GNOME_CANVAS_RECT, RectEllipse, GnomeCanvasRE)
 
 public:
-  CanvasRect(CanvasGroup &parent,double x1,double y1,double x2,double y2);
-  CanvasRect(CanvasGroup &parent);
+  Rect(Group& parent, double x1, double y1, double x2, double y2);
+  Rect(Group& parent);
   _CTOR_CAST;
   _DTOR;
   
