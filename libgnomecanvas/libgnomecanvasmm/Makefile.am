@@ -15,8 +15,8 @@ files_extra_cc		= affinetrans.cc canvas-property.cc init.cc point.cc
 
 include $(top_srcdir)/build_shared/Makefile_build_gensrc.am_fragment
 
-lib_LTLIBRARIES			= libgnomecanvasmm-1.3.la
-libgnomecanvasmm_1_3_la_SOURCES	= $(files_all_cc)
-libgnomecanvasmm_1_3_la_LDFLAGS	= $(common_ldflags)
-libgnomecanvasmm_1_3_la_LIBADD	= $(LIBGNOMECANVASMM_LIBS)
+lib_LTLIBRARIES			= libgnomecanvasmm-2.0.la
+libgnomecanvasmm_2_0_la_SOURCES	= $(files_all_cc)
+libgnomecanvasmm_2_0_la_LDFLAGS	= $(common_ldflags)
+libgnomecanvasmm_2_0_la_LIBADD	= $(LIBGNOMECANVASMM_LIBS)
 

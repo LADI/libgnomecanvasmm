@@ -3,7 +3,7 @@
 
 /* affinetrans.h
  * 
- * Copyright (C) 1999 The Gnome-- Development Team
+ * Copyright (C) 1999 The gnomemm Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
