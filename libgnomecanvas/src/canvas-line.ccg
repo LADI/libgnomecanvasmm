@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/* canvas-line.c
+/* canvas-line.ccg
  *
  * Copyright (C) 1998 EMC Capital Management Inc.
  * Developed by Havoc Pennington <hp@pobox.com>
@@ -26,7 +26,7 @@ namespace Gnome
 {
 
 CanvasPoints::CanvasPoints(size_type nbpoints)
-  : vector<Art::Point>(nbpoints),
+  : std::vector<Art::Point>(nbpoints),
     points_(0), owned_(false)
 {}
 
@@ -92,3 +92,4 @@ CanvasLine::CanvasLine(CanvasGroup &parentx, const CanvasPoints& points)
 }
 
 } /* namespace Gnome */
+
