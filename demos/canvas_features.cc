@@ -28,11 +28,11 @@ Features::Features()
   
   Gtk::Label* label 
       = manage(new Gtk::Label("Reparent test:  click on the items to switch them between parents"));
-  pack_start(*label, false, false);
+  pack_start(*label, Gtk::AttachOptions(0));
   
   Gtk::Alignment* alignment 
       = manage(new Gtk::Alignment(0.5, 0.5, 0.0, 0.0));
-  pack_start(*alignment, false, false, 0);
+  pack_start(*alignment, Gtk::AttachOptions(0));
   
   Gtk::Frame* frame = manage(new Gtk::Frame());
   frame->set_shadow_type(Gtk::SHADOW_IN);

@@ -31,7 +31,7 @@ Fifteen::Fifteen()
   
   Gtk::Alignment* alignment 
       = manage(new Gtk::Alignment(0.5, 0.5, 0.0, 0.0));
-  pack_start(*alignment, true, true, 0);
+  pack_start(*alignment);
   
   Gtk::Frame* frame = manage(new Gtk::Frame());
   frame->set_shadow_type(Gtk::SHADOW_IN);
@@ -80,7 +80,7 @@ Fifteen::Fifteen()
   
   Gtk::Button* button = manage(new Gtk::Button("Scramble"));
   button->signal_clicked().connect(slot(*this, &Fifteen::on_scramble));
-  pack_start(*button, false, false, 0);
+  pack_start(*button, Gtk::AttachOptions(0));
 }
 
 

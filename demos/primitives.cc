@@ -41,20 +41,20 @@ Primitives::Primitives(bool aa)
       = manage(new Gtk::Label("Drag an item with button 1.  Click button 2 on an item to lower it,\n"
                               "or button 3 to raise it.  Shift+click with buttons 2 or 3 to send\n"
                               "an item to the bottom or top, respectively."));
-  pack_start(*label);
+  pack_start(*label, Gtk::AttachOptions (0));
   
   Gtk::HBox* hbox = manage(new Gtk::HBox(false, 4));
-  pack_start(*hbox, true, true);
+  pack_start(*hbox, Gtk::AttachOptions (0));
   
-  hbox->pack_start(*manage(new Gtk::Label("Zoom:")), false, false);
+  hbox->pack_start(*manage(new Gtk::Label("Zoom:")), Gtk::AttachOptions(0));
   
   Gtk::Adjustment* spin_adj 
       = manage(new Gtk::Adjustment(1.00, 0.05, 5.00, 0.05, 0.50, 0.50));
   Gtk::SpinButton* spin = manage(new Gtk::SpinButton(*spin_adj, 1.0, 2));
-  hbox->pack_start(*spin, false, false);
+  hbox->pack_start(*spin, Gtk::AttachOptions (0));
   
   Gtk::Table* table = manage(new Gtk::Table(2, 2, false));
-  pack_start(*table, true, true);
+  pack_start(*table);
   table->set_row_spacings(4);
   table->set_col_spacings(4);
   

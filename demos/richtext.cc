@@ -33,7 +33,7 @@ Richtext::Richtext()
 
   Gtk::Alignment* alignment 
       = manage(new Gtk::Alignment(0.5, 0.5, 0.0, 0.0));
-  pack_start(*alignment, true, true, 0);
+  pack_start(*alignment);
   
   Gtk::Frame* frame = manage(new Gtk::Frame());
   frame->set_shadow_type(Gtk::SHADOW_IN);
