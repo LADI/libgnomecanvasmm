@@ -1,3 +1,7 @@
+2002-07-25  Michael Babcock <mbabcock@la.creatureshop.henson.com>
+	* libgnomecanvas/libgnomecanvasmm/point.cc: gobj(): Avoid infinite
+	recursion.
+
 2002-07-24  Erwin J. van Eijk  <kojak@oakhill.demon.nl>
 
 	* examples/canvas/canvas_events.cc:
