@@ -110,17 +110,6 @@ public:
   void affine_absolute(const Art::AffineTrans &affine);
   _IGNORE(gnome_canvas_item_affine_absolute)
 
-  //  // Those are present in the header file but not in the libgnomecanvas library !
-  //  //: Scale an item about a point by the specified factors
-  //  _WRAP_METHOD(void gnome_canvas_item_scale(GnomeCanvasItem *, double,
-  //                                         double, double, double),
-  //           void scale(double x, double y, double scale_x, double scale_y))
-  //
-  //  //: Rotate an item about a point by the specified number of degrees
-  //  _WRAP_METHOD(void gnome_canvas_item_rotate(GnomeCanvasItem *, double,
-  //                                          double, double),
-  //           void rotate(double x, double y, double angle))
-
   //: Gets the affine transform that converts from item-relative
   //: coordinates to world coordinates
   Art::AffineTrans get_i2w_affine() const;

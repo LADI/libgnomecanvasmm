@@ -142,6 +142,8 @@ public:
 	_WRAP_SIGNAL(void draw_background(GdkDrawable* drawable, int x, int y, int width, int height), "draw_background")
 	_WRAP_SIGNAL(void render_background(GnomeCanvasBuf* buf), "render_background")
 
+  _WRAP_VFUNC(void request_update(), "request_update")
+
   _WRAP_PROPERTY("aa", gulong)
 };
 

@@ -2,6 +2,13 @@
 ; virtual function definitions
 ; define-vfunc is gtkmm-specific
 
+; GnomeCanvas
+
+(define-vfunc request_update
+  (of-object "GnomeCanvas")
+  (return-type "void")
+)
+
 ; GnomeCanvasItem
 
 (define-vfunc update
@@ -81,3 +88,4 @@
     '("double*" "y2")
   )
 )
+
