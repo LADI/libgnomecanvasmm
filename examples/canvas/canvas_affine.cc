@@ -1,10 +1,10 @@
 // CanvasAffine.cc
 // Sample use of the Gnome::Art::Affine and Gnome::Art::Point classes
 // (c) Agustin Ferrin Pozuelo <ferrin@arrakis.es>
-#include <gtk--/window.h>
-#include <gnome--/main.h>
-#include <gnome--/canvas.h>
-#include <gnome--/canvas-line.h>
+#include <gtkmm/window.h>
+#include <gnomemm/main.h>
+#include <gnomemm/canvas.h>
+#include <gnomemm/canvas-line.h>
 
 static gint on_window_delete_event(GdkEventAny* event)
 {

@@ -4,7 +4,7 @@
 // actual on-screen output.
 // TODO: Would someone like to build a more sensible canvas example?
 
-#include <gnome--.h> // don't do that : here it is just for simplicity's
+#include <gnomemm.h> // don't do that : here it is just for simplicity's
                      // sake, but this drags more than a meg worth of headers
 
 

@@ -3,10 +3,10 @@
 // (c) Agustin Ferrin Pozuelo <ferrin@arrakis.es>
 // Note that you have to click 2^N times over the canvas,
 // It took me 5.60 seconds to have 64 valid events! I'm Termclickator
-#include <gtk--/window.h>
-#include <gnome--/main.h>
-#include <gnome--/canvas.h>
-#include <gnome--/canvas-rect.h>
+#include <gtkmm/window.h>
+#include <gnomemm/main.h>
+#include <gnomemm/canvas.h>
+#include <gnomemm/canvas-rect.h>
 
 
 guint32 etime=0;

@@ -1,25 +1,27 @@
 SHELL = @SHELL@
 CFLAGS = @CFLAGS@
-CPPFLAGS = @CPPFLAGS@ 
+CPPFLAGS = @CPPFLAGS@
 CXXFLAGS = @CXXFLAGS@
 CXX = @CXX@
 CXXLD = @CXX@
-GTKMM_CFLAGS = @GTKMM_CFLAGS@
-GTKMM_LIBS = @GTKMM_LIBS@
-GNOME_CFLAGS = @GNOME_INCLUDEDIR@
-GNOME_LIBS = @GNOMEUI_LIBS@ @GNOME_LIBDIR@
 LIBTOOL = @LIBTOOL@
-GNOMEMM_LIB = ../../src/gnome--/libgnomemm.la
+
+# Base dependencies from configure.in:
+LIBGNOMECANVASMM_LIBS = @LIBGNOMECANVASMM_LIBS@
+LIBGNOMECANVASMM_CFLAGS = @LIBGNOMECANVASMM_CFLAGS@
+
+LOCAL_LIBGNOMECANVASMM_LIB = ../../libgnomecanvas/libgnomecanvasmm/libgnomecanvasmm-1.3.la
+
 top_builddir = ../..
 
-LIBS = $(GNOMEMM_LIB) $(GTKMM_LIBS) $(GNOME_LIBS) 
-INCLUDES = -I ../.. -I . -I ../../gdk-- -I ../../src $(CXX_FLAGS) $(GTKMM_CFLAGS) $(GNOME_CFLAGS)
+LIBS = $(LOCAL_LIBGNOMECANVASMM_LIB) $(LIBGNOMECANVASMM_LIBS)
+INCLUDES = -I ../.. -I . -I ../../libgnomecanvas -I ../../src $(CXX_FLAGS) $(LIBGNOMECANVASMM_CFLAGS)
 
-CXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(CXXFLAGS) $(INCLUDES) -c $<
-CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(CXXFLAGS) $(LDFLAGS) -o $@ 
+CXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(CXXFLAGS) $(INCLUDES)
+CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(CXXFLAGS) $(LDFLAGS) -o $@
 
 # compile and link for simple files
 CXXBUILD =  \
-        $(CXXCOMPILE) ; \
+        $(CXXCOMPILE) -c  $< ; \
         $(CXXLINK) $@.lo $(LIBS)
 
