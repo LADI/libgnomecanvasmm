@@ -39,25 +39,23 @@ protected:
 
 MainWin::MainWin()
 {
-  using namespace Gtk::Notebook_Helpers;
-  
   Gtk::Notebook* notebook = manage(new Gtk::Notebook());
   add(*notebook);
   
   Primitives* primitives = manage(new Primitives(false));
-  notebook->pages().push_back(TabElem(*primitives, "Primitives"));    
+  notebook->append_page(*primitives, "Primitives");    
   Primitives* antialias = manage(new Primitives(true));
-  notebook->pages().push_back(TabElem(*antialias, "Antialias"));    
+  notebook->append_page(*antialias, "Antialias");    
   Arrowhead* arrowhead = manage(new Arrowhead());
-  notebook->pages().push_back(TabElem(*arrowhead, "Arrowhead"));    
+  notebook->append_page(*arrowhead, "Arrowhead");    
   Fifteen* fifteen = manage(new Fifteen());
-  notebook->pages().push_back(TabElem(*fifteen, "Fifteen"));    
+  notebook->append_page(*fifteen, "Fifteen");
   Features* features = manage(new Features());
-  notebook->pages().push_back(TabElem(*features, "Features"));    
+  notebook->append_page(*features, "Features");
   Richtext* richtext = manage(new Richtext());
-  notebook->pages().push_back(TabElem(*richtext, "Rich Text"));    
+  notebook->append_page(*richtext, "Rich Text");
   Curve* curve = manage(new Curve());
-  notebook->pages().push_back(TabElem(*curve, "Bezier Curve"));    
+  notebook->append_page(*curve, "Bezier Curve");
   
   show_all();
 }

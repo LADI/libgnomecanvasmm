@@ -80,6 +80,7 @@ protected:
   mutable bool owned_;
 };
 
+
 class Line : public Item
 {
   _CLASS_GTKOBJECT(Line, GnomeCanvasLine, GNOME_CANVAS_LINE, Item, GnomeCanvasItem)
@@ -109,3 +110,17 @@ public:
 } /* namespace Canvas */
 } /* namespace Gnome */
 
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+namespace Glib
+{
+
+template <>
+class Glib::Value<Gnome::Canvas::Points> : public Glib::Value_Boxed<Gnome::Canvas::Points>
+{
+public:
+  static GType value_type() G_GNUC_CONST;
+};
+
+} // namespace Glib
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */
