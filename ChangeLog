@@ -1,3 +1,11 @@
+2004-05-01  Takashi Takekawa <takekawa@users.sourceforge.jp>
+ 
+         * libgnomecanvas/libgnomecanvas.[h,cc] (GNOMEMM_PROPERTY,
+         GNOMEMM_PROPERTY_IMPL): fixed doubled '>' when T is a template class,
+         for the Intel compiler.
+         * libgnomecanvas/src/line.hg: deleted unnecessary namespace
+         qualification, for the Intel compiler.
+
 2.6.0:
 
 2004-04-12  Bryan Forbes  <bryan@reigndropsfall.net>

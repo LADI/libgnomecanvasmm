@@ -161,7 +161,7 @@ outline_color::outline_color(const Glib::ustring& v)
 // GNOMEMM_PROPERTY_IMPL(C++ name, C property name, C++ type)
 #define GNOMEMM_PROPERTY_IMPL(N,N2,T) \
 N::N(const T& v) \
-  : Property<T>(#N2, v) \
+  : Property<T >(#N2, v) \
 {}
 
 // CanvasLine

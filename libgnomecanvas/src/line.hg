@@ -115,7 +115,7 @@ namespace Glib
 {
 
 template <>
-class Glib::Value<Gnome::Canvas::Points> : public Glib::Value_Boxed<Gnome::Canvas::Points>
+class Value<Gnome::Canvas::Points> : public Value_Boxed<Gnome::Canvas::Points>
 {
 public:
   static GType value_type() G_GNUC_CONST;

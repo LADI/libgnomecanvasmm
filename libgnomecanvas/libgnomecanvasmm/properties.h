@@ -164,7 +164,7 @@ public:
 
 // GNOMEMM_PROPERTY(C++ name, C property name, C++ type)
 #define GNOMEMM_PROPERTY(N,N2,T) \
-class N : public Property<T> \
+class N : public Property<T > \
 { \
 public: \
   N(const T& v); \
