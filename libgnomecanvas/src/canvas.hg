@@ -40,15 +40,19 @@ namespace Canvas
 class Item;
 class Group;
 
-//- Canvas functions usually operate in either World coordinates
-//- (units for the entire canvas), or Canvas coordinates (pixels starting 
-//- at 0,0 in the top left).  There are functions to transform from 
-//- one to the other.
+/** Canvas functions usually operate in either World coordinates
+ * (units for the entire canvas), or Canvas coordinates (pixels starting 
+ * at 0,0 in the top left).  There are functions to transform from 
+ * one to the other.
+ */
 class Canvas : public Gtk::Layout
 {
   _CLASS_GTKOBJECT(Canvas, GnomeCanvas, GNOME_CANVAS, Gtk::Layout, GtkLayout);
 public:
-  _CTOR_DEFAULT;
+  _CTOR_DEFAULT
+
+  //Allow CanvasAA to access the canvas_class_ member.
+  _GMMPROC_PROTECTED_GCLASS
 
   //: Get the root canvas item
   _WRAP_METHOD(Group* root() const, gnome_canvas_root)

@@ -1,3 +1,13 @@
+2003-07-21  Murray Cumming  <murrayc@usa.net>
+
+	* libgnomecanvas/src/canvas.hg: Use the new GMMPROC_PROTECTED_GCLASS
+	macro on the Canvas class so that the CanvasAA class can access
+	canvas_class_.
+	* libgnomecanvas/src/canvas.ccg: Rewrite the CanvasAA constructor to 
+	use the new (and working) gtkmm2-style construction construction. Fixes
+	bug #107686.
+	* configure.in: Now requires gtkmm 2.2.5, which has the new macro.
+
 2.0.0:
 
 2002-12-10  Bradley Bell  <btb@debian.org>

@@ -47,13 +47,17 @@ Canvas::get_color(const Glib::ustring& spec, Gdk::Color& color) const
 
 
 CanvasAA::CanvasAA()
- : Canvas ((GnomeCanvas*)NULL)
+:
+  Glib::ObjectBase(0), //Mark this class as gtkmmproc-generated, rather than a custom class, to allow vfunc optimisations.
+  Canvas(Glib::ConstructParams(canvas_class_.init(), "aa", TRUE, (char*) 0))
 {
-  gtk_widget_push_colormap (gdk_rgb_get_cmap ());
-  ObjectBase::initialize ((GObject*)g_object_new (get_type (), 
-                                                  "aa", true, 
-                                                  NULL));
-  gtk_widget_pop_colormap ();
+  //Note that the use of Glib::ConstructParams() here required use of _GMMPROC_PROTECTED_GCLASS in cavas.hg.
+  
+  //gtk_widget_push_colormap (gdk_rgb_get_cmap ());
+  //ObjectBase::initialize ((GObject*)g_object_new (get_type (),
+  //                                                "aa", true,
+  //                                                NULL));
+  //gtk_widget_pop_colormap();
 }
 
 CanvasAA::~CanvasAA()

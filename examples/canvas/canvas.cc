@@ -5,7 +5,7 @@
 
 #include <libgnomecanvasmm.h>
 
-class CanvasExample : public Gnome::Canvas::Canvas
+class CanvasExample : public Gnome::Canvas::CanvasAA
 {
 public:
   CanvasExample();

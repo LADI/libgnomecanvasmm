@@ -79,7 +79,7 @@ Please install GNU make.]))
 #  Dependancy checks
 #########################################################################
 # Make these available to both PKG_CHECK_MODULES and the .pc.in file:
-GTKMM_VERSION_NEEDED=2.0.1
+GTKMM_VERSION_NEEDED=2.2.5
 AC_SUBST(GTKMM_VERSION_NEEDED)
 LIBGNOMECANVAS_VERSION_NEEDED=1.113.0
 AC_SUBST(LIBGNOMECANVAS_VERSION_NEEDED)
