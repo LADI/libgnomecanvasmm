@@ -1,11 +1,16 @@
 
-EXTRA_DIST	= README
-
 #Where to find the header files needed by the source files:
-INCLUDES = -I$(top_builddir)/libgnomeui   -I$(top_srcdir)/libgnomeui   \
-           $(LIBGNOMEUIMM_CFLAGS)
+INCLUDES = -I$(top_builddir)/libgnomecanvasmm \
+           $(LIBGNOMECANVASMM_CFLAGS) 
 
 #The libraries that the executable needs to link against:
-LIBS = $(top_builddir)/libgnomeui/libgnomeuimm/libgnomeuimm-1.3.la \
-       $(LIBGNOMEUIMM_LIBS)
+LIBS = $(top_builddir)/libgnomecanvas/libgnomecanvasmm/libgnomecanvasmm-1.3.la \
+       $(LIBGNOMECANVASMM_LIBS)
 
+noinst_PROGRAMS = canvas_demo
+canvas_demo_SOURCES = canvas.h canvas.cc	\
+	primitives.h primitives.cc \
+	canvas_features.h canvas_features.cc \
+	fifteen.h fifteen.cc \
+	arrowhead.h arrowhead.cc \
+	richtext.h richtext.cc

@@ -1075,7 +1075,7 @@
   (return-type "void")
   (when "last")
   (parameters
-    '("GObject*" "p0")
+    '("GtkTextTag*" "tag")
   )
 )
 

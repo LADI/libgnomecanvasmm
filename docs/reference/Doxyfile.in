@@ -51,7 +51,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = ../../libgnomecanvas/libgnomecanvasmm
+INPUT                  = @top_srcdir@/libgnomecanvas/libgnomecanvasmm
 FILE_PATTERNS          = *.h
 RECURSIVE              = NO
 EXCLUDE                = 
@@ -146,7 +146,7 @@ SKIP_FUNCTION_MACROS   = YES
 TAGFILES               = 
 GENERATE_TAGFILE       = 
 ALLEXTERNALS           = NO
-PERL_PATH              = /usr/bin/perl
+PERL_PATH              = @PERL_PATH@
 #---------------------------------------------------------------------------
 # Configuration options related to the dot tool   
 #---------------------------------------------------------------------------

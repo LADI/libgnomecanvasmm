@@ -139,19 +139,23 @@ public:
   //: Get the pixels per unit.
   _MEMBER_GET(pixels_per_unit, pixels_per_unit, double, double);
 
-	_WRAP_SIGNAL(void draw_background(GdkDrawable* drawable, int x, int y, int width, int height), "draw_background")
-	_WRAP_SIGNAL(void render_background(GnomeCanvasBuf* buf), "render_background")
-
+  //: Draw the background for the area given.
+  //- This method is only used for non-antialiased canvases.
+  _WRAP_SIGNAL(void draw_background(GdkDrawable* drawable, int x, int y, int width, int height), "draw_background")
+  // Render the background for the buffer given. 
+  //- The buf data structure contains both a pointer to a packed 24-bit
+  //- RGB array, and the coordinates.
+  //- This method is only used for antialiased canvases.
+  _WRAP_SIGNAL(void render_background(GnomeCanvasBuf* buf), "render_background")
+  //: Private Virtual methods for groping the canvas inside bonobo.
   _WRAP_VFUNC(void request_update(), "request_update")
 
-  _WRAP_PROPERTY("aa", gulong)
+  // Whether the canvas is in antialiased mode or not.
+  _WRAP_PROPERTY("aa", bool)
 };
 
-// TODO: This doesn't seem to do anything.
-//: Antialiased Canvas
-//- This is very experimental and most likely buggy.
-//- To use you must first push GtkRGB colormap and visual, then
-//- pop after creation.
+//: Antialiased Canvas.
+//- Constructor takes care of push/pop actions of the colormap.
 class CanvasAA : public Canvas
 {
   public:

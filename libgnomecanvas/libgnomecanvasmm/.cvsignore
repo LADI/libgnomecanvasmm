@@ -32,3 +32,12 @@ canvas.cc
 canvas.h
 
 wrap_init.cc
+
+pixbuf.cc
+pixbuf.h
+
+rich-text.cc
+rich-text.h
+
+shape.cc
+shape.h

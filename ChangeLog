@@ -1,3 +1,14 @@
+2002-02-24  Andreas Holzmann  <Andreas.Holzmann@epost.de>
+
+	* docs/reference generation fixed
+	* libgnomecanvas/src/canvas.[hg|ccg]:
+	  + Antialiased canvas constructor fixed
+	  + aa property changed from gulong to bool
+	* libgnomecanvas/src/pixbuf.[hg|ccg]: implemented
+	* libgnomecanvas/src/rich-text.[hg|ccg]: implemented
+	* Added demo, based on the C demo - needs some more
+	classes to be implemented.
+	
 2002-02-20  Murray Cumming  <murrayc@usa.net>
 
 	* Wrapped remaining methods and signals in Canvas and Item.

@@ -1,5 +1,5 @@
 
-This file gives an overview of the status of libgnomeuimm development.
+This file gives an overview of the status of libgnomecanvasmm development.
 
 done	= every item implemented
 almost	= some stuff commented out for various reasons
@@ -18,10 +18,12 @@ Canvas				done		done		done		done		-
 Ellipse								done
 Group				-		-		done		-		
 Item				done		done		done		done		-
+Pixbuf
 Polygon								done
 Rect								done
 RectEllipse							done
 Text								done
+RichText
 Widget								done
 
 

@@ -1,4 +1,4 @@
-SUBDIRS		= tools libgnomecanvas demos docs examples
+SUBDIRS		= tools libgnomecanvas docs examples
 DIST_SUBDIRS	= $(SUBDIRS) scripts demos
 
 EXTRA_DIST	= libgnomecanvasmm.spec.in \

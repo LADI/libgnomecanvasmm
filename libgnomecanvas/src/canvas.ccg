@@ -45,7 +45,13 @@ Canvas::get_color(const Glib::ustring& spec, Gdk::Color& color)
 
 
 CanvasAA::CanvasAA()
+ : Canvas ((GnomeCanvas*)NULL)
 {
+  gtk_widget_push_colormap (gdk_rgb_get_cmap ());
+  ObjectBase::initialize ((GObject*)g_object_new (get_type (), 
+                                                  "aa", true, 
+                                                  NULL));
+  gtk_widget_pop_colormap ();
 }
 
 CanvasAA::~CanvasAA()
