@@ -1,3 +1,9 @@
+2.10.0:
+
+* Increased version for GNOME 2.10 release version.
+* WIN32 build fixes. (Cedric Gustin, Michael Hofmann)
+* Alpha build fix (Bradley Bell)
+
 2.8.0:
 
 * Increased version for GNOME 2.8 release version.
