@@ -78,7 +78,13 @@ Please install GNU make.]))
 #########################################################################
 #  Dependancy checks
 #########################################################################
-PKG_CHECK_MODULES(LIBGNOMECANVASMM, gtkmm-2.0 >= 1.3.17 libgnomecanvas-2.0 >= 1.113.0)
+# Make these available to both PKG_CHECK_MODULES and the .pc.in file:
+GTKMM_VERSION_NEEDED=1.3.17
+AC_SUBST(GTKMM_VERSION_NEEDED)
+LIBGNOMECANVAS_VERSION_NEEDED=1.113.0
+AC_SUBST(LIBGNOMECANVAS_VERSION_NEEDED)
+
+PKG_CHECK_MODULES(LIBGNOMECANVASMM, gtkmm-2.0 >= $GTKMM_VERSION_NEEDED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_VERSION_NEEDED)
 AC_SUBST(LIBGNOMECANVASMM_CFLAGS)
 AC_SUBST(LIBGNOMECANVASMM_LIBS)
 
@@ -110,6 +116,7 @@ AC_OUTPUT([
 
 	libgnomecanvas/Makefile
 	  libgnomecanvas/libgnomecanvasmm-2.0.pc
+	  libgnomecanvas/libgnomecanvasmm-2.0-uninstalled.pc
     libgnomecanvas/src/Makefile
 	  libgnomecanvas/libgnomecanvasmm/Makefile
 	    libgnomecanvas/libgnomecanvasmm/private/Makefile
