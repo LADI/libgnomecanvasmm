@@ -121,9 +121,6 @@ AC_OUTPUT([
 	tools/Makefile
     tools/m4/Makefile
 
-	examples/Makefile
-	examples/examples.conf
-
 	demos/Makefile
 
 	scripts/Makefile

@@ -1,4 +1,4 @@
-SUBDIRS		= tools libgnomecanvas demos docs examples
+SUBDIRS		= tools libgnomecanvas demos docs
 DIST_SUBDIRS	= $(SUBDIRS) scripts demos
 
 EXTRA_DIST	= gtkmm.spec.in \
