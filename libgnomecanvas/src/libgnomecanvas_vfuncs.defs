@@ -2,6 +2,8 @@
 ; virtual function definitions
 ; define-vfunc is gtkmm-specific
 
+; GnomeCanvasItem
+
 (define-vfunc draw
   (of-object "GnomeCanvasItem")
   (return-type "none")
@@ -12,7 +14,7 @@
    '("int" "y")
    '("int" "width")
    '("int" "height")
-   )
+  )
 )
 
 (define-vfunc realize
@@ -20,15 +22,15 @@
   (return-type "none")
   (parameters
    '("GnomeCanvasItem*" "item")
-   )
-  )
+  )
+)
 
 (define-vfunc unrealize
   (of-object "GnomeCanvasItem")
   (return-type "none")
   (parameters
    '("GnomeCanvasItem*" "item")
-   )
+  )
 )
 
 (define-vfunc map
@@ -36,7 +38,7 @@
   (return-type "none")
   (parameters
    '("GnomeCanvasItem*" "item")
-   )
+  )
 )
 
 (define-vfunc coverage
@@ -44,7 +46,7 @@
   (return-type "ArtUta *")
   (parameters
    '("GnomeCanvasItem*" "item")
-   )
+  )
 )
 
 (define-vfunc render
@@ -53,7 +55,7 @@
   (parameters
    '("GnomeCanvasItem*" "item")
    '("GnomeCanvasBuf*" "buf")
-   )
+  )
 )
 
 (define-vfunc point
@@ -63,10 +65,10 @@
    '("GnomeCanvasItem*" "item")
    '("double" "x")
    '("double" "y")
-   '("int" cx)
-   '("int" cy)
-   '("GnomeCanvasItem **" "actual_item")
-   )
+   '("int" "cx")
+   '("int" "cy")
+   '("GnomeCanvasItem**" "actual_item")
+  )
 )
 
 (define-vfunc bounds
@@ -78,5 +80,5 @@
    '("double" "y1")
    '("double" "x2")
    '("double" "y2")
-   )
+  )
 )

@@ -143,29 +143,29 @@ public:
   //: defined above.  The item should update its internal state from its
   //: queued state, recompute and request its repaint area, etc.  The
   //: affine, if used, is a pointer to a 6-element array of doubles.
-  _WRAP_VFUNC(void update(double*, ArtSVP*, int), "update")
+  _WRAP_VFUNC(void update(double*, ArtSVP*, int), update)
 
   //: Realize an item -- create GCs, etc.
-  _WRAP_VFUNC(void realize(), "realize")
+  _WRAP_VFUNC(void realize(), realize)
 
   //: Unrealize an item
-  _WRAP_VFUNC(void unrealize(), "unrealize")
+  _WRAP_VFUNC(void unrealize(), unrealize)
 
   //: Map an item - normally only need by items with their own GdkWindows
-  _WRAP_VFUNC(void map(),"map")
+  _WRAP_VFUNC(void map(), map)
 
   //: Unmap an item
-  _WRAP_VFUNC(void unmap(),"unmap")
+  _WRAP_VFUNC(void unmap(), unmap )
 
   //: Return the microtile coverage of the item
-  _WRAP_VFUNC(ArtUta* coverage(), "coverage")
+  _WRAP_VFUNC(ArtUta* coverage(),  coverage )
 
   //: Draw an item of this type. (x, y) are the upper-left canvas
   //: pixel coordinates of the drawable, a temporary pixmap,
   //: where things get drawn. (width, height) are the dimensions
   //: of the drawable.
 
-  _WRAP_VFUNC(void draw(GdkDrawable*,int,int,int,int), "draw")
+  _WRAP_VFUNC(void draw(GdkDrawable*,int,int,int,int), draw)
 
   //: Calculate the distance from an item to the specified point.  It
   //: also returns a canvas item which is the item itself in the case
@@ -174,7 +174,7 @@ public:
   //: coordinates that correspond to the item-relative coordinates(x,
   //: y).
 
- _WRAP_VFUNC(double point(double, double, int, int), "point")
+  _WRAP_VFUNC(double point(double, double, int, int), point)
 
   //: Move an item by the specified amount
   _WRAP_SIGNAL(void translate(double, double), "translate")
