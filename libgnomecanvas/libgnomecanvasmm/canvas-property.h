@@ -87,47 +87,21 @@ O& operator << (O& object, const Property<T>& property)
 /********* specializations *********/
 
 //Colors can be specified with a string or a Gdk::Color, or an rgba guint.
-//TODO: Put implementation in a .cc file.
 template<>
 class Property<Gdk::Color> : public PropertyBase
 {
 public:
-  Property(const char* name, const Gdk::Color& value)
-    : PropertyBase(name), value_(value), value_gobj_used_(true), value_rgba_(0)
-  {}
+  Property(const char* name, const Gdk::Color& value);
+  Property(const char* name, const Glib::ustring& color);  
+  Property(const char* name, const guint& rgba_color);
 
-  Property(const char* name, const Glib::ustring& color)
-    : PropertyBase(name), value_gobj_used_(false), value_string_(color), value_rgba_(0)
-  {}
-
-  Property(const char* name, const guint& rgba_color)
-    : PropertyBase(name), value_gobj_used_(false), value_rgba_(rgba_color)
-  {}
-
-  void set_value_in_object(Glib::Object& object) const
-  {
-    //Set the appropriate property name with the appropriately-typed value:
-    if(value_string_.size())
-    {
-      Glib::PropertyProxy<Glib::ustring> proxy(&object, get_name());
-      proxy.set_value(value_string_);
-    }
-    else if(value_gobj_used_)
-    {
-      Glib::PropertyProxy<Gdk::Color> proxy(&object, get_name());
-      proxy.set_value(value_);
-    }
-    else
-    {
-      Glib::PropertyProxy<guint> proxy(&object, get_name());
-      proxy.set_value(value_rgba_);
-    }
-  }
+  void set_value_in_object(Glib::Object& object) const;
 
 protected:
   Gdk::Color value_;
   bool value_gobj_used_; //Whether the Gdk::Value was intialised in the constructor.
   Glib::ustring value_string_;
+  bool value_string_used_;
   guint value_rgba_;
 };
 
@@ -136,27 +110,10 @@ template<>
 class Property<Pango::FontDescription> : public PropertyBase
 {
 public:
-  Property(const char* name, const Pango::FontDescription& value)
-    : PropertyBase(name), value_(value)
-  {}
+  Property(const char* name, const Pango::FontDescription& value);
+  Property(const char* name, const Glib::ustring& font);
 
-  Property(const char* name, const Glib::ustring& font)
-    : PropertyBase(name), value_(0), value_string_(font)
-  {}
-
-  void set_value_in_object(Glib::Object& object) const
-  {
-    if(value_string_.size())
-    {
-      Glib::PropertyProxy<Glib::ustring> proxy(&object, get_name());
-      proxy.set_value(value_string_);
-    }
-    else
-    {
-      Glib::PropertyProxy<Pango::FontDescription> proxy(&object, get_name());
-      proxy.set_value(value_);
-    }
-  }
+  void set_value_in_object(Glib::Object& object) const;
 
 protected:
   Pango::FontDescription value_;

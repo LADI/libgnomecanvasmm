@@ -1,3 +1,9 @@
+2002-08-15  ERDI Gergo  <cactus@cactus.rulez.org>
+
+	* libgnomecanvas/libgnomecanvasmm/canvas-property.cc
+	(Property<Gdk::Color>::set_value_in_object): Clear color property if input string is ""
+	(Property<Pango::FontDescription>): Moved implementation to .cc file
+
 1.3.9:
 	
 2002-08-08  ERDI Gergo  <cactus@cactus.rulez.org>
