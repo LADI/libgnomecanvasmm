@@ -70,4 +70,5 @@ public:
 
 std::ostream& operator<<(std::ostream& out, const Gnome::Art::Point& p);
 
-#endif // _GNOMEMM_POINT_H
+#endif /* _LIBGNOMECANVASMM_POINT_H */
+

@@ -1,3 +1,14 @@
+2002-05-14  Daniel Elstner  <daniel.elstner@gmx.net>
+
+	* libgnomecanvas/src/line.hg (Canvas::Points::is_null): Remove
+	'virtual' keyword.  There is no need for is_null() to be virtual,
+	and gcc-3.1 issues a warning because the dtor isn't virtual too.
+
+	* libgnomecanvas/libgnomecanvasmm/affinetrans.cc: Remove default
+	method arguments from the implementation prototype -- gcc-3.1
+	doesn't like them at all.  Also, remove the now unnecessary cast
+	to std::string in operator<<().
+
 2002-05-14  Andreas Holzmann  <Andreas.Holzmann@epost.de>
 
 	* demos/*.cc: Use new Gtk::Box::pack_start() API.

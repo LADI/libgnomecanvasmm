@@ -68,7 +68,7 @@ public:
 #endif /* DOXYGEN_SHOULD_SKIP_THIS */
 
   operator bool() const;
-  virtual bool is_null() const;
+  bool is_null() const;
 
   const GnomeCanvasPoints* gobj() const { return _gobj(); }
   GnomeCanvasPoints* gobj() { return _gobj(); }

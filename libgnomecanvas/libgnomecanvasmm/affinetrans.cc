@@ -29,7 +29,7 @@ namespace Gnome
 namespace Art
 {
 
-AffineTrans::AffineTrans(double scale = 1.0)
+AffineTrans::AffineTrans(double scale)
 {
   trans_[0] = scale;
   trans_[1] = 0.0;
@@ -228,5 +228,5 @@ Glib::ustring AffineTrans::to_string() const
 
 std::ostream& operator<<(std::ostream& out, const Gnome::Art::AffineTrans& aff)
 {
-  return out << (std::string)aff.to_string(); //Not UTF8-friendly.
+  return out << aff.to_string();
 }
