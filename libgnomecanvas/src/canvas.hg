@@ -24,9 +24,10 @@
  */
 
 #include <libgnomecanvas/gnome-canvas.h>
+#include <libgnomecanvasmm/affinetrans.h>
 #include <gtkmm/layout.h>
 #include <gdkmm/color.h>
-#include <libgnomecanvasmm/affinetrans.h>
+
 _DEFS(libgnomecanvas)
 _PINCLUDE(gtkmm/private/layout_p.h)
 

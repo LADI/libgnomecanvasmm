@@ -21,9 +21,9 @@
 #define __FIFTEEN_HH
 
 #include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-rect.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-text.h>
+#include <libgnomecanvasmm/rect.h>
+#include <libgnomecanvasmm/group.h>
+#include <libgnomecanvasmm/text.h>
 #include <gtkmm/frame.h>
 #include <gtkmm/alignment.h>
 #include <gtkmm/label.h>

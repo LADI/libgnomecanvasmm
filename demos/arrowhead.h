@@ -23,12 +23,12 @@
 
 
 #include <gtkmm/box.h>
-#include <libgnomecanvasmm/canvas-rect.h>
+#include <libgnomecanvasmm/rect.h>
 #include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-rect.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-text.h>
-#include <libgnomecanvasmm/canvas-line.h>
+#include <libgnomecanvasmm/rect.h>
+#include <libgnomecanvasmm/group.h>
+#include <libgnomecanvasmm/text.h>
+#include <libgnomecanvasmm/line.h>
 #include <vector>
 
 class DragBox : public Gnome::Canvas::Rect

@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/* canvas-widget.cc
+/* rect.c
  *
  * Copyright (C) 1998 EMC Capital Management Inc.
  * Developed by Havoc Pennington <hp@pobox.com>
@@ -19,8 +19,6 @@
  * License along with this library; if not, write to the Free
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-#include <stdarg.h>
-#include <gtkmm/widget.h>
 
 namespace Gnome
 {
@@ -28,16 +26,15 @@ namespace Gnome
 namespace Canvas
 {
 
-Widget::Widget(Group& parentx, double x, double y,
-                           Gtk::Widget& w)
-  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+Rect::Rect(Group& parentx, double x1, double y1, double x2, double y2)
+: RectEllipse(GNOME_CANVAS_RE(g_object_new(get_type(),0)))
 {
   item_construct(parentx);
-  set("x", x, "y", y, "widget",w.gobj(), 0);
+  set("x1",x1,"y1",y1,"x2",x2,"y2",y2,0);
 }
 
-Widget::Widget(Group& parentx)
-  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+Rect::Rect(Group& parentx)
+: RectEllipse(GNOME_CANVAS_RE(g_object_new(get_type(),0)))
 {
   item_construct(parentx);
 }

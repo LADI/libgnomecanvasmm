@@ -21,7 +21,7 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <libgnomecanvasmm/canvas-item.h>
+#include <libgnomecanvasmm/item.h>
 #include <libgnomecanvas/gnome-canvas-shape.h>
 #include <libart_lgpl/art_vpath_dash.h> //For ArtVpathDash
 _DEFS(libgnomecanvas)

@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/* canvas-line.h
+/* line.h
  * 
  * Copyright (C) 1998 EMC Capital Management Inc.
  * Developed by Havoc Pennington <hp@pobox.com>
@@ -22,7 +22,7 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <libgnomecanvasmm/canvas-item.h>
+#include <libgnomecanvasmm/item.h>
 #include <libgnomecanvasmm/canvas-property.h>
 #include <libgnomecanvas/gnome-canvas-line.h>
 #include <libgnomecanvas/gnome-canvas-util.h>

@@ -1,8 +1,10 @@
 /* $Id$ */
 
-
-/* canvas-polygon.hg
+/* rect.h
  * 
+ * Copyright (C) 1998 EMC Capital Management Inc.
+ * Developed by Havoc Pennington <hp@pobox.com>
+ *
  * Copyright (C) 1999 The Gtk-- Development Team
  *
  * This library is free software; you can redistribute it and/or
@@ -20,11 +22,11 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <libgnomecanvasmm/shape.h>
-#include <libgnomecanvasmm/canvas-line.h>
-#include <libgnomecanvas/gnome-canvas-polygon.h>
+#include <libgnomecanvasmm/item.h>
+#include <libgnomecanvasmm/group.h>
+#include <libgnomecanvasmm/rect-ellipse.h>
 _DEFS(libgnomecanvas)
-_PINCLUDE(libgnomecanvasmm/private/shape_p.h)
+_PINCLUDE(libgnomecanvasmm/private/canvas-rect-ellipse_p.h)
 
 namespace Gnome
 {
@@ -32,18 +34,19 @@ namespace Gnome
 namespace Canvas
 {
 
-class Polygon : public Shape
+//class Group;
+
+class Rect : public RectEllipse
 {
-  _CLASS_GTKOBJECT(Polygon, GnomeCanvasPolygon, GNOME_CANVAS_POLYGON, Shape, GnomeCanvasShape)
+  _CLASS_GTKOBJECT(Rect, GnomeCanvasRect, GNOME_CANVAS_RECT, RectEllipse, GnomeCanvasRE)
+
 public:
-  Polygon(Group& parent,const Points& points);
-  Polygon(Group& parent);
+  Rect(Group& parent, double x1, double y1, double x2, double y2);
+  Rect(Group& parent);
   _CTOR_CAST;
   _DTOR;
-
-  _WRAP_PROPERTY("points", Points)
+  
 };
 
 } /* namespace Canvas */
 } /* namespace Gnome */
-

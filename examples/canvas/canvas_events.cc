@@ -3,9 +3,10 @@
 // (c) Agustin Ferrin Pozuelo <ferrin@arrakis.es>
 // Note that you have to click 2^N times over the canvas,
 // It took me 5.60 seconds to have 64 valid events! I'm Termclickator
+
+#include <libgnomecanvasmm.h>
 #include <gtkmm/window.h>
 #include <gtkmm/main.h>
-#include <libgnomecanvasmm.h>
 #include <stdio.h>
 
 

@@ -24,9 +24,9 @@
 
 #include <gtkmm/box.h>
 #include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-ellipse.h>
-#include <libgnomecanvasmm/canvas-rect.h>
-#include <libgnomecanvasmm/canvas-group.h>
+#include <libgnomecanvasmm/ellipse.h>
+#include <libgnomecanvasmm/rect.h>
+#include <libgnomecanvasmm/group.h>
 #include <gtkmm/label.h>
 #include <gtkmm/frame.h>
 #include <gtkmm/alignment.h>

@@ -1,9 +1,12 @@
+// -*- C++ -*-
 /* $Id$ */
 
-/* canvas-text.cc
- *
+/* group.h
+ * 
  * Copyright (C) 1998 EMC Capital Management Inc.
  * Developed by Havoc Pennington <hp@pobox.com>
+ *
+ * Copyright (C) 1999 The Gtk-- Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -20,24 +23,31 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <libgnomecanvasmm/item.h>
+_DEFS(libgnomecanvas)
+_PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
+
 namespace Gnome
 {
 
 namespace Canvas
 {
 
-Text::Text(Group& parentx, double x, double y, const Glib::ustring& text)
-  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(), 0)))
-{
-  item_construct(parentx);
-  set("x", x, "y", y, "text", text.c_str(), 0);
-}
+class Canvas;
 
-Text::Text(Group& parentx)
-  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(), 0)))
+class Group : public Item
 {
-  item_construct(parentx);
-}
+  _CLASS_GTKOBJECT(Group, GnomeCanvasGroup, GNOME_CANVAS_GROUP, Item, GnomeCanvasItem);
+public:
+  friend class Canvas;
+  Group(Group& parent, double x = 0, double y = 0);
+  _CTOR_DEFAULT;
+  _CTOR_CAST;
+  _DTOR;
+
+  _WRAP_PROPERTY("x", double)
+  _WRAP_PROPERTY("y", double)
+};
 
 } /* namespace Canvas */
 } /* namespace Gnome */

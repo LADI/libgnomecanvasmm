@@ -22,7 +22,7 @@
  */
 
 #include <gdkmm/pixbuf.h>
-#include <libgnomecanvasmm/canvas-item.h>
+#include <libgnomecanvasmm/item.h>
 #include <libgnomecanvas/gnome-canvas-pixbuf.h>
 _DEFS(libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)

@@ -1,7 +1,6 @@
-// -*- C++ -*-
 /* $Id$ */
 
-/* canvas-ellipse.cc
+/* text.cc
  *
  * Copyright (C) 1998 EMC Capital Management Inc.
  * Developed by Havoc Pennington <hp@pobox.com>
@@ -27,15 +26,15 @@ namespace Gnome
 namespace Canvas
 {
 
-Ellipse::Ellipse(Group& parentx, double x1, double y1, double x2, double y2)
- : RectEllipse(GNOME_CANVAS_RE(g_object_new(get_type(), 0)))
+Text::Text(Group& parentx, double x, double y, const Glib::ustring& text)
+  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(), 0)))
 {
   item_construct(parentx);
-  set("x1",x1,"y1",y1,"x2",x2,"y2",y2,0);
+  set("x", x, "y", y, "text", text.c_str(), 0);
 }
 
-Ellipse::Ellipse(Group& parentx)
-  : RectEllipse(GNOME_CANVAS_RE(g_object_new(get_type(), 0)))
+Text::Text(Group& parentx)
+  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(), 0)))
 {
   item_construct(parentx);
 }

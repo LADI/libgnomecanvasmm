@@ -1,10 +1,8 @@
-// -*- C++ -*-
 /* $Id$ */
 
-/* canvas-group.cc
- *
- * Copyright (C) 1998 EMC Capital Management Inc.
- * Developed by Havoc Pennington <hp@pobox.com>
+/* polygon.ccg
+ * 
+ * Copyright (C) 1999 The Gtk-- Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -27,12 +25,20 @@ namespace Gnome
 namespace Canvas
 {
 
-Group::Group(Group& parentx, double x, double y)
-  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(), 0)))
+Polygon::Polygon(Group& parent,const Points& points)
+  : Shape(GNOME_CANVAS_SHAPE(g_object_new(get_type(),0)))
 {
-  item_construct(parentx);
-  set("x", x, "y", y, 0);
+  item_construct(parent);
+  property_points().set_value(points);
+}
+
+Polygon::Polygon(Group& parent)
+    : Shape(GNOME_CANVAS_SHAPE(g_object_new(get_type(),0)))
+{
+  item_construct(parent);
 }
 
 } /* namespace Canvas */
 } /* namespace Gnome */
+
+

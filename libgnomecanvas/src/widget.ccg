@@ -1,12 +1,9 @@
-// -*- C++ -*-
 /* $Id$ */
 
-/* canvas-ellipse.h
- * 
+/* widget.cc
+ *
  * Copyright (C) 1998 EMC Capital Management Inc.
  * Developed by Havoc Pennington <hp@pobox.com>
- *
- * Copyright (C) 1999 The Gtk-- Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -22,12 +19,8 @@
  * License along with this library; if not, write to the Free
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-
-#include <libgnomecanvasmm/canvas-item.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-rect-ellipse.h>
-_DEFS(libgnomecanvas)
-_PINCLUDE(libgnomecanvasmm/private/canvas-rect-ellipse_p.h)
+#include <stdarg.h>
+#include <gtkmm/widget.h>
 
 namespace Gnome
 {
@@ -35,16 +28,19 @@ namespace Gnome
 namespace Canvas
 {
 
-class Ellipse : public RectEllipse
+Widget::Widget(Group& parentx, double x, double y,
+                           Gtk::Widget& w)
+  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
-  _CLASS_GTKOBJECT(Ellipse, GnomeCanvasEllipse, GNOME_CANVAS_ELLIPSE, RectEllipse, GnomeCanvasRE);
+  item_construct(parentx);
+  set("x", x, "y", y, "widget",w.gobj(), 0);
+}
 
-public:
-  Ellipse(Group& parent);
-  Ellipse(Group& parent, double x1, double y1, double x2, double y2);
-  _CTOR_CAST;
-  _DTOR;
-};
+Widget::Widget(Group& parentx)
+  : Item(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
+{
+  item_construct(parentx);
+}
 
 } /* namespace Canvas */
 } /* namespace Gnome */

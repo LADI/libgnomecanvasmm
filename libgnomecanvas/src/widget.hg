@@ -1,7 +1,10 @@
 /* $Id$ */
 
-/* canvas-polygon.ccg
+/* widget.h
  * 
+ * Copyright (C) 1998 EMC Capital Management Inc.
+ * Developed by Havoc Pennington <hp@pobox.com>
+ *
  * Copyright (C) 1999 The Gtk-- Development Team
  *
  * This library is free software; you can redistribute it and/or
@@ -19,26 +22,38 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <libgnomecanvasmm/item.h>
+#include <libgnomecanvas/gnome-canvas-widget.h>
+#include <gtkmm/widget.h>
+_DEFS(libgnomecanvas)
+_PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
+
 namespace Gnome
 {
 
 namespace Canvas
 {
 
-Polygon::Polygon(Group& parent,const Points& points)
-  : Shape(GNOME_CANVAS_SHAPE(g_object_new(get_type(),0)))
-{
-  item_construct(parent);
-  property_points().set_value(points);
-}
+class Group;
 
-Polygon::Polygon(Group& parent)
-    : Shape(GNOME_CANVAS_SHAPE(g_object_new(get_type(),0)))
+class Widget : public Item
 {
-  item_construct(parent);
-}
+  _CLASS_GTKOBJECT(Widget, GnomeCanvasWidget, GNOME_CANVAS_WIDGET, Item, GnomeCanvasItem)
+public:
+  Widget(Group& parent, double x, double y, Gtk::Widget& w);
+  Widget(Group& parent);
+  _CTOR_CAST;
+  _DTOR;
+
+  _WRAP_PROPERTY("widget", Gtk::Widget)
+  _WRAP_PROPERTY("x", double)
+  _WRAP_PROPERTY("y", double)
+  _WRAP_PROPERTY("width", double)
+  _WRAP_PROPERTY("height", double)
+  _WRAP_PROPERTY("anchor", GtkAnchorType)
+  _WRAP_PROPERTY("size-pixels", bool)
+};
 
 } /* namespace Canvas */
 } /* namespace Gnome */
-
 

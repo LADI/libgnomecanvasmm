@@ -1,3 +1,10 @@
+2002-02-24  Murray Cumming  <murrayc@usa.net>
+
+	* Renamed canvas-*.[h.cc] to *.[h.cc]. They were previously prefixed
+	by canvas- to make things clearer when they were part of libgnomeui.
+	This means you should probably manually delete any installed 
+	libgnomecanvasmm headers or make uninstall a previous version. 
+
 2002-02-24  Andreas Holzmann  <Andreas.Holzmann@epost.de>
 
 	* docs/reference generation fixed

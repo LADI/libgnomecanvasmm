@@ -19,8 +19,8 @@
 
 #include "richtext.h"
 #include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-rect.h>
-#include <libgnomecanvasmm/canvas-ellipse.h>
+#include <libgnomecanvasmm/rect.h>
+#include <libgnomecanvasmm/ellipse.h>
 #include <libgnomecanvasmm/rich-text.h>
 #include <gtkmm/frame.h>
 #include <gtkmm/alignment.h>

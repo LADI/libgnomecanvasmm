@@ -22,7 +22,7 @@
  */
 
 #include <gtkmm/textbuffer.h>
-#include <libgnomecanvasmm/canvas-item.h>
+#include <libgnomecanvasmm/item.h>
 #include <libgnomecanvas/gnome-canvas-rich-text.h>
 _DEFS(libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)

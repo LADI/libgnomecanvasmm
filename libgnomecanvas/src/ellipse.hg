@@ -1,7 +1,12 @@
-/* canvas-ellipse.c
- *
+// -*- C++ -*-
+/* $Id$ */
+
+/* ellipse.h
+ * 
  * Copyright (C) 1998 EMC Capital Management Inc.
  * Developed by Havoc Pennington <hp@pobox.com>
+ *
+ * Copyright (C) 1999 The Gtk-- Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -18,17 +23,28 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <libgnomecanvasmm/item.h>
+#include <libgnomecanvasmm/group.h>
+#include <libgnomecanvasmm/rect-ellipse.h>
+_DEFS(libgnomecanvas)
+_PINCLUDE(libgnomecanvasmm/private/canvas-rect-ellipse_p.h)
+
 namespace Gnome
 {
 
 namespace Canvas
 {
 
-RectEllipse::RectEllipse(Group& parent)
-    : Shape(GNOME_CANVAS_SHAPE(g_object_new(get_type(),0)))
+class Ellipse : public RectEllipse
 {
-  item_construct(parent);
-}
+  _CLASS_GTKOBJECT(Ellipse, GnomeCanvasEllipse, GNOME_CANVAS_ELLIPSE, RectEllipse, GnomeCanvasRE);
+
+public:
+  Ellipse(Group& parent);
+  Ellipse(Group& parent, double x1, double y1, double x2, double y2);
+  _CTOR_CAST;
+  _DTOR;
+};
 
 } /* namespace Canvas */
 } /* namespace Gnome */

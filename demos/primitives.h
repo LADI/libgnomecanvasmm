@@ -21,13 +21,13 @@
 #define __PRIMITIVES_HH
 
 #include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-rect.h>
-#include <libgnomecanvasmm/canvas-ellipse.h>
-#include <libgnomecanvasmm/canvas-line.h>
-#include <libgnomecanvasmm/canvas-text.h>
-#include <libgnomecanvasmm/canvas-polygon.h>
-#include <libgnomecanvasmm/canvas-widget.h>
+#include <libgnomecanvasmm/group.h>
+#include <libgnomecanvasmm/rect.h>
+#include <libgnomecanvasmm/ellipse.h>
+#include <libgnomecanvasmm/line.h>
+#include <libgnomecanvasmm/text.h>
+#include <libgnomecanvasmm/polygon.h>
+#include <libgnomecanvasmm/widget.h>
 #include <libgnomecanvasmm/pixbuf.h>
 #include <gtkmm/label.h>
 #include <gtkmm/spinbutton.h>

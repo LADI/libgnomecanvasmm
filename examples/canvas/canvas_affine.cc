@@ -1,9 +1,10 @@
 // CanvasAffine.cc
 // Sample use of the Gnome::Art::Affine and Gnome::Art::Point classes
 // (c) Agustin Ferrin Pozuelo <ferrin@arrakis.es>
+
+#include <libgnomecanvasmm.h>
 #include <gtkmm/window.h>
 #include <gtkmm/main.h>
-#include <libgnomecanvasmm.h>
 
 Gnome::Canvas::Line* some_lines(Gnome::Canvas::Group *group, gchar * color="black")
 {

@@ -23,8 +23,8 @@
 
 #include <gtk/gtk.h>
 
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-item.h>
+#include <libgnomecanvasmm/group.h>
+#include <libgnomecanvasmm/item.h>
 #include <libgnomecanvasmm/wrap_init.h>
 #include <libgnomecanvas/gnome-canvas-util.h>
 

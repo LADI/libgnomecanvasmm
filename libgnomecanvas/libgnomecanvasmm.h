@@ -33,15 +33,16 @@ extern const int libgnomecanvasmm_micro_version;
 #include <gtkmm.h>
 
 #include <libgnomecanvasmm/canvas.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-group.h>
-#include <libgnomecanvasmm/canvas-line.h>
 #include <libgnomecanvasmm/canvas-property.h>
-#include <libgnomecanvasmm/canvas-rect-ellipse.h>
-#include <libgnomecanvasmm/canvas-ellipse.h>
-#include <libgnomecanvasmm/canvas-rect.h>
-#include <libgnomecanvasmm/canvas-text.h>
+#include <libgnomecanvasmm/group.h>
 #include <libgnomecanvasmm/init.h>
+#include <libgnomecanvasmm/line.h>
+#include <libgnomecanvasmm/ellipse.h>
+#include <libgnomecanvasmm/pixbuf.h>
 #include <libgnomecanvasmm/point.h>
+#include <libgnomecanvasmm/rect.h>
+#include <libgnomecanvasmm/rect-ellipse.h>
+#include <libgnomecanvasmm/rich-text.h>
+#include <libgnomecanvasmm/text.h>
 
 #endif /* #ifndef LIBGNOMECANVASMM_H */
