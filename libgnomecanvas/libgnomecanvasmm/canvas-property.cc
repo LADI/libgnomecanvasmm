@@ -22,8 +22,6 @@
 
 #include <libgnomecanvasmm/canvas-property.h>
 
-#include <iostream>
-
 namespace Gnome
 {
 
@@ -76,9 +74,6 @@ void Property<Gdk::Color>::set_value_in_object(Glib::Object& object) const
   //Set the appropriate property name with the appropriately-typed value:
   if(value_string_used_) {
     
-    std::cerr << "setting " << get_name () << " from string "
-	      << value_string_ << std::endl;
-    
     Glib::PropertyProxy<Glib::ustring> proxy(&object, get_name());
     if (value_string_ == "")
       proxy.reset_value ();
@@ -92,8 +87,6 @@ void Property<Gdk::Color>::set_value_in_object(Glib::Object& object) const
 
   } else {
     
-    std::cerr << "setting " << get_name () << " from RGBA" << std::endl;
-      
     Glib::PropertyProxy<guint> proxy(&object, get_name());
     proxy.set_value(value_rgba_);
   }
