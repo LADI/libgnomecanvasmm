@@ -24,26 +24,22 @@
 
 #include <libgnomecanvasmm/canvas-item.h>
 #include <libgnomecanvas/gnome-canvas-text.h>
-#m4 include(property.m4)
+_DEFS(libgnomecanvas,gnomecanvastext)
+_PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
 
-#m4 GTKMM_CONVERSION(int,GtkJustification,`$2($3)')
-
-//This conversion is odd: the gdk_font property uses the reverse conversion
-//instead of the normal conversion. I dont' know why. murrayc.
-#m4 GTKMM_CONVERSION(GdkFont*,const Gdk_Font&,`$3',`$3.gdkobj()')
+#m4 include(canvas_property.m4)
 
 namespace Gnome
-{;
+{
+
 class CanvasGroup;
+
 class CanvasText : public CanvasItem
 {
-  _CLASS_GTKOBJECT(CanvasText, GnomeCanvasText,
-             GNOME_CANVAS_TEXT, GNOME_IS_CANVAS_TEXT,
-             canvas_text,
-             CanvasItem, GnomeCanvasItem, GNOME_CANVAS_ITEM);
+  _CLASS_GTKOBJECT(CanvasText, GnomeCanvasText, GNOME_CANVAS_TEXT, CanvasItem, GnomeCanvasItem)
 public:
-  CanvasText(const CanvasGroup &parent,double x, double y, const Glib::ustring& text);
-  CanvasText(const CanvasGroup &parent);
+  CanvasText(CanvasGroup& parent, double x, double y, const Glib::ustring& text);
+  CanvasText(CanvasGroup& parent);
   _CTOR_CAST;
   _DTOR;
 
@@ -54,7 +50,7 @@ public:
   CANVAS_PROPERTY(x_offset,x_offset,double,double,double,double,double_data)
   CANVAS_PROPERTY(y_offset,y_offset,double,double,double,double,double_data)
 
-  CANVAS_PROPERTY(font,font_gdk,const Gdk_Font&,GdkFont*)
+  CANVAS_PROPERTY(font,font_desc,const Pango::FontDescription&,PangoFontDescription*)
   CANVAS_PROPERTY(font,font,const Glib::ustring&,char*)
   CANVAS_PROPERTY(fontset,fontset,const Glib::ustring&,char*)
 
@@ -66,55 +62,13 @@ public:
   CANVAS_PROPERTY(clip_height,clip_height,double,double,double,double,double_data)
 
   CANVAS_PROPERTY(fill_color,fill_color,const Glib::ustring&,char*)
-  CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk_Color&,GdkColor*,Gdk_Color,void*,pointer_data)
+  CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk::Color&,GdkColor*,Gdk::Color,void*,pointer_data)
   //FIXME: fill_color_rgba?
-  CANVAS_PROPERTY(fill_stipple,fill_stipple,const Gdk_Pixmap&,GdkWindow*,Gdk_Pixmap,void*,pointer_data)
+  CANVAS_PROPERTY(fill_stipple,fill_stipple,const Glib::RefPtr<Gdk::Pixmap>&,GdkWindow*,Glib::RefPtr<Gdk::Pixmap>,void*,pointer_data)
 
   CANVAS_PROPERTY(text_width,text_width,double,double,double,double,double_data)
   CANVAS_PROPERTY(text_height,text_height,double,double,double,double,double_data)
  
 };
-
-PRIVATE_START;
-#include <libgnomecanvasmm/private/canvas-item_p.h>
-IMPL_START;
-#include <libgnomecanvasmm/private/canvas-text_p.h>
-
-/* canvas-text.c
- *
- * Copyright (C) 1998 EMC Capital Management Inc.
- * Developed by Havoc Pennington <hp@pobox.com>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Library General Public
- * License along with this library; if not, write to the Free
- * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
-namespace Gnome {
-
-CanvasText::CanvasText(const CanvasGroup &parentx,double x,double y, const Glib::ustring& text)
-  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
-{
-  initialize_class();
-  item_construct(parentx);
-  set("x",x,"y",y,"text",text.c_str(),0);
-}
-
-CanvasText::CanvasText(const CanvasGroup &parentx)
-  : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
-{
-  initialize_class();
-  item_construct(parentx);
-}
 
 } /* namespace Gnome */

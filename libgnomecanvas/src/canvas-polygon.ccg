@@ -1,6 +1,5 @@
 /* $Id$ */
 
-
 /* canvas-polygon.ccg
  * 
  * Copyright (C) 1999 The Gtk-- Development Team
@@ -20,60 +19,10 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <libgnomecanvasmm/canvas-item.h>
-#include <libgnomecanvasmm/canvas-line.h>
-#include <libgnomecanvas/gnome-canvas-polygon.h>
-
-#m4 include(property.m4)
-#m4 GTKMM_CONVERSION(void*,Gdk_Pixmap,`Gdk_Pixmap((GdkPixmap*)$3)')
-#m4 GTKMM_CONVERSION(void*,Gdk_Color,`Gdk_Color(*(GdkColor*)$3)')
-#m4 GTKMM_CONVERSION(int,GdkCapStyle,`$2($3)')
-#m4 GTKMM_CONVERSION(int,GdkJoinStyle,`$2($3)')
-#m4 GTKMM_CONVERSION(int,GdkLineStyle,`$2($3)')
-#m4 GTKMM_CONVERSION(char*,const Glib::ustring&,,`$3.c_str()')
-#m4 GTKMM_EQUAL(double,double)
-
-CLASS_START(Gnome);
-
-class CanvasPolygon : public CanvasItem
+namespace Gnome
 {
-  WRAP_CLASS(CanvasPolygon, GnomeCanvasPolygon,
-             GNOME_CANVAS_POLYGON, GNOME_IS_CANVAS_POLYGON,
-             canvas_polygon,
-             CanvasItem, GnomeCanvasItem, GNOME_CANVAS_ITEM);
-public:
-  CanvasPolygon(const CanvasGroup &parent,const CanvasPoints& points);
-  CanvasPolygon(const CanvasGroup &parent);
-  WRAP_CTOR_CAST;
-  WRAP_DTOR;
- 
-  CANVAS_PROPERTY(points,points,const CanvasPoints&,GnomeCanvasPoints*)
 
-  CANVAS_PROPERTY(fill_color,fill_color,const Glib::ustring&,char*)
-  CANVAS_PROPERTY(fill_color,fill_color_gdk,const Gdk_Color&,GdkColor*,Gdk_Color,void*,pointer_data)
-  //FIXME: fill_color_rgba?
-  CANVAS_PROPERTY(fill_stipple,fill_stipple,const Gdk_Pixmap&,GdkWindow*,Gdk_Pixmap,void*,pointer_data)
-
-  CANVAS_PROPERTY(outline_color,outline_color,const Glib::ustring&,char*)
-  CANVAS_PROPERTY(outline_color,outline_color_gdk,const Gdk_Color&,GdkColor*,Gdk_Color,void*,pointer_data)
-  //FIXME: outline_color_rgba?
-  CANVAS_PROPERTY(outline_stipple,outline_stipple,const Gdk_Pixmap&,GdkWindow*,Gdk_Pixmap,void*,pointer_data)
-
-  CANVAS_PROPERTY(width_pixels,width_pixels,guint,guint)
-  CANVAS_PROPERTY(width_units,width_units,double,double)
- 
-};
-
-
-
-PRIVATE_START;
-#include <libgnomecanvasmm/private/canvas-item_p.h>
-IMPL_START;
-#include <libgnomecanvasmm/private/canvas-polygon_p.h>
-
-namespace Gnome {
-
-CanvasPolygon::CanvasPolygon(const CanvasGroup &parent,const CanvasPoints& points)
+CanvasPolygon::CanvasPolygon(CanvasGroup& parent,const CanvasPoints& points)
   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
@@ -81,7 +30,7 @@ CanvasPolygon::CanvasPolygon(const CanvasGroup &parent,const CanvasPoints& point
   set_points(points);
 }
 
-CanvasPolygon::CanvasPolygon(const CanvasGroup &parent)
+CanvasPolygon::CanvasPolygon(CanvasGroup& parent)
     : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
@@ -90,5 +39,4 @@ CanvasPolygon::CanvasPolygon(const CanvasGroup &parent)
 
 } /* namespace Gnome */
 
-DOCUMENTATION_START;
 

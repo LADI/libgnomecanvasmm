@@ -74,14 +74,16 @@ CanvasPoints::_gobj() const
   return points_;
 }
 
-CanvasLine::CanvasLine(const CanvasGroup &parentx)
+
+
+CanvasLine::CanvasLine(CanvasGroup &parentx)
   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();
   item_construct(parentx);
 }
 
-CanvasLine::CanvasLine(const CanvasGroup &parentx, const CanvasPoints& points)
+CanvasLine::CanvasLine(CanvasGroup &parentx, const CanvasPoints& points)
   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
   initialize_class();

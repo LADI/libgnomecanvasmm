@@ -24,7 +24,7 @@
 namespace Gnome
 {
 
-CanvasEllipse::CanvasEllipse(const CanvasGroup& parentx, double x1,double y1,double x2,double y2)
+CanvasEllipse::CanvasEllipse(CanvasGroup& parentx, double x1, double y1, double x2, double y2)
  : CanvasRE(GNOME_CANVAS_RE(g_object_new(get_type(), 0)))
 {
   initialize_class();
@@ -32,7 +32,7 @@ CanvasEllipse::CanvasEllipse(const CanvasGroup& parentx, double x1,double y1,dou
   set("x1",x1,"y1",y1,"x2",x2,"y2",y2,0);
 }
 
-CanvasEllipse::CanvasEllipse(const CanvasGroup& parentx)
+CanvasEllipse::CanvasEllipse(CanvasGroup& parentx)
   : CanvasRE(GNOME_CANVAS_RE(g_object_new(get_type(), 0)))
 {
   initialize_class();
