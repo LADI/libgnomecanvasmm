@@ -25,7 +25,6 @@ namespace Gnome
 CanvasPolygon::CanvasPolygon(CanvasGroup& parent,const CanvasPoints& points)
   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
-  initialize_class();
   item_construct(parent);
   set_points(points);
 }
@@ -33,7 +32,6 @@ CanvasPolygon::CanvasPolygon(CanvasGroup& parent,const CanvasPoints& points)
 CanvasPolygon::CanvasPolygon(CanvasGroup& parent)
     : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(),0)))
 {
-  initialize_class();
   item_construct(parent);
 }
 

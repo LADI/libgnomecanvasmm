@@ -26,7 +26,6 @@ namespace Gnome
 CanvasText::CanvasText(CanvasGroup &parentx,double x,double y, const Glib::ustring& text)
   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(), 0)))
 {
-  initialize_class();
   item_construct(parentx);
   set("x", x, "y", y, "text", text.c_str(), 0);
 }
@@ -34,7 +33,6 @@ CanvasText::CanvasText(CanvasGroup &parentx,double x,double y, const Glib::ustri
 CanvasText::CanvasText(CanvasGroup &parentx)
   : CanvasItem(GNOME_CANVAS_ITEM(g_object_new(get_type(), 0)))
 {
-  initialize_class();
   item_construct(parentx);
 }
 
