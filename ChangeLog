@@ -1,3 +1,7 @@
+2002-12-10  Bradley Bell  <btb@debian.org>
+	
+ 	* scripts/Makefile.am: distribute macros.m4
+	
 2002-12-10  Andreas Holzmann  <Andreas.Holzmann@epost.de>
 
 	* Properties: Files renamed to be more conform with the rest,
