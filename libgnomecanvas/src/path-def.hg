@@ -21,7 +21,7 @@
  */
 
 #include <libgnomecanvasmm/point.h>
-#include <glibmm/boxedtype.h>
+#include <glibmm/containers.h>
 #include <libgnomecanvas/gnome-canvas-path-def.h>
 #include <libart_lgpl/art_bpath.h>
 #include <libart_lgpl/art_point.h>
@@ -35,23 +35,23 @@ namespace Gnome
 namespace Canvas
 {
 
-//I'm not sure whether this is really a BoxedType, but that's how it behaves. murrayc.
-class PathDef : public Glib::BoxedType
+class PathDef
 {
-  _CLASS_BOXEDTYPE(PathDef, GnomeCanvasPathDef, gnome_canvas_path_def_new, gnome_canvas_path_def_duplicate, gnome_canvas_path_def_unref, NONE)
+  _CLASS_OPAQUE_REFCOUNTED(PathDef, GnomeCanvasPathDef, gnome_canvas_path_def_new, gnome_canvas_path_def_duplicate, gnome_canvas_path_def_unref)
   _IGNORE(gnome_canvas_path_def_ref, gnome_canvas_path_def_unref, gnome_canvas_path_def_copy, gnome_canvas_path_def_duplicate)
 
 public:
-  explicit PathDef(int length);
-  explicit PathDef(ArtBpath& bpath);
+  _WRAP_METHOD(static Glib::RefPtr<PathDef> create(int length), gnome_canvas_path_def_new_sized)
+  _WRAP_METHOD(static Glib::RefPtr<PathDef> create(ArtBpath& bpath), gnome_canvas_path_def_new_from_bpath)
+
   //GnomeCanvasPathDef * gnome_canvas_path_def_new_from_static_bpath (ArtBpath * bpath);
   //GnomeCanvasPathDef * gnome_canvas_path_def_new_from_foreign_bpath (ArtBpath * bpath);
 
   //GnomeCanvasPathDef * gnome_canvas_path_def_concat (const GSList * list);
   //GSList * gnome_canvas_path_def_split (const GnomeCanvasPathDef * path);
-  _WRAP_METHOD(PathDef open_parts(), gnome_canvas_path_def_open_parts)
-  _WRAP_METHOD(PathDef closed_parts(), gnome_canvas_path_def_closed_parts)
-  _WRAP_METHOD(PathDef close_all(), gnome_canvas_path_def_close_all)
+  _WRAP_METHOD(Glib::RefPtr<PathDef> open_parts(), gnome_canvas_path_def_open_parts)
+  _WRAP_METHOD(Glib::RefPtr<PathDef> closed_parts(), gnome_canvas_path_def_closed_parts)
+  _WRAP_METHOD(Glib::RefPtr<PathDef> close_all(), gnome_canvas_path_def_close_all)
 
   _WRAP_METHOD(void finish(), gnome_canvas_path_def_finish)
   _WRAP_METHOD(void ensure_space(int space), gnome_canvas_path_def_ensure_space)

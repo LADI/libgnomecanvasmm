@@ -1,3 +1,8 @@
+2002-03-27  Murray Cumming  <murrayc@usa.net>
+
+	* PathDef: Use new _CLASS_OPAQUE_REFCOUNTED macro instead of
+	_CLASS_BOXEDTYPE.
+
 2002-03-17  Murray Cumming  <murrayc@usa.net>
 
 	* Added BoxedType-like methods to Gnome::Points, so that it can

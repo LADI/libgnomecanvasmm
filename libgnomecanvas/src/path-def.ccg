@@ -23,17 +23,6 @@ namespace Gnome
 
 namespace Canvas
 {
-
-PathDef::PathDef(int length)
-{
-  gobject_ = gnome_canvas_path_def_new_sized(length);
-}
-
-PathDef::PathDef(ArtBpath& bpath)
-{
-  gobject_ = gnome_canvas_path_def_new_from_bpath(&bpath);
-}
-
 Gnome::Art::Point PathDef::currentpoint() const
 {
   Gnome::Art::Point point;
