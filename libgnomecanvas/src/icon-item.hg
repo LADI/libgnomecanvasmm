@@ -1,0 +1,62 @@
+/* $Id$ */
+
+
+/* icon-item.hg
+ * 
+ * Copyright (C) 1999 The Gtk-- Development Team
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+#include <libgnomeuimm/canvas-item.h>
+#include <libgnomeui/gnome-icon-item.h>
+_DEFS(libgnomeui,gnomeiconimte)
+_PINCLUDE(libgnomeuimm/private/canvas-item_p.h)
+
+namespace Gnome
+{
+
+//: IconTextItem is a CanvasItem.
+
+class IconTextItem : public CanvasItem
+{
+  _CLASS_GTKOBJECT(IconTextItem, GnomeIconTextItem, GNOME_ICON_TEXT_ITEM, CanvasItem, GnomeCanvasItem);
+public:
+  IconTextItem(const CanvasGroup& parent, const char *first_arg_name, ...);
+  IconTextItem(const CanvasGroup& parent);
+  _CTOR_CAST;
+  _DTOR;
+
+  void configure(int x, int y, int width,
+			      const Glib::ustring& fontname,
+			      const Glib::ustring& text,
+			      bool is_editable = true);
+
+  _WRAP_METHOD(void setxy(int x, int y), gnome_icon_text_item_setxy)
+  _WRAP_METHOD(void select(int sel), gnome_icon_text_item_select)
+  _WRAP_METHOD(Glib::ustring get_text(), gnome_icon_text_item_get_text)
+  _WRAP_METHOD(void start_editing(), gnome_icon_text_item_start_editing)
+  _WRAP_METHOD(void stop_editing(bool accept), gnome_icon_text_item_stop_editing)
+
+  _WRAP_SIGNAL(int text_changed(),"text_changed")
+  _WRAP_SIGNAL(void height_changed(), "height_changed")
+  _WRAP_SIGNAL(void width_changed(), "width_changed")
+  _WRAP_SIGNAL(void editing_started(), "editing_started")
+  _WRAP_SIGNAL(void editing_stopped(), "editing_stopped")
+  _WRAP_SIGNAL(void selection_started(), "selection_started")
+  _WRAP_SIGNAL(void selection_stopped(), "selection_stopped")
+};
+
+} /* namespace Gnome */
