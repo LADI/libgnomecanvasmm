@@ -24,7 +24,7 @@
  */
 
 #include <libgnomecanvasmm/item.h>
-_DEFS(libgnomecanvas)
+_DEFS(libgnomecanvasmm,libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/item_p.h)
 
 namespace Gnome

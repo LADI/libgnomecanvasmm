@@ -28,7 +28,7 @@
 #include <gtkmm/layout.h>
 #include <gdkmm/color.h>
 
-_DEFS(libgnomecanvas)
+_DEFS(libgnomecanvasmm,libgnomecanvas)
 _PINCLUDE(gtkmm/private/layout_p.h)
 
 namespace Gnome

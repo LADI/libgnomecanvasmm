@@ -24,7 +24,7 @@
 #include <libgnomecanvasmm/item.h>
 #include <libgnomecanvas/gnome-canvas-shape.h>
 #include <libart_lgpl/art_vpath_dash.h> //For ArtVpathDash
-_DEFS(libgnomecanvas)
+_DEFS(libgnomecanvasmm,libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/item_p.h)
 
 namespace Gnome

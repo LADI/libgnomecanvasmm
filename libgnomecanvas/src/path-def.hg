@@ -27,7 +27,7 @@
 #include <libart_lgpl/art_point.h>
 #include <libart_lgpl/art_bpath.h>
 
-_DEFS(libgnomecanvas)
+_DEFS(libgnomecanvasmm,libgnomecanvas)
 
 namespace Gnome
 {

@@ -24,7 +24,7 @@
 #include <libgnomecanvasmm/path-def.h>
 #include <libgnomecanvas/gnome-canvas-bpath.h>
 
-_DEFS(libgnomecanvas)
+_DEFS(libgnomecanvasmm,libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/shape_p.h)
 
 namespace Gnome

@@ -25,7 +25,7 @@
 #include <libgnomecanvasmm/item.h>
 #include <pangomm/attrlist.h>
 #include <libgnomecanvas/gnome-canvas-text.h>
-_DEFS(libgnomecanvas)
+_DEFS(libgnomecanvasmm,libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/item_p.h)
 
 namespace Gnome

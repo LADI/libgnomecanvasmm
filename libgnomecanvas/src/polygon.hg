@@ -23,7 +23,7 @@
 #include <libgnomecanvasmm/shape.h>
 #include <libgnomecanvasmm/line.h>
 #include <libgnomecanvas/gnome-canvas-polygon.h>
-_DEFS(libgnomecanvas)
+_DEFS(libgnomecanvasmm,libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/shape_p.h)
 
 namespace Gnome

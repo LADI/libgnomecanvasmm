@@ -1,3 +1,7 @@
+2002-04-01  Murray Cumming  <murrayc@usa.net>
+
+	* Use new _DEFS() format in *.hg.
+	
 2002-03-27  Murray Cumming  <murrayc@usa.net>
 
 	* PathDef: Use new _CLASS_OPAQUE_REFCOUNTED macro instead of

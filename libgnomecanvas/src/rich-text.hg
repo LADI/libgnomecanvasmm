@@ -24,7 +24,7 @@
 #include <gtkmm/textbuffer.h>
 #include <libgnomecanvasmm/item.h>
 #include <libgnomecanvas/gnome-canvas-rich-text.h>
-_DEFS(libgnomecanvas)
+_DEFS(libgnomecanvasmm,libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/item_p.h)
 
 namespace Gnome
