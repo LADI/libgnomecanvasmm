@@ -26,7 +26,7 @@
 #include <libgnomecanvas/gnome-canvas-widget.h>
 #include <gtkmm/widget.h>
 _DEFS(libgnomecanvas)
-_PINCLUDE(libgnomecanvasmm/private/canvas-item_p.h)
+_PINCLUDE(libgnomecanvasmm/private/item_p.h)
 
 namespace Gnome
 {

@@ -24,7 +24,7 @@
  */
 
 #include <libgnomecanvasmm/shape.h>
-//#include <libgnomecanvasmm/canvas-group.h>
+//#include <libgnomecanvasmm/group.h>
 #include <libgnomecanvas/gnome-canvas-rect-ellipse.h>
 _DEFS(libgnomecanvas)
 _PINCLUDE(libgnomecanvasmm/private/shape_p.h)
