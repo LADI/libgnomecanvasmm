@@ -1,3 +1,9 @@
+2003-11-03  Murray Cumming  <murrayc@usa.net>
+
+	* This is now libgnomecanvasmm 2.5, which will become libgnomecanvasmm
+	2.6. This is on HEAD, and libgnomecanvasmm 2.0 is on the gnome-2-4
+	branch. This uses gtkmm 2.4 and is parallel-installable.
+
 2003-09-25  Eric Bourque <ericb@computer.org>
 	* libgnomecanvasmm.spec.in: updated for libgnomecanvasmm-2.0
 	

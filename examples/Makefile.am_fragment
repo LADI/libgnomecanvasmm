@@ -1,4 +1,4 @@
-local_libgnomecanvasmm_lib = $(top_builddir)/libgnomecanvas/libgnomecanvasmm/libgnomecanvasmm-2.0.la
+local_libgnomecanvasmm_lib = $(top_builddir)/libgnomecanvas/libgnomecanvasmm/libgnomecanvasmm-2.5.la
 
 LIBS  = $(local_libgnomecanvasmm_lib) $(LIBGNOMECANVASMM_LIBS)
 

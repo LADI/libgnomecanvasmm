@@ -17,6 +17,6 @@ INCLUDES = -I$(top_builddir)/libgnomecanvasmm \
            $(LIBGNOMECANVASMM_CFLAGS) 
 
 #The libraries that the executable needs to link against:
-LIBS = $(top_builddir)/libgnomecanvas/libgnomecanvasmm/libgnomecanvasmm-2.0.la \
+LIBS = $(top_builddir)/libgnomecanvas/libgnomecanvasmm/libgnomecanvasmm-2.5.la \
        $(LIBGNOMECANVASMM_LIBS)
 

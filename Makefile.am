@@ -1,5 +1,5 @@
-SUBDIRS		= tools libgnomecanvas docs examples
-DIST_SUBDIRS	= $(SUBDIRS) scripts demos
+SUBDIRS		= tools libgnomecanvas docs examples demos
+DIST_SUBDIRS	= $(SUBDIRS) scripts 
 
 EXTRA_DIST	= libgnomecanvasmm.spec.in \
 		  build_shared/Makefile_build.am_fragment \

@@ -17,8 +17,8 @@ AC_INIT(libgnomecanvas/libgnomecanvasmmconfig.h.in)
 #  Version and initialization
 #########################################################################
 LIBGNOMECANVASMM_MAJOR_VERSION=2
-LIBGNOMECANVASMM_MINOR_VERSION=0
-LIBGNOMECANVASMM_MICRO_VERSION=1
+LIBGNOMECANVASMM_MINOR_VERSION=5
+LIBGNOMECANVASMM_MICRO_VERSION=0
 
 #
 # +1 : ? : +1  == new interface that does not break old one
@@ -27,7 +27,7 @@ LIBGNOMECANVASMM_MICRO_VERSION=1
 #  ? :+1 : ?   == just some internal changes, nothing breaks but might work 
 #                 better
 # CURRENT : REVISION : AGE
-LIBGNOMECANVASMM_SO_VERSION=1:1:0
+LIBGNOMECANVASMM_SO_VERSION=1:0:0
 
 LIBGNOMECANVASMM_VERSION=$LIBGNOMECANVASMM_MAJOR_VERSION.$LIBGNOMECANVASMM_MINOR_VERSION.$LIBGNOMECANVASMM_MICRO_VERSION
 LIBGNOMECANVASMM_RELEASE=$LIBGNOMECANVASMM_MAJOR_VERSION.$LIBGNOMECANVASMM_MINOR_VERSION
@@ -79,20 +79,20 @@ Please install GNU make.]))
 #  Dependancy checks
 #########################################################################
 # Make these available to both PKG_CHECK_MODULES and the .pc.in file:
-GTKMM_VERSION_NEEDED=2.2.5
+GTKMM_VERSION_NEEDED=2.3.1
 AC_SUBST(GTKMM_VERSION_NEEDED)
 LIBGNOMECANVAS_VERSION_NEEDED=1.113.0
 AC_SUBST(LIBGNOMECANVAS_VERSION_NEEDED)
 
-PKG_CHECK_MODULES(LIBGNOMECANVASMM, gtkmm-2.0 >= $GTKMM_VERSION_NEEDED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_VERSION_NEEDED)
+PKG_CHECK_MODULES(LIBGNOMECANVASMM, gtkmm-2.4 >= $GTKMM_VERSION_NEEDED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_VERSION_NEEDED)
 AC_SUBST(LIBGNOMECANVASMM_CFLAGS)
 AC_SUBST(LIBGNOMECANVASMM_LIBS)
 
-GTKMM_PREFIX=`pkg-config --variable=prefix gtkmm-2.0`
-GTKMM_PROCDIR=$GTKMM_PREFIX/lib/gtkmm-2.0/proc
-AC_SUBST(GTKMM_PROCDIR)
-GTKMM_PROC=$GTKMM_PROCDIR/gtkmmproc
-AC_SUBST(GTKMM_PROC)
+GLIBMM_PREFIX=`pkg-config --variable=prefix glibmm-2.4`
+GMM_PROCDIR=$GLIBMM_PREFIX/lib/glibmm-2.3/proc
+AC_SUBST(GMM_PROCDIR)
+GMM_PROC=$GMM_PROCDIR/gmmproc
+AC_SUBST(GMM_PROC)
 
 #########################################################################
 #  C++ checks
@@ -111,25 +111,25 @@ AUTOHEADER=':'
 
 
 AC_OUTPUT([
-	Makefile
-	libgnomecanvasmm.spec
+  Makefile
+  libgnomecanvasmm.spec
 
-	libgnomecanvas/Makefile
-	  libgnomecanvas/libgnomecanvasmm-2.0.pc
-	  libgnomecanvas/libgnomecanvasmm-2.0-uninstalled.pc
+  libgnomecanvas/Makefile
+    libgnomecanvas/libgnomecanvasmm-2.6.pc
+    libgnomecanvas/libgnomecanvasmm-2.6-uninstalled.pc
     libgnomecanvas/src/Makefile
-	  libgnomecanvas/libgnomecanvasmm/Makefile
-	    libgnomecanvas/libgnomecanvasmm/private/Makefile
+    libgnomecanvas/libgnomecanvasmm/Makefile
+      libgnomecanvas/libgnomecanvasmm/private/Makefile
 
-	tools/Makefile
+  tools/Makefile
     tools/extra_defs_gen/Makefile
     tools/m4/Makefile
 
-	demos/Makefile
+  demos/Makefile
 
-	scripts/Makefile
+  scripts/Makefile
 
-	docs/Makefile
+  docs/Makefile
     docs/reference/Makefile
     docs/reference/Doxyfile
 
