@@ -112,14 +112,16 @@ AffineTrans::operator*(const AffineTrans& aff2)
   return result;
 }
 
-bool AffineTrans::operator==(AffineTrans& other)
+bool AffineTrans::operator==(const AffineTrans& other) const
 {
-  return (bool)art_affine_equal(trans_, other.gobj());
+  return (bool)art_affine_equal(const_cast<double*>(trans_),
+                                const_cast<double*>(other.gobj()));
 }
  
-bool AffineTrans::operator!=(AffineTrans& other)
+bool AffineTrans::operator!=(const AffineTrans& other) const
 {
-  return !(bool)art_affine_equal(trans_, other.gobj());
+  return !(bool)art_affine_equal(const_cast<double*>(trans_),
+                                 const_cast<double*>(other.gobj()));
 }
                         
 void AffineTrans::invert()

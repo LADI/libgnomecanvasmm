@@ -44,6 +44,14 @@ RichText::RichText (Group& parent)
   item_construct (parent);
 }
 
+RichText::iterator RichText::get_iter_at_location(int x, int y) const
+{
+  iterator iter;
+  gnome_canvas_rich_text_get_iter_at_location(const_cast<GnomeCanvasRichText*>(gobj()), iter.gobj(), x, y);
+  return iter;
+}
+
+
 }
 
 }

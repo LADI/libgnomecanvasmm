@@ -1,3 +1,21 @@
+2002-12-09  Andreas Holzmann  <Andreas.Holzmann@epost.de>
+
+	* libgnomecanvas/src/rich-text.[ccg|hg]: Replaced 
+	void get_iter_at_location(const Gtk::TextIter&, int, int) with
+	iterator get_iter_at_location(int, int) const to be more conform
+	with Gtkmm iterator methods.
+	* libgnomecanvas/src/canvas.[ccg|hg]: The following methods are
+	now const: root(), get_scroll_region(), get_center_scroll_region(),
+	w2c(), and get_color()
+	* libgnomecanvas/libgnomecanvasmm/affinetrans.[cc,h]: Changed
+	bool operator==(AffineTrans&) to 
+	bool operator==(const AffineTrans&) const
+	* demos/primitives.cc: Fixed pack_start() Gtk::AttachOptions.
+	* examples/Makefile.am_fragment: Was missing in CVS (I took it from
+	the release candidate).
+	* libgnomecanvas/src/libgnomecanvas_docs_override.xml: Was missing
+	in CVS (I took it from the release candidate).
+
 2002-12-09  Murray Cumming  <murrayc@usa.net>
 
 	* libgnomecanvas/*.pc.in: Changed LIBS from 1.3 to 2.0.

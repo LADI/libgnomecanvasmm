@@ -36,7 +36,7 @@ namespace Art
 class AffineTrans
 {
 public:
-	//: Initialize the affine as unit matrix, with a scaling factor
+  //: Initialize the affine as unit matrix, with a scaling factor
   AffineTrans(double scale = 1.0);
 
   //: aff[6]
@@ -54,22 +54,22 @@ public:
 
   //: Apply the affine to a given point
   //: e.g. Point dst = affine.apply(Point(x,y));
-	//: is the same as:
-	//: dst.x = x * affine[0] + y * affine[2] + affine[4];
-	//: dst.y = x * affine[1] + y * affine[3] + affine[5];
+  //: is the same as:
+  //: dst.x = x * affine[0] + y * affine[2] + affine[4];
+  //: dst.y = x * affine[1] + y * affine[3] + affine[5];
   Point apply_to(const Point& p) const;
   
   //: Apply the affine to a given point
-	Point operator*(const Point& p) const;
+  Point operator*(const Point& p) const;
 	
-	//: Compose two affines
-	AffineTrans operator*(const AffineTrans& aff2);
+  //: Compose two affines
+  AffineTrans operator*(const AffineTrans& aff2);
 	
   //: Apply other affine to the affine
   AffineTrans const & operator*=(AffineTrans& other);
   
-  bool operator==(AffineTrans& other);
-  bool operator!=(AffineTrans& other);
+  bool operator==(const AffineTrans& other) const;
+  bool operator!=(const AffineTrans& other) const;
                         
   //: Give the inverse of the affine
   void invert();
@@ -83,14 +83,14 @@ public:
   //: Find the affine's "expansion factor", i.e. the scale amount
   double expansion() const;
 
-	//: Set up the identity matrix
+  //: Set up the identity matrix
   static AffineTrans identity();
 
-	//: Set up a scaling matrix
+  //: Set up a scaling matrix
   static AffineTrans scaling(double s);
 
-	//: Set up a scaling matrix
-	static AffineTrans scaling(double sx, double sy);
+  //: Set up a scaling matrix
+  static AffineTrans scaling(double sx, double sy);
 
   //: Set up a rotation matrix; theta is given in degrees
   static AffineTrans rotation(double theta);
@@ -98,7 +98,7 @@ public:
   //: Set up a shearing matrix; theta given in degrees
   static AffineTrans shearing(double theta);
 
-	//: Set up a translation matrix
+  //: Set up a translation matrix
   static AffineTrans translation(double dx, double dy);
 
   //: Set up a translation matrix

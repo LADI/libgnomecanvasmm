@@ -35,10 +35,12 @@ namespace Canvas
 {
 
 bool
-Canvas::get_color(const Glib::ustring& spec, Gdk::Color& color)
+Canvas::get_color(const Glib::ustring& spec, Gdk::Color& color) const
 {
   GdkColor* pColor = 0;
-  gboolean result = gnome_canvas_get_color(gobj(), const_cast<gchar*>(spec.c_str()), pColor);
+  gboolean result = gnome_canvas_get_color(const_cast<GnomeCanvas*>(gobj()),
+                                           const_cast<gchar*>(spec.c_str()),
+                                           pColor);
   color = Glib::wrap(pColor);
   return (result == TRUE);
 }

@@ -36,7 +36,10 @@ namespace Canvas
 class RichText : public Item
 {
   _CLASS_GTKOBJECT(RichText, GnomeCanvasRichText, GNOME_CANVAS_RICH_TEXT, Item, GnomeCanvasItem)
+  _IGNORE(gnome_canvas_rich_text_get_iter_at_location)
 public:
+  typedef Gtk::TextIter iterator;
+
   RichText(Group& parent, double x, double y, const Glib::ustring& text);
   explicit RichText(Group& parent);
 
@@ -47,8 +50,8 @@ public:
   _WRAP_METHOD(void set_buffer(const Glib::RefPtr<Gtk::TextBuffer>& buffer), gnome_canvas_rich_text_set_buffer)
   _WRAP_METHOD(Glib::RefPtr<Gtk::TextBuffer> get_buffer() const, gnome_canvas_rich_text_get_buffer)
 
-  _WRAP_METHOD(void get_iter_location(const Gtk::TextIter&  iter, Gdk::Rectangle& location), gnome_canvas_rich_text_get_iter_location)
-  _WRAP_METHOD(void get_iter_at_location(Gtk::TextIter& iter, int x, int y), gnome_canvas_rich_text_get_iter_at_location)
+  _WRAP_METHOD(void get_iter_location(const iterator& iter, Gdk::Rectangle& location) const, gnome_canvas_rich_text_get_iter_location)
+   iterator get_iter_at_location(int x, int y) const;
 
   _WRAP_SIGNAL(void tag_changed(const Glib::RefPtr<Gtk::TextTag>& tag), "tag_changed")
 
