@@ -38,7 +38,7 @@ class Pixbuf : public Item
   _CLASS_GTKOBJECT(Pixbuf, GnomeCanvasPixbuf, GNOME_CANVAS_PIXBUF, Item, GnomeCanvasItem)
 public:
   Pixbuf(Group& parent, double x, double y, const Glib::RefPtr<Gdk::Pixbuf>& image);
-  explicit Pixbuf(Group& parent)
+  explicit Pixbuf(Group& parent);
 
   _WRAP_PROPERTY("pixbuf", Gdk::Pixbuf)
   _WRAP_PROPERTY("width", double)
