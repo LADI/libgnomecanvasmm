@@ -40,7 +40,7 @@ run_gtkmmproc	= $(gtkmmproc_path) $(gtkmmproc_args)
 
 gen_wrap_init_path = $(gtkmmproc_dir)/generate_wrap_init.pl
 gen_wrap_init_args = --namespace=Gnome --namespace=$(sublib_namespace) --parent_dir=$(sublib_parentdir)
-run_gen_wrap_init  = $(PERL_PATH) $(gen_wrap_init_path) $(gen_wrap_init_args)
+run_gen_wrap_init  = $(gen_wrap_init_path) $(gen_wrap_init_args)
 
 EXTRA_DIST	= Makefile_list_of_hg.am_fragment \
 		  $(files_defs) $(files_hg) $(files_ccg)
