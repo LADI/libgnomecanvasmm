@@ -4,11 +4,45 @@
 
 ; GnomeCanvasItem
 
+(define-vfunc update
+  (of-object "GnomeCanvasItem")
+  (return-type "none")
+  (parameters
+     '("double*" "affine")
+     '("ArtSVP*" "clip_path")
+     '("int" "flags")
+  )
+)
+
+(define-vfunc realize
+  (of-object "GnomeCanvasItem")
+  (return-type "none")
+)
+
+(define-vfunc unrealize
+  (of-object "GnomeCanvasItem")
+  (return-type "none")
+)
+
+(define-vfunc map
+  (of-object "GnomeCanvasItem")
+  (return-type "none")
+)
+
+(define-vfunc unmap
+  (of-object "GnomeCanvasItem")
+  (return-type "none")
+)
+
+(define-vfunc coverage
+  (of-object "GnomeCanvasItem")
+  (return-type "ArtUta*")
+)
+
 (define-vfunc draw
   (of-object "GnomeCanvasItem")
   (return-type "none")
   (parameters
-    '("GnomeCanvasItem*" "item")
     '("GdkDrawable*" "drawable")
     '("int" "x")
     '("int" "y")
@@ -17,43 +51,10 @@
    )
 )
 
-(define-vfunc realize
-  (of-object "GnomeCanvasItem")
-  (return-type "none")
-  (parameters
-     '("GnomeCanvasItem*" "item")
-  )
-)
-
-(define-vfunc unrealize
-  (of-object "GnomeCanvasItem")
-  (return-type "none")
-  (parameters
-     '("GnomeCanvasItem*" "item")
-  )
-)
-
-(define-vfunc map
-  (of-object "GnomeCanvasItem")
-  (return-type "none")
-  (parameters
-    '("GnomeCanvasItem*" "item")
-  )
-)
-
-(define-vfunc coverage
-  (of-object "GnomeCanvasItem")
-  (return-type "ArtUta*")
-  (parameters
-     '("GnomeCanvasItem*" "item")
-  )
-)
-
 (define-vfunc render
   (of-object "GnomeCanvasItem")
   (return-type "none")
   (parameters
-     '("GnomeCanvasItem*" "item")
      '("GnomeCanvasBuf*" "buf")
   )
 )
@@ -62,7 +63,6 @@
   (of-object "GnomeCanvasItem")
   (return-type "double")
   (parameters
-    '("GnomeCanvasItem*" "item")
     '("double" "x")
     '("double" "y")
     '("int" "cx")
@@ -73,12 +73,11 @@
 
 (define-vfunc bounds
   (of-object "GnomeCanvasItem")
-  (return-type "double")
+  (return-type "void")
   (parameters
-    '("GnomeCanvasItem*" "item")
-    '("double" "x1")
-    '("double" "y1")
-    '("double" "x2")
-    '("double" "y2")
+    '("double*" "x1")
+    '("double*" "y1")
+    '("double*" "x2")
+    '("double*" "y2")
   )
 )

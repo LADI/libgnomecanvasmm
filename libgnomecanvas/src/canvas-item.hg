@@ -136,7 +136,7 @@ public:
   _WRAP_VFUNC(ArtUta* coverage(),  coverage )
   _WRAP_VFUNC(void draw(GdkDrawable* drawable, int x, int y, int width, int height), draw)
   _WRAP_VFUNC(void render(GnomeCanvasBuf* buf), render)
-  _WRAP_VFUNC(void point(double x, double y, int cx, int cy,  GnomeCanvasItem** actual_item), point)
+  _WRAP_VFUNC(double point(double x, double y, int cx, int cy,  GnomeCanvasItem** actual_item), point)
   _WRAP_VFUNC(void bounds(double* x1, double* y1, double* x2, double* y2), bounds)
 
   //: Signal: an event ocurred for an item of this type.  The(x, y)
