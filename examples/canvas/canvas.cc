@@ -35,23 +35,23 @@ CanvasExample::CanvasExample()
   using namespace Gnome::Canvas;
 
   m_line = new Gnome::Canvas::Line(m_canvasgroup, m_points);
-  *m_line << CanvasHelpers::fill_color("red")
-          << CanvasHelpers::width_units(4.0)
-          << CanvasHelpers::cap_style(GDK_CAP_ROUND);
+  *m_line << Properties::fill_color("red")
+          << Properties::width_units(4.0)
+          << Properties::cap_style(GDK_CAP_ROUND);
 
   m_ellipse = new Gnome::Canvas::Ellipse(m_canvasgroup, 0, 0, 100, 100);
-  *m_ellipse << CanvasHelpers::fill_color("blue");
+  *m_ellipse << Properties::fill_color("blue");
 
   m_rect = new Gnome::Canvas::Rect(m_canvasgroup, 10, 10, 50, 100);
-  *m_rect << CanvasHelpers::width_pixels(2)
-          << CanvasHelpers::fill_color("white");
+  *m_rect << Properties::width_pixels(2)
+          << Properties::fill_color("white");
 
   //m_image = new Gnome::Canvas::Image(m_canvasgroup, 0, 0, Gdk_Imlib::Image("example.png"));
   //The width and height are set from the information in the image file.
 
   m_text = new Gnome::Canvas::Text(m_canvasgroup, 10, 10, "Some Text");
-  *m_text << CanvasHelpers::font("-Adobe-Helvetica-Medium-R-Normal--*-100-*-*-*-*-*-*")
-          << CanvasHelpers::fill_color("blue"); //Changes the color of the text.
+  *m_text << Properties::font("-Adobe-Helvetica-Medium-R-Normal--*-100-*-*-*-*-*-*")
+          << Properties::fill_color("blue"); //Changes the color of the text.
 }
 
 CanvasExample::~CanvasExample()

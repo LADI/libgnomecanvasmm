@@ -1,5 +1,6 @@
 LIBGNOMECANVASMM:
 
+* gtkmmproc can not parse the vfunc defs.
 * Check that we have all the necessary streams-based properties.
 
 

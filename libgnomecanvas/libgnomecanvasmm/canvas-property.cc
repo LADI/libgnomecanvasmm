@@ -28,7 +28,7 @@ namespace Gnome
 namespace Canvas
 {
 
-namespace CanvasHelpers
+namespace Properties
 {
 
 PropertyBase::PropertyBase(const char* name)
@@ -43,6 +43,6 @@ const char* PropertyBase::get_name() const
   return name_;
 }
 
-} /* namespace CanvasHelpers */
+} /* namespace Properties */
 } /* namespace Canvas */
 } /* namespace Gnome */

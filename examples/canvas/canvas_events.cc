@@ -4,9 +4,9 @@
 // Note that you have to click 2^N times over the canvas,
 // It took me 5.60 seconds to have 64 valid events! I'm Termclickator
 #include <gtkmm/window.h>
-#include <gnomemm/main.h>
-#include <gnomemm/canvas.h>
-#include <gnomemm/canvas-rect.h>
+#include <gtkmm/main.h>
+#include <libgnomecanvasmm.h>
+#include <stdio.h>
 
 
 guint32 etime=0;
@@ -19,7 +19,7 @@ gchar* cname[N]={"canvas_event","canvas_event_after"
 		,"item_button_press_event","item_button_press_event_after"
 		,"canvas_button_press_event_after"};
 
-static gint event_explorer(GdkEvent* e, guint caller)
+static bool event_explorer(GdkEvent* e, guint caller)
 {
   GdkEventButton* b;
   // Ignore all but button-press events:
@@ -49,24 +49,28 @@ static gint event_explorer(GdkEvent* e, guint caller)
   if(status & (1 << caller))
   {
     printf("TRUE\n");
-    return TRUE;
+    return true;
   }
   else
   {
     printf("FALSE\n");
-    return FALSE;
+    return false;
   }
 }
 
-static gint button_event_stub(GdkEventButton *b, guint caller)
+static void event_explorer_notify(GdkEvent* e, guint caller)
+{
+  event_explorer_notify(e, caller);
+}
+
+static bool button_event_stub(GdkEventButton *b, guint caller)
 {
   return event_explorer((GdkEvent *) b, caller);
 }
 
-static gint on_window_delete_event(GdkEventAny* event)
+static void button_event_stub_notify(GdkEventButton *b, guint caller)
 {
-  Gnome::Main::quit();
-  return FALSE;
+  return button_event_stub_notify(b, caller);
 }
 
 int main(int argc, char* argv[])
@@ -74,32 +78,32 @@ int main(int argc, char* argv[])
   using SigC::bind;
   using SigC::slot;
 	
-  Gnome::Main gnomemain("CanvasEvents", "1.0", argc, argv);  
+  Gnome::Canvas::init();
+  Gtk::Main canvasmain(argc, argv);
   
-  Gtk::Window *window = manage(new Gtk::Window(GTK_WINDOW_TOPLEVEL));
-  window->delete_event.connect(slot(&on_window_delete_event));
+  Gtk::Window window(GTK_WINDOW_TOPLEVEL);
 	
-  Gnome::Canvas *canvas = manage(new Gnome::Canvas());
+  Gnome::Canvas::Canvas *canvas = manage(new Gnome::Canvas::Canvas());
 
-  Gnome::CanvasRect* item = manage(new Gnome::CanvasRect(
+  Gnome::Canvas::Rect* item = manage(new Gnome::Canvas::Rect(
     *canvas->root(),
     (gdouble) -1000, (gdouble) -1000,
     (gdouble) 1000, (gdouble) 1000) );
-  *item << Gnome::CanvasHelpers::fill_color("black");
+  *item << Gnome::Canvas::Properties::fill_color("black");
 
   //Connect canvas signals:
-  canvas->event.connect(bind(slot(&event_explorer),CE));
-  canvas->event.connect_after(bind(slot(&event_explorer),CEA));
-  canvas->button_press_event.connect(bind(slot(&button_event_stub),CBE));
-  canvas->button_press_event.connect_after(bind(slot(&button_event_stub),CBEA));
+  canvas->signal_event().connect_notify(bind(slot(&event_explorer_notify),CE));
+  canvas->signal_event().connect(bind(slot(&event_explorer),CEA));
+  canvas->signal_button_press_event().connect_notify(bind(slot(&button_event_stub_notify),CBE));
+  canvas->signal_button_press_event().connect(bind(slot(&button_event_stub),CBEA));
 	
-  item->event.connect(bind(slot(&event_explorer),IE));
-  item->event.connect_after(bind(slot(&event_explorer),IEA));
+  item->signal_event().connect_notify(bind(slot(&event_explorer_notify),IE));
+  item->signal_event().connect(bind(slot(&event_explorer),IEA));
 	
-  window->add(*canvas);
-  window->show_all();
+  window.add(*canvas);
+  canvas->show();
 
-  gnomemain.run();
+  canvasmain.run(window);
   return 0;
 }
 

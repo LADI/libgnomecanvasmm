@@ -37,7 +37,7 @@ namespace Gnome
 namespace Canvas
 {
 
-namespace CanvasHelpers
+namespace Properties
 {
 
 //TODO: Put implementation in a .cc file:
@@ -287,7 +287,7 @@ GNOMEMM_PROPERTY(y,y,double)
 // CanvasLine, CanvasPolygon, CanvasRect, CanvasEllipse, CanvasText
 GNOMEMM_PROPERTY(fill_stipple,fill_stipple,Glib::RefPtr<Gdk::Pixmap>)
 
-} /* namespace CanvasHelpers */
+} /* namespace Properties */
 } /* namespace Canvas */
 } /* namespace Gnome */
 
