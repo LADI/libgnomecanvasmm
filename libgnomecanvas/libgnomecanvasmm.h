@@ -21,10 +21,6 @@
 #ifndef LIBGNOMECANVASMM_H
 #define LIBGNOMECANVASMM_H
 
-//extern "C" {
-//#include <gtk/gtk.h>
-//}
-
 /* libgnomecanvasmm version.  */
 extern const int libgnomecanvasmm_major_version;
 extern const int libgnomecanvasmm_minor_version;
@@ -44,5 +40,6 @@ extern const int libgnomecanvasmm_micro_version;
 #include <libgnomecanvasmm/rect-ellipse.h>
 #include <libgnomecanvasmm/rich-text.h>
 #include <libgnomecanvasmm/text.h>
+#include <libgnomecanvasmm/widget.h>
 
 #endif /* #ifndef LIBGNOMECANVASMM_H */
