@@ -22,19 +22,19 @@ Requires:	gnome-libs, gtkmm
 
 %description
 This package provides a C++ interface for GnomeUI.  It is a subpackage
-of the Gtk-- project.  The interface provides a convenient interface for C++
+of the gnomemm project.  The interface provides a convenient interface for C++
 programmers to create Gnome GUIs with GTK+'s flexible object-oriented 
 framework.
 
 %package	devel
-Summary: 	Headers for developing programs that will use Gnome--.
+Summary: 	Headers for developing programs that will use libgnomecanvasmm.
 Group: 		Development/Libraries
 Requires:       %{name}, gnome-libs-devel
 
 %description    devel
 This package contains the headers that programmers will need to develop
-applications which will use Gnome--, part of Gtk-- the C++ interface to 
-the GTK+ (the Gimp ToolKit) GUI library.
+applications which will use libgnomecanvasmm, part of gnomemm - the C++ interface to 
+the GTK+ GUI library.
 
 %prep
 %setup -q

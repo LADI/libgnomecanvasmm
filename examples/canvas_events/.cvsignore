@@ -1,0 +1,6 @@
+*.o
+*.lo
+
+canvas
+canvas_affine
+canvas_events

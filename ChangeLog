@@ -1,5 +1,9 @@
 2002-12-09  Murray Cumming  <murrayc@usa.net>
 
+	* libgnomecanvas/*.pc.in: Changed LIBS from 1.3 to 2.0.
+
+2002-12-09  Murray Cumming  <murrayc@usa.net>
+
 	* Merging C docs: Added libgnomecavas/src/libgnomecavas_docs.xml and 
 	libgnomecanvas_docs_override.xml, and added --mergecdocs to 
 	build_shared/Makefile_gensrc.am_fragment
