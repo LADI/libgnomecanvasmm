@@ -1,6 +1,6 @@
 SUBDIRS = src libgnomecanvasmm
 
-EXTRA_DIST = README libgnomecanvasmmconfig.h.in libgnomecanvasmm.pc.in libgnomecanvasmm.h
+EXTRA_DIST = README libgnomecanvasmmconfig.h.in libgnomecanvasmm-2.0.pc.in libgnomecanvasmm.h
 
 libgnomecanvasmm_includedir	= $(includedir)/libgnomecanvasmm-2.0
 libgnomecanvasmm_include_HEADERS= libgnomecanvasmm.h

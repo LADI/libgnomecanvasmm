@@ -1,7 +1,7 @@
-SUBDIRS		= tools libgnomecanvas demos docs
+SUBDIRS		= tools libgnomecanvas demos docs examples
 DIST_SUBDIRS	= $(SUBDIRS) scripts demos
 
-EXTRA_DIST	= gtkmm.spec.in \
+EXTRA_DIST	= libgnomecanvasmm.spec.in \
 		  build_shared/Makefile_build.am_fragment \
 		  build_shared/Makefile_build_gensrc.am_fragment \
 		  build_shared/Makefile_gensrc.am_fragment
