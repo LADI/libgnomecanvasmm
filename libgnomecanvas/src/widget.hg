@@ -43,7 +43,7 @@ public:
   Widget(Group& parent, double x, double y, Gtk::Widget& w);
   explicit Widget(Group& parent);
 
-  _WRAP_PROPERTY("widget", Gtk::Widget)
+  _WRAP_PROPERTY("widget", Gtk::Widget*)
   _WRAP_PROPERTY("x", double)
   _WRAP_PROPERTY("y", double)
   _WRAP_PROPERTY("width", double)
