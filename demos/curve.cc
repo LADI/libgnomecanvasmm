@@ -32,7 +32,7 @@ Curve::Curve()
   set_border_width(4);
 
   Gtk::Label* label 
-      = manage(new Gtk::Label("Drag a line with button 1. Then mark 2 control points wth\n"
+      = Gtk::manage(new Gtk::Label("Drag a line with button 1. Then mark 2 control points wth\n"
                               "button 1. Shift+click with button 1 to destroy the curve.\n"));
   
   pack_start(*label, Gtk::PACK_SHRINK);
@@ -53,31 +53,31 @@ Curve::create_canvas(bool aa)
 {
   Gnome::Canvas::Canvas* canvas;
   if(aa == true) {
-      canvas = manage(new Gnome::Canvas::CanvasAA());
+      canvas = Gtk::manage(new Gnome::Canvas::CanvasAA());
   } else {
-      canvas = manage(new Gnome::Canvas::Canvas());
+      canvas = Gtk::manage(new Gnome::Canvas::Canvas());
   }
   
   canvas->set_size_request(600, 250);
   canvas->set_scroll_region(0, 0, 600, 250);
 
   Gnome::Canvas::Rect* rect 
-      = manage(new Gnome::Canvas::Rect(*canvas->root(), 
+      = Gtk::manage(new Gnome::Canvas::Rect(*canvas->root(), 
                                        0.0, 0.0, 
                                        600.0, 250.0));
   rect->property_outline_color() = "black";
   rect->property_fill_color() = "white";
-  rect->signal_event().connect(bind(slot(*this, &Curve::on_canvas_event), canvas));
+  rect->signal_event().connect(sigc::bind(sigc::mem_fun(*this, &Curve::on_canvas_event), canvas));
 
   Gnome::Canvas::Text* text
-      = manage(new Gnome::Canvas::Text(*canvas->root(),
+      = Gtk::manage(new Gnome::Canvas::Text(*canvas->root(),
                                        270.0, 6.0,
                                        aa ? "AntiAlias" : "Non-AntiAlias"));
   text->property_font() = "Sans 12";
   text->property_anchor() = Gtk::ANCHOR_N;
   text->property_fill_color() = "black";
 
-  Gtk::Frame* frame = manage(new Gtk::Frame());
+  Gtk::Frame* frame = Gtk::manage(new Gtk::Frame());
   frame->set_shadow_type(Gtk::SHADOW_IN);
   frame->add(*canvas);
 
@@ -175,13 +175,13 @@ Curve::draw_curve(Gnome::Canvas::Canvas& canvas, double x, double y)
     path->lineto(m_points[1].get_x(), m_points[1].get_y());
     
     if(m_current_item == NULL) {
-      m_current_item = manage(new Gnome::Canvas::Bpath(*canvas.root()));
+      m_current_item = Gtk::manage(new Gnome::Canvas::Bpath(*canvas.root()));
       m_current_item->property_outline_color() = "blue";
       m_current_item->property_width_pixels() = 5;
       m_current_item->property_cap_style() = Gdk::CAP_ROUND;
       
       m_current_item->signal_event()
-          .connect(bind(slot(*this, &Curve::on_item_event), m_current_item));
+          .connect(sigc::bind(sigc::mem_fun(*this, &Curve::on_item_event), m_current_item));
     }
     
     m_current_item->set_bpath(path);

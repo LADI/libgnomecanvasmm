@@ -40,7 +40,7 @@ public:
 protected:
   void on_zoom_changed(Gnome::Canvas::Canvas* canvas,
                     Gtk::Adjustment* adj);
-  bool on_key_press(GdkEventKey *event, Gnome::Canvas::Canvas* canvas);
+  bool on_key_press(GdkEventKey* event, Gnome::Canvas::Canvas* canvas);
   bool on_item_event(GdkEvent* event, Gnome::Canvas::Item* item);
   
   void setup_heading(Gnome::Canvas::Group& root,

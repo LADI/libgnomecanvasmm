@@ -91,7 +91,7 @@ Dimension::Dimension(Gnome::Canvas::Group& root, Gtk::AnchorType anchor)
 : m_line(NULL),
   m_text(NULL)
 {
-  m_line = manage(new Gnome::Canvas::Line(root));
+  m_line = Gtk::manage(new Gnome::Canvas::Line(root));
   m_line->property_fill_color() = "black";
   m_line->property_first_arrowhead() = true;
   m_line->property_last_arrowhead() = true;
@@ -99,7 +99,7 @@ Dimension::Dimension(Gnome::Canvas::Group& root, Gtk::AnchorType anchor)
   m_line->property_arrow_shape_b() = 5.0;
   m_line->property_arrow_shape_c() = 3.0;
   
-  m_text = manage(new Gnome::Canvas::Text(root));
+  m_text = Gtk::manage(new Gnome::Canvas::Text(root));
   m_text->property_fill_color() = "black";
   m_text->property_font() = "Sans 12";
   m_text->property_anchor() = anchor;
@@ -156,20 +156,20 @@ Arrowhead::Arrowhead()
   set_border_width(4);
   
   Gtk::Label* label 
-      = manage(new Gtk::Label("This demo allows you to edit arrowhead shapes.  Drag the little boxes\n"
+      = Gtk::manage(new Gtk::Label("This demo allows you to edit arrowhead shapes.  Drag the little boxes\n"
                               "to change the shape of the line and its arrowhead.  You can see the\n"
                               "arrows at their normal scale on the right hand side of the window."));
   pack_start(*label, Gtk::PACK_SHRINK);
   
   Gtk::Alignment* alignment 
-      = manage(new Gtk::Alignment(0.5, 0.5, 0.0, 0.0));
+      = Gtk::manage(new Gtk::Alignment(0.5, 0.5, 0.0, 0.0));
   pack_start(*alignment);
   
-  Gtk::Frame* frame = manage(new Gtk::Frame());
+  Gtk::Frame* frame = Gtk::manage(new Gtk::Frame());
   frame->set_shadow_type(Gtk::SHADOW_IN);
   alignment->add(*frame);
   
-  Gnome::Canvas::Canvas* canvas = manage(new Gnome::Canvas::Canvas());
+  Gnome::Canvas::Canvas* canvas = Gtk::manage(new Gnome::Canvas::Canvas());
   canvas->set_size_request(500, 350);
   canvas->set_scroll_region(0, 0, 500, 350);
   frame->add(*canvas);
@@ -178,30 +178,30 @@ Arrowhead::Arrowhead()
   Gnome::Canvas::Points points;
   points.push_back(Gnome::Art::Point(LEFT, MIDDLE));
   points.push_back(Gnome::Art::Point(RIGHT, MIDDLE));
-  m_big_arrow = manage(new Gnome::Canvas::Line(*canvas->root(), points));
+  m_big_arrow = Gtk::manage(new Gnome::Canvas::Line(*canvas->root(), points));
   m_big_arrow->property_fill_color() = "mediumseagreen";
   m_big_arrow->property_width_pixels() = 2 * 10;
   m_big_arrow->property_last_arrowhead() = true;
   
   // Arrow outline
-  m_outline = manage(new Gnome::Canvas::Line(*canvas->root()));
+  m_outline = Gtk::manage(new Gnome::Canvas::Line(*canvas->root()));
   m_outline->property_fill_color() = "black";
   m_outline->property_width_pixels() = 2;
   m_outline->property_cap_style() = Gdk::CAP_ROUND;
   m_outline->property_join_style() = Gdk::JOIN_ROUND;
   
   // Drag boxes
-  m_width_drag_box = manage(new DragBox(*canvas->root()));
+  m_width_drag_box = Gtk::manage(new DragBox(*canvas->root()));
   m_width_drag_box->signal_event()
-      .connect(bind(slot(*this, &Arrowhead::on_width_event),
+      .connect(sigc::bind(sigc::mem_fun(*this, &Arrowhead::on_width_event),
                     m_width_drag_box));
-  m_shape_a_drag_box = manage(new DragBox(*canvas->root()));
+  m_shape_a_drag_box = Gtk::manage(new DragBox(*canvas->root()));
   m_shape_a_drag_box->signal_event()
-      .connect(bind(slot(*this, &Arrowhead::on_shape_a_event),
+      .connect(sigc::bind(sigc::mem_fun(*this, &Arrowhead::on_shape_a_event),
                     m_shape_a_drag_box));
-  m_shape_b_c_drag_box = manage(new DragBox(*canvas->root()));
+  m_shape_b_c_drag_box = Gtk::manage(new DragBox(*canvas->root()));
   m_shape_b_c_drag_box->signal_event()
-      .connect(bind(slot(*this, &Arrowhead::on_shape_b_c_event),
+      .connect(sigc::bind(sigc::mem_fun(*this, &Arrowhead::on_shape_b_c_event),
                     m_shape_b_c_drag_box));
   
   // Dimension
@@ -221,7 +221,7 @@ Arrowhead::Arrowhead()
   points.push_back(Gnome::Art::Point(RIGHT + 50, 0.0));
   points.push_back(Gnome::Art::Point(RIGHT + 50, 1000.0));
   Gnome::Canvas::Line* division
-      = manage(new Gnome::Canvas::Line(*canvas->root(), points));
+      = Gtk::manage(new Gnome::Canvas::Line(*canvas->root(), points));
   division->property_fill_color() = "black";
   division->property_width_pixels() = 2;
   
@@ -252,7 +252,7 @@ Arrowhead::~Arrowhead()
 Gnome::Canvas::Text*
 Arrowhead::create_info(Gnome::Canvas::Group& root, double x, double y)
 {
-  Gnome::Canvas::Text* text = manage(new Gnome::Canvas::Text(root));
+  Gnome::Canvas::Text* text = Gtk::manage(new Gnome::Canvas::Text(root));
   text->property_x() = x;
   text->property_y() = y;
   text->property_fill_color() = "black";
@@ -272,7 +272,7 @@ Arrowhead::create_sample_arrow(Gnome::Canvas::Group& root,
   points.push_back(Gnome::Art::Point(x1, y1));
   points.push_back(Gnome::Art::Point(x2, y2));
   Gnome::Canvas::Line* sample
-      = manage(new Gnome::Canvas::Line(root, points));
+      = Gtk::manage(new Gnome::Canvas::Line(root, points));
   sample->property_fill_color() = "black";
   sample->property_first_arrowhead() = true;
   sample->property_last_arrowhead() = true;

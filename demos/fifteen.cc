@@ -30,14 +30,14 @@ Fifteen::Fifteen()
   set_border_width(4);
   
   Gtk::Alignment* alignment 
-      = manage(new Gtk::Alignment(0.5, 0.5, 0.0, 0.0));
+      = Gtk::manage(new Gtk::Alignment(0.5, 0.5, 0.0, 0.0));
   pack_start(*alignment);
   
-  Gtk::Frame* frame = manage(new Gtk::Frame());
+  Gtk::Frame* frame = Gtk::manage(new Gtk::Frame());
   frame->set_shadow_type(Gtk::SHADOW_IN);
   alignment->add(*frame);
   
-  m_canvas = manage(new Gnome::Canvas::Canvas());
+  m_canvas = Gtk::manage(new Gnome::Canvas::Canvas());
   m_canvas->set_size_request(PIECE_SIZE * 4 + 1, PIECE_SIZE * 4 + 1);
   m_canvas->set_scroll_region(0, 0, PIECE_SIZE * 4 + 1, PIECE_SIZE * 4 + 1);
   frame->add(*m_canvas);
@@ -46,12 +46,12 @@ Fifteen::Fifteen()
       int y = i / 4;
       int x = i % 4;
       
-      m_board.push_back(manage(new Gnome::Canvas::Group(*m_canvas
+      m_board.push_back(Gtk::manage(new Gnome::Canvas::Group(*m_canvas
                                                         ->root(),
                                                         x * PIECE_SIZE,
                                                         y * PIECE_SIZE)));
       Gnome::Canvas::Rect* rect 
-          = manage(new Gnome::Canvas::Rect(*m_board.back(),
+          = Gtk::manage(new Gnome::Canvas::Rect(*m_board.back(),
                                            0.0, 0.0,
                                            PIECE_SIZE, 
                                            PIECE_SIZE));
@@ -63,7 +63,7 @@ Fifteen::Fifteen()
       sprintf(buf, "%d", i + 1);
       
       Gnome::Canvas::Text* text 
-          = manage(new Gnome::Canvas::Text(*m_board.back(),
+          = Gtk::manage(new Gnome::Canvas::Text(*m_board.back(),
                                            PIECE_SIZE / 2.0,
                                            PIECE_SIZE / 2.0,
                                            buf));
@@ -72,14 +72,14 @@ Fifteen::Fifteen()
       text->property_fill_color() = "black";
       
       m_board.back()->signal_event()
-          .connect(bind(slot(*this, &Fifteen::on_piece_event),
+          .connect(sigc::bind(sigc::mem_fun(*this, &Fifteen::on_piece_event),
                         m_board.back(),
                         text));
   }
   m_board.push_back(NULL);
-  
-  Gtk::Button* button = manage(new Gtk::Button("Scramble"));
-  button->signal_clicked().connect(slot(*this, &Fifteen::on_scramble));
+
+  Gtk::Button* button = Gtk::manage(new Gtk::Button("Scramble"));
+  button->signal_clicked().connect(sigc::mem_fun(*this, &Fifteen::on_scramble));
   pack_start(*button, Gtk::PACK_SHRINK);
 }
 

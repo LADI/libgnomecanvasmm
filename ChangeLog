@@ -1,3 +1,7 @@
+2004-02-13  Murray Cumming  <murrayc@usa.net>
+
+	* Use the new libsigc++ 2 syntax.
+
 2003-12-21  Eric Bourque <ericb@computer.org>
 	* libgnomecanvasmm.spec.in: fixed dependency to gtkmm2 instead of gtkmm
 

@@ -39,22 +39,22 @@ protected:
 
 MainWin::MainWin()
 {
-  Gtk::Notebook* notebook = manage(new Gtk::Notebook());
+  Gtk::Notebook* notebook = Gtk::manage(new Gtk::Notebook());
   add(*notebook);
   
-  Primitives* primitives = manage(new Primitives(false));
+  Primitives* primitives = Gtk::manage(new Primitives(false));
   notebook->append_page(*primitives, "Primitives");    
-  Primitives* antialias = manage(new Primitives(true));
+  Primitives* antialias = Gtk::manage(new Primitives(true));
   notebook->append_page(*antialias, "Antialias");    
-  Arrowhead* arrowhead = manage(new Arrowhead());
+  Arrowhead* arrowhead = Gtk::manage(new Arrowhead());
   notebook->append_page(*arrowhead, "Arrowhead");    
-  Fifteen* fifteen = manage(new Fifteen());
+  Fifteen* fifteen = Gtk::manage(new Fifteen());
   notebook->append_page(*fifteen, "Fifteen");
-  Features* features = manage(new Features());
+  Features* features = Gtk::manage(new Features());
   notebook->append_page(*features, "Features");
-  Richtext* richtext = manage(new Richtext());
+  Richtext* richtext = Gtk::manage(new Richtext());
   notebook->append_page(*richtext, "Rich Text");
-  Curve* curve = manage(new Curve());
+  Curve* curve = Gtk::manage(new Curve());
   notebook->append_page(*curve, "Bezier Curve");
   
   show_all();
