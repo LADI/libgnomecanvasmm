@@ -26,6 +26,7 @@
 #include <libgnomecanvas/gnome-canvas.h>
 #include <gtkmm/layout.h>
 #include <gdkmm/color.h>
+#include <libgnomecanvasmm/affinetrans.h>
 _DEFS(libgnomecanvas)
 _PINCLUDE(gtkmm/private/layout_p.h)
 
@@ -72,7 +73,7 @@ public:
   _WRAP_METHOD(void scroll_to(int x, int y), gnome_canvas_scroll_to)
 
   //: Scroll offsets in canvas pixel coordinates.
-  // _WRAP_METHOD(void get_scroll_offsets(int& cx, int& cy) const, get_scroll_offsets)
+  _WRAP_METHOD(void get_scroll_offsets(int& cx, int& cy) const, gnome_canvas_get_scroll_offsets)
 
   //: Repaint immediately, don't wait for idle loop
   //- normally the canvas queues repainting and does it in an
@@ -86,16 +87,24 @@ public:
   //- location.
   _WRAP_METHOD(Item* get_item_at(double x, double y), gnome_canvas_get_item_at)
 
+
+
   //: Repaint small area (internal)
   //- Used only by item implementations. Request an eventual redraw
   //- of the region, which includes x1,y1 but not x2,y2
   _WRAP_METHOD(void request_redraw(int x1, int y1, int x2, int y2), gnome_canvas_request_redraw)
+  //TODO: Investigate ArtUta.
+  _WRAP_METHOD(void request_redraw(ArtUta* uta), gnome_canvas_request_redraw_uta)
+
+  Art::AffineTrans w2c_affine() const;
+  _IGNORE(gnome_canvas_w2c_affine)
 
   //: Convert from World to canvas coordinates (units for the entire canvas)
   //: to Canvas coordinates (pixels starting at 0,0 in the top left
   //: of the visible area). The relationship depends on the current
   //: scroll position and the pixels_per_unit ratio (zoom factor)
   _WRAP_METHOD(void w2c(double wx, double wy, int& cx, int& cy) const, gnome_canvas_w2c)
+  _WRAP_METHOD(void w2c(double wx, double wy, double& cx, double& cy), gnome_canvas_w2c_d)
 
   //: From Canvas to World
   _WRAP_METHOD(void c2w(int cx, int cy, double& wx, double& wy) const, gnome_canvas_c2w)
@@ -112,14 +121,28 @@ public:
 
   //: Parse color spec string and allocate it into the GdkColor.
   bool get_color(const Glib::ustring& spec, Gdk::Color& color);
+  _IGNORE(gnome_canvas_get_color)
+
+/* Allocates a color from the RGB value passed into this function. */
+  _WRAP_METHOD(gulong get_color_pixel(guint rgba) const, gnome_canvas_get_color_pixel)
+  _WRAP_METHOD(void set_stipple_origin(const Glib::RefPtr<Gdk::GC>& gc), gnome_canvas_set_stipple_origin)
+  _WRAP_METHOD(void set_dither(GdkRgbDither dither), gnome_canvas_set_dither)
+  _WRAP_METHOD(GdkRgbDither get_dither() const, gnome_canvas_get_dither)
+
+
+  //TODO: Look at ArtSVP.
+  _WRAP_METHOD(void update_svp(ArtSVP** p_svp, ArtSVP* new_svp), gnome_canvas_update_svp)
+  _WRAP_METHOD(void update_svp_clip(ArtSVP** p_svp, ArtSVP* new_svp, ArtSVP* clip_svp), gnome_canvas_update_svp_clip)
 
   // The following are simply accessed via the struct in C,
   //  but Federico reports that they are meant to be used.
   //: Get the pixels per unit.
   _MEMBER_GET(pixels_per_unit, pixels_per_unit, double, double);
 
-  _WRAP_PROPERTY("aa", gulong)
+	_WRAP_SIGNAL(void draw_background(GdkDrawable* drawable, int x, int y, int width, int height), "draw_background")
+	_WRAP_SIGNAL(void render_background(GnomeCanvasBuf* buf), "render_background")
 
+  _WRAP_PROPERTY("aa", gulong)
 };
 
 // TODO: This doesn't seem to do anything.

@@ -46,6 +46,7 @@ class Group;
 class Item : public Gtk::Object
 {
   _CLASS_GTKOBJECT(Item, GnomeCanvasItem, GNOME_CANVAS_ITEM, Gtk::Object, GtkObject)
+  _IGNORE(gnome_canvas_item_construct, gnome_canvas_item_set, gnome_canvas_item_set_valist)
 public:
   _CTOR_CAST;
   _DTOR;
@@ -75,6 +76,7 @@ public:
   //: time parameter.  Returns the same values as XGrabPointer().
   int grab(unsigned int event_mask, const Gdk::Cursor& cursor, guint32 etime);
   int grab(unsigned int event_mask, guint32 etime);
+  _IGNORE(gnome_canvas_item_grab)
 
   //: Ungrabs the mouse -- the specified item must be the same that was
   //: passed to gnome_canvas_item_grab().  Time is a proper X event
@@ -102,9 +104,11 @@ public:
 
   //: Apply a relative affine transformation to the item 
   void affine_relative(const Art::AffineTrans &affine);
+  _IGNORE(gnome_canvas_item_affine_relative)
 
   //: Apply an absolute affine transformation to the item
   void affine_absolute(const Art::AffineTrans &affine);
+  _IGNORE(gnome_canvas_item_affine_absolute)
 
   //  // Those are present in the header file but not in the libgnomecanvas library !
   //  //: Scale an item about a point by the specified factors
@@ -120,10 +124,14 @@ public:
   //: Gets the affine transform that converts from item-relative
   //: coordinates to world coordinates
   Art::AffineTrans get_i2w_affine() const;
+  _IGNORE(gnome_canvas_item_i2w_affine)
 
   //: Gets the affine transform that converts from item-relative
   //: coordinates to canvas pixel coordinates
   Art::AffineTrans get_i2c_affine() const;
+  _IGNORE(gnome_canvas_item_i2c_affine)
+
+  _WRAP_METHOD(void reparent(Group& new_group), gnome_canvas_item_reparent)
 
   /// Returns the canvas we're on.
   _MEMBER_GET(canvas, canvas, Canvas*, GnomeCanvas*)
@@ -161,6 +169,13 @@ protected:
   //: Request that the update method eventually get called.  This should be used
   //: only by item implementations.
   _WRAP_METHOD(void request_update(), gnome_canvas_item_request_update)
+
+
+  _WRAP_METHOD(void reset_bounds(), gnome_canvas_item_reset_bounds)
+  _WRAP_METHOD(void update_svp(ArtSVP **p_svp, ArtSVP *new_svp), gnome_canvas_item_update_svp)
+  _WRAP_METHOD(void update_svp_clip(ArtSVP **p_svp, ArtSVP *new_svp, ArtSVP *clip_svp), gnome_canvas_item_update_svp_clip)
+  _WRAP_METHOD(void request_redraw_svp(const ArtSVP* svp), gnome_canvas_item_request_redraw_svp)
+  _WRAP_METHOD(void update_bbox(int x1, int y1, int x2, int y2), gnome_canvas_update_bbox)
   
 };
 

@@ -40,7 +40,7 @@ public:
   AffineTrans(double scale = 1.0);
 
   //: aff[6]
-  AffineTrans(double aff[]);
+  explicit AffineTrans(const double aff[6]);
 
   AffineTrans(const AffineTrans& src);
   AffineTrans& operator=(const AffineTrans& src);

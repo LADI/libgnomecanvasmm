@@ -26,6 +26,7 @@
 #include <libgnomecanvasmm/canvas-group.h>
 #include <libgnomecanvasmm/canvas-item.h>
 #include <libgnomecanvasmm/wrap_init.h>
+#include <libgnomecanvas/gnome-canvas-util.h>
 
 namespace Gnome
 {
@@ -49,6 +50,14 @@ CanvasAA::CanvasAA()
 
 CanvasAA::~CanvasAA()
 {
+}
+
+Art::AffineTrans Canvas::w2c_affine() const
+{
+  double pAffine[6];
+  gnome_canvas_w2c_affine(const_cast<GnomeCanvas*>(gobj()), pAffine);
+
+  return Art::AffineTrans(pAffine);
 }
 
 } /* namespace Canvas */

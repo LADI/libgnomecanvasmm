@@ -1894,7 +1894,7 @@
   (return-type "void")
   (when "last")
   (parameters
-    '("gpointer" "p0")
+    '("GnomeCanvasBuf*" "p0")
   )
 )
 

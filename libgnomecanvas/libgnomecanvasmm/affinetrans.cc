@@ -39,7 +39,7 @@ AffineTrans::AffineTrans(double scale = 1.0)
   trans_[5] = 0.0;
 }
 
-AffineTrans::AffineTrans(double aff[])
+AffineTrans::AffineTrans(const double aff[6])
 {
 	trans_[0] = aff[0];
 	trans_[1] = aff[1];
