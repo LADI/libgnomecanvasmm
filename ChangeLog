@@ -1,3 +1,10 @@
+2002-07-24  Erwin J. van Eijk  <kojak@oakhill.demon.nl>
+
+	* examples/canvas/canvas_events.cc:
+	One of the examples, canvas_events caused an infinite recursion
+	to occur. I've patched canvas_events to be more like canvas.cc,
+	and not to cause the recursion.
+
 2002-07-19  Murray Cumming  <murrayc@usa.net>
 
 	* Updated examples for latest gtkmm pack_start() method.
