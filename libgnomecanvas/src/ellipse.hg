@@ -37,7 +37,7 @@ namespace Canvas
 
 class Ellipse : public RectEllipse
 {
-  _CLASS_GTKOBJECT(Ellipse, GnomeCanvasEllipse, GNOME_CANVAS_ELLIPSE, RectEllipse, GnomeCanvasRE);
+  _CLASS_GTKOBJECT(Ellipse, GnomeCanvasEllipse, GNOME_CANVAS_ELLIPSE, RectEllipse, GnomeCanvasRE)
 
 public:
   explicit Ellipse(Group& parent);

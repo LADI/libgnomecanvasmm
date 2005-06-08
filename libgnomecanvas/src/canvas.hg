@@ -47,7 +47,7 @@ class Group;
  */
 class Canvas : public Gtk::Layout
 {
-  _CLASS_GTKOBJECT(Canvas, GnomeCanvas, GNOME_CANVAS, Gtk::Layout, GtkLayout);
+  _CLASS_GTKOBJECT(Canvas, GnomeCanvas, GNOME_CANVAS, Gtk::Layout, GtkLayout)
 public:
   _CTOR_DEFAULT
 

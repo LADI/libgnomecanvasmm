@@ -37,7 +37,7 @@ class Canvas;
 
 class Group : public Item
 {
-  _CLASS_GTKOBJECT(Group, GnomeCanvasGroup, GNOME_CANVAS_GROUP, Item, GnomeCanvasItem);
+  _CLASS_GTKOBJECT(Group, GnomeCanvasGroup, GNOME_CANVAS_GROUP, Item, GnomeCanvasItem)
 public:
   friend class Canvas;
   explicit Group(Group& parent, double x = 0, double y = 0);

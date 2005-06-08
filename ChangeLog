@@ -1,3 +1,10 @@
+2005-06-08  Murray Cumming  <murrayc@murrayc.com>
+
+	* libgnomecanvas/src/canvas.hg:
+	* libgnomecanvas/src/ellipse.hg:
+	* libgnomecanvas/src/group.hg: Removed extra ;s that break 
+	the build on SUN Forte CC.
+
 2.10.0:
 
 2005-02-07  Cedric Gustin  <cedric.gustin@swing.be>
