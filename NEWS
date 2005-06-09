@@ -1,3 +1,8 @@
+2.11.1:
+
+* Added Item::get_parent_group() convenience method.
+  (Murray Cumming)
+
 2.10.0:
 
 * Increased version for GNOME 2.10 release version.
