@@ -112,5 +112,27 @@ Item::get_i2c_affine() const
   return Art::AffineTrans(tmp);
 }
 
+Group* Item::get_parent_group()
+{
+  //This is implemented in C, instead of using our C++ PropertyProxy, because uses of PropertyProxy<Object*> 
+  //do not compile with some versions of SUN Forte C++.
+
+  GValue value = { 0, };
+  g_value_init(&value, GNOME_TYPE_CANVAS_ITEM);
+  //The property is specified as ITEM, but it's actually always a GNOME_TYPE_CANVAS_GROUP.
+
+  g_object_get_property(G_OBJECT(gobj()), "parent", &value);
+
+  GnomeCanvasGroup* cgroup = GNOME_CANVAS_GROUP(g_value_get_object(&value));
+
+  return Glib::wrap(cgroup);
+}
+
+const Group* Item::get_parent_group() const
+{
+  Item* nonconstthis = const_cast<Item*>(this);
+  return nonconstthis->get_parent_group();
+}
+
 } /* namespace Canvas */
 } /* namespace Gnome */

@@ -154,7 +154,7 @@ Primitives::on_item_event(GdkEvent* event, Gnome::Canvas::Item* item)
   item_x = event->button.x;
   item_y = event->button.y;
 
-  item->property_parent().get_value()->w2i(item_x, item_y);
+  item->get_parent_group()->w2i(item_x, item_y);
 
   switch(event->type) {
   case GDK_BUTTON_PRESS:

@@ -110,7 +110,7 @@ Features::on_item_event(GdkEvent* event,
       return false;
   }
   
-  if(item->property_parent().get_value() == m_parent1) {
+  if(item->get_parent_group() == m_parent1) {
       item->reparent(*m_parent2);
   } else {
       item->reparent(*m_parent1);
