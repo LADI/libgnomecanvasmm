@@ -1,3 +1,10 @@
+2.12.0:
+
+API additions compared to 2.10:
+
+* Added Item::get_parent_group() convenience method.
+  (Murray Cumming)
+
 2.11.1:
 
 * Added Item::get_parent_group() convenience method.
