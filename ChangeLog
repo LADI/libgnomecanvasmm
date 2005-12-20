@@ -1,3 +1,14 @@
+2005-12-20  Murray Cumming <murrayc@murrayc.com>
+
+	* libgnomecanvas/src/bpath.hg: The path property is 
+	a PathDef, not a gpointer*. This theoretically breaks 
+	API/ABI, but it is useless if we do not change it, 
+	because the type is now checked in the C library.
+	* libgnomecanvas/src/libgnomecanvas_signals.defs: 
+	Update with h2defs.py, but ignoring API-break-causing 
+	writable/not-writable changes.
+	Bug #320502 by Pau Fernandez.
+
 2005-12-06   Jonathon Jongsma <jonathon.jongsma@gmail.com>
 
 	* configure.in: Look for gmmproc in generic libdir 
