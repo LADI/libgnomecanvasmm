@@ -33,7 +33,7 @@ Bpath::Bpath(Group& parent)
 
 void Bpath::set_bpath(const Glib::RefPtr<PathDef>& path)
 {
-  property_bpath ().set_value ((gpointer)path->gobj());
+  property_bpath().set_value(path->gobj());
 }
 
 

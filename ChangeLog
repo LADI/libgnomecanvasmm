@@ -1,4 +1,11 @@
-2005-12-20  Murray Cumming <murrayc@murrayc.com>
+2005-12-21  Murray Cumming  <murrayc@murrayc.com>
+
+	* libgnomecanvas/src/bpath.ccg:
+	* libgnomecanvas/src/bpath.hg: path property: 
+	Use GnomeCanvasDef* instead of RefPtr, because that 
+	breaks the API less, compared to the previous gpointer.
+
+2005-12-20  Murray Cumming  <murrayc@murrayc.com>
 
 	* libgnomecanvas/src/bpath.hg: The path property is 
 	a PathDef, not a gpointer*. This theoretically breaks 

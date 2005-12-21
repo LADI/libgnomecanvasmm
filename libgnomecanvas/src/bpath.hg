@@ -39,7 +39,8 @@ class Bpath : public Shape
 public:
   explicit Bpath(Group& parent);
 
-  _WRAP_PROPERTY("bpath", Glib::RefPtr<PathDef>)
+  //TODO: Use Glib::RefPtr<PathDef> when we can break ABI:
+  _WRAP_PROPERTY("bpath", GnomeCanvasPathDef*)
 
   void set_bpath(const Glib::RefPtr<PathDef>& path);
 };
