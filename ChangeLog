@@ -1,3 +1,10 @@
+2006-03-16  Murray Cumming,,,  <set EMAIL_ADDRESS environment variable>
+
+	reviewed by: <delete if not using a buddy>
+
+	* NEWS:
+	* configure.in:
+
 2005-12-21  Murray Cumming  <murrayc@murrayc.com>
 
 	* libgnomecanvas/src/bpath.ccg:
