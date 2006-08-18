@@ -1,9 +1,6 @@
-2006-03-16  Murray Cumming,,,  <set EMAIL_ADDRESS environment variable>
+2.16.0:
 
-	reviewed by: <delete if not using a buddy>
-
-	* NEWS:
-	* configure.in:
+2.14.0:
 
 2005-12-21  Murray Cumming  <murrayc@murrayc.com>
 

@@ -17,7 +17,7 @@ AC_INIT(libgnomecanvas/libgnomecanvasmmconfig.h.in)
 #  Version and initialization
 #########################################################################
 LIBGNOMECANVASMM_MAJOR_VERSION=2
-LIBGNOMECANVASMM_MINOR_VERSION=14
+LIBGNOMECANVASMM_MINOR_VERSION=16
 LIBGNOMECANVASMM_MICRO_VERSION=0
 
 #

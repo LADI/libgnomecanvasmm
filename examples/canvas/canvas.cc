@@ -5,6 +5,27 @@
 
 #include <libgnomecanvasmm.h>
 
+class MyCanvasLine : public Gnome::Canvas::Line
+{
+public:
+  MyCanvasLine(Gnome::Canvas::Group& parentx)
+  : Gnome::Canvas::Line(parentx)
+  {
+    std::cout << "debug: MyCanvasLine constructor 1." << std::endl;
+  }
+
+  MyCanvasLine(Gnome::Canvas::Group& parentx, const Gnome::Canvas::Points& points)
+  : Gnome::Canvas::Line(parentx, points)
+  {
+    std::cout << "debug: MyCanvasLine constructor 2." << std::endl;
+  }
+
+  ~MyCanvasLine()
+  {
+    std::cout << "debug: MyCanvasLine destructor." << std::endl;
+  }
+};
+
 class CanvasExample : public Gnome::Canvas::CanvasAA
 {
 public:
@@ -13,7 +34,7 @@ public:
 
 protected:
   Gnome::Canvas::Group m_canvasgroup;
-  Gnome::Canvas::Line *m_line;
+  MyCanvasLine *m_line;
   Gnome::Canvas::Ellipse *m_ellipse;
   Gnome::Canvas::Rect *m_rect;
   //  Gnome::Canvas::Image *m_image;
@@ -34,7 +55,7 @@ CanvasExample::CanvasExample()
   // we want to use the stream like interface
   using namespace Gnome::Canvas;
 
-  m_line = new Gnome::Canvas::Line(m_canvasgroup, m_points);
+  m_line = Gtk::manage( new MyCanvasLine(m_canvasgroup, m_points) );
   *m_line << Properties::fill_color("red")
           << Properties::width_units(4.0)
           << Properties::cap_style(Gdk::CAP_ROUND);
@@ -56,7 +77,7 @@ CanvasExample::CanvasExample()
 
 CanvasExample::~CanvasExample()
 {
-  delete m_line;
+  //delete m_line;
   delete m_ellipse;
   delete m_rect;
 //  delete m_image;
