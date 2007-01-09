@@ -1,0 +1,31 @@
+
+This file gives an overview of the status of libgnomecanvasmm development.
+
+done	= every item implemented
+almost	= some stuff commented out for various reasons
+partly	= there's still a lot of work
+-	= category doesn't apply here == There are none to wrap.
+<empty>	= you should probably volunteer to get this done
+
+If it's "almost" or "partly" then there should be a //TODO comment
+in the  file explaining why.
+
+
+Class				Methods		Signals		Properties	VFuncs		Interfaces
+==========================================================================================================
+
+Canvas				done		done		done		done		-
+Ellipse				-		-		-               -               -
+Group				-		-		done		-		-
+Item				done		done		done		done		-
+Pixbuf                          -               -               done            -               -
+Polygon				-		-		done            -               -
+Rect				-		-		-               -               -
+RectEllipse			-		-		done            -               -
+Text				-		-		done            -               -
+RichText                        done            done            done            -               -
+Widget				-		-		done            -               -
+Shape                           -               -               done            -               -
+Line                            -               -               done            -               -
+Bpath				-		-		done		-		-
+PathDef				almost		-		-		-		-
