@@ -1,3 +1,8 @@
+2007-12-08  Murray Cumming  <murrayc@murrayc.com>
+
+	* examples/Makefile.am:
+	Removed examples/README because it was empty.
+
 2.20:
 
 2007-04-24  Yselkowitz <yselkowitz@users.sourceforge.net>
