@@ -1,3 +1,5 @@
+2.23.1:
+
 2008-08-04  Murray Cumming  <murrayc@murrayc.com>
 
 	* examples/canvas_affine/canvas_affine.cc: A const correction to 
