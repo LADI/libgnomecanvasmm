@@ -60,6 +60,11 @@ CanvasAA::CanvasAA()
   //gtk_widget_pop_colormap();
 }
 
+CanvasAA::CanvasAA(GnomeCanvas* castitem)
+: Canvas(castitem)
+{
+}
+
 CanvasAA::~CanvasAA()
 {
 }

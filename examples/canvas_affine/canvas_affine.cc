@@ -6,7 +6,7 @@
 #include <gtkmm/window.h>
 #include <gtkmm/main.h>
 
-Gnome::Canvas::Line* some_lines(Gnome::Canvas::Group *group, gchar * color="black")
+Gnome::Canvas::Line* some_lines(Gnome::Canvas::Group *group, const gchar* color = "black")
 {
   using namespace Gnome::Art;
 	

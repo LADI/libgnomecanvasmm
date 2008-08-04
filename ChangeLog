@@ -1,3 +1,12 @@
+2008-08-04  Murray Cumming  <murrayc@murrayc.com>
+
+	* examples/canvas_affine/canvas_affine.cc: A const correction to 
+	avoid a warning.
+	* libgnomecanvas/src/canvas.ccg:
+	* libgnomecanvas/src/canvas.hg: Added a CanvasAA(GnomeCanvas*) 
+	constructor, to allow use with libglademm or Gtk::Builder.
+	Bug #541007 (Federico Poloni)
+
 2.22.0:
 
 2007-12-08  Murray Cumming  <murrayc@murrayc.com>

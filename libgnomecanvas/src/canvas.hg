@@ -167,6 +167,7 @@ class CanvasAA : public Canvas
 {
   public:
     CanvasAA();
+    explicit CanvasAA(GnomeCanvas* castitem);
     virtual ~CanvasAA();
 };
 
