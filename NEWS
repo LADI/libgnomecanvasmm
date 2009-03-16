@@ -1,3 +1,7 @@
+2.26.0:
+
+* Updated version number to match GNOME version.
+
 2.23.1:
 
 * CanvasAA: Added a CanvasAA(GnomeCanvas*) constructor, 
