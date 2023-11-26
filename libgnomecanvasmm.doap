@@ -6,22 +6,10 @@
 
   <name xml:lang="en">libgnomecanvasmm</name>
   <shortdesc xml:lang="en">C++ bindings for libgnomecanvas</shortdesc>
-  <homepage rdf:resource="http://www.gtkmm.org/" />
-  <mailing-list rdf:resource="mailto:gtkmm-list@gnome.org" />
-  <category rdf:resource="http://api.gnome.org/doap-extensions#bindings" />
 
   <maintainer>
     <foaf:Person>
-      <foaf:name>Murray Cumming</foaf:name>
-      <foaf:mbox rdf:resource="mailto:murrayc@murrayc.com" />
-      <gnome:userid>murrayc</gnome:userid>
-    </foaf:Person>
-  </maintainer>
-  <maintainer>
-    <foaf:Person>
-      <foaf:name>Daniel Elstner</foaf:name>
-      <foaf:mbox rdf:resource="mailto:daniel.kitta@googlemail.com" />
-      <gnome:userid>daniel</gnome:userid>
+      <foaf:name>Nedko Arnaudov</foaf:name>
     </foaf:Person>
   </maintainer>
 </Project>
