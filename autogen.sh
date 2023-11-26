@@ -44,16 +44,7 @@ autoconf
 
 rm -f config.cache
 
-if test -z "$AUTOGEN_SUBDIR_MODE"; then
-
-    echo "Running configure."
-    ./configure --enable-maintainer-mode "$@"
-    echo
-    echo 'run "make"'
-    echo
-else
-    echo
-    echo 'run "./configure ; make"'
-    echo
-fi
+echo
+echo 'run "./configure ; make"'
+echo
 
